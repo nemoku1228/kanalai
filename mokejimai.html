@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saugūs mokėjimai | market</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--navy:#0B1929;--navy2:#13233A;--bg:#F7F8FA;--accent:#FF5C35;--green:#16A34A;--text:#1E293B;--text2:#64748B;--text3:#94A3B8;--border:#E7EAEE}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+header{background:var(--navy2);padding:14px 0}
+.header-inner{max-width:800px;margin:0 auto;padding:0 20px}
+.logo{font-family:'Sora',sans-serif;font-weight:800;font-size:22px;color:white}
+.logo span{color:var(--accent)}
+main{flex:1;max-width:800px;margin:0 auto;padding:36px 20px 60px;width:100%}
+.page-title{font-family:'Sora',sans-serif;font-size:28px;font-weight:700;margin-bottom:8px}
+.page-sub{color:var(--text2);font-size:14px;margin-bottom:28px}
+.method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px}
+@media(max-width:640px){.method-grid{grid-template-columns:repeat(2,1fr)}}
+.method-card{background:white;border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center}
+.method-icon{width:42px;height:42px;background:#fff1ec;color:var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin:0 auto 10px}
+.method-name{font-weight:700;font-size:13px}
+.section{margin-bottom:28px}
+.section-title{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;margin-bottom:12px}
+.section p{font-size:13.5px;color:var(--text2);line-height:1.8;margin-bottom:10px}
+.security-row{display:flex;gap:12px;align-items:flex-start;background:white;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:10px}
+.security-row i{color:var(--green);font-size:18px;margin-top:2px}
+.security-row div div:first-child{font-weight:600;font-size:13.5px;margin-bottom:3px}
+.security-row div div:last-child{font-size:12.5px;color:var(--text2)}
+footer{background:var(--navy);color:#94a3b8;text-align:center;padding:16px;font-size:11.5px}
+.header-inner{display:flex;justify-content:space-between;align-items:center}
+.lang-pills{display:flex;gap:3px}
+.lang-pill{background:transparent;border:1px solid #2d3f57;color:#94a3b8;padding:2px 7px;font-size:11px;font-weight:600;cursor:pointer;border-radius:4px;display:inline-flex;align-items:center;gap:3px}
+.lang-pill.active{background:var(--accent);border-color:var(--accent);color:white}
+.lang-flag{width:14px;height:14px;border-radius:2px;flex-shrink:0}
+.lang-code{line-height:1}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css">
+<script src="i18n.js"></script>
+</head>
+<body>
+<header><div class="header-inner"><a href="index.html" class="logo"><span data-site-name>market</span><span>.</span></a><div class="lang-pills" id="lang-switcher"></div></div></header>
+<main>
+<div class="page-title" data-i18n="payments_page_title">Saugūs mokėjimai</div>
+<div class="page-sub">Visi mokėjimai apsaugoti šifravimu ir atitinka tarptautinius saugumo standartus.</div>
+
+<div class="method-grid">
+<div class="method-card"><div class="method-icon"><i class="fa-solid fa-truck-fast"></i></div><div class="method-name">Apmokėjimas gavus</div></div>
+<div class="method-card"><div class="method-icon"><i class="fa-solid fa-credit-card"></i></div><div class="method-name">Banko kortelė</div></div>
+<div class="method-card"><div class="method-icon"><i class="fa-solid fa-building-columns"></i></div><div class="method-name">Banko pavedimas</div></div>
+<div class="method-card"><div class="method-icon"><i class="fa-solid fa-wallet"></i></div><div class="method-name">Elektroninė bankininkystė</div></div>
+</div>
+
+<div class="section">
+<div class="section-title">Kaip užtikriname saugumą</div>
+<div class="security-row"><i class="fa-solid fa-lock"></i><div><div>SSL šifravimas</div><div>Visi duomenys, kuriuos perduodate svetainėje, yra užšifruoti naudojant šiuolaikinius saugumo protokolus.</div></div></div>
+<div class="security-row"><i class="fa-solid fa-shield"></i><div><div>Kortelės duomenys nesaugomi</div><div>Mokėjimo kortelės duomenys tvarkomi tiesiogiai per mokėjimo paslaugų teikėją, jie nepatenka į mūsų sistemas.</div></div></div>
+<div class="security-row"><i class="fa-solid fa-user-shield"></i><div><div>Asmens duomenų apsauga</div><div>Jūsų asmeniniai duomenys tvarkomi laikantis BDAR (GDPR) reikalavimų.</div></div></div>
+</div>
+
+<div class="section">
+<div class="section-title">Dažni klausimai</div>
+<div class="security-row"><i class="fa-solid fa-circle-question" style="color:var(--accent)"></i><div><div>Kada man bus nuskaičiuoti pinigai?</div><div>Mokėjimas atliekamas iškart patvirtinus užsakymą (jei renkatės kortelę ar pavedimą), arba pristatymo metu (jei renkatės apmokėjimą gavus).</div></div></div>
+<div class="security-row"><i class="fa-solid fa-circle-question" style="color:var(--accent)"></i><div><div>Ar galiu gauti PVM sąskaitą faktūrą?</div><div>Taip, sąskaita siunčiama el. paštu kartu su užsakymo patvirtinimu.</div></div></div>
+</div>
+</main>
+<footer>&#169; 2026 market</footer>
+<script>
+renderLangSwitcher('lang-switcher');
+applyI18n();
+applySiteSettings();
+</script>
+</body>
+</html>

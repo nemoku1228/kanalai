@@ -1,0 +1,12 @@
+# ── Užblokuoti TIK jautrius failus (products.json lieka viešas katalogui) ──
+<FilesMatch "^(settings|orders|users)\.json$">
+    Require all denied
+</FilesMatch>
+
+# Klaidų žurnalai
+<FilesMatch "\.log$">
+    Require all denied
+</FilesMatch>
+
+# Neleisti rodyti aplankų turinio
+Options -Indexes

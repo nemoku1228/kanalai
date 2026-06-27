@@ -1,0 +1,25 @@
+# ── Apsauga: blokuoti TIK jautrius failus ──
+# (terminals.json ir products.json lieka pasiekiami parduotuvei)
+<FilesMatch "^(settings|orders|users)\.json$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Klaidų žurnalai
+<FilesMatch "\.log$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Neleisti rodyti aplankų turinio
+Options -Indexes

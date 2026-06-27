@@ -1,0 +1,3146 @@
+[
+ {
+  "name": "Rimi Akademija",
+  "city": "Akademija",
+  "address": "Varžupio g. 1",
+  "id": "t1"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Akmenė",
+  "address": "K.Kasakausko g. 7",
+  "id": "t2"
+ },
+ {
+  "name": "IKI",
+  "city": "Alytus",
+  "address": "Naujoji g. 2C",
+  "id": "t3"
+ },
+ {
+  "name": "IKI Vidzgiris",
+  "city": "Alytus",
+  "address": "Jaunimo g. 24-1",
+  "id": "t4"
+ },
+ {
+  "name": "LIDL",
+  "city": "Alytus",
+  "address": "Jazminų g. 32A",
+  "id": "t5"
+ },
+ {
+  "name": "Norfa",
+  "city": "Alytus",
+  "address": "A. Jonyno g. 10C",
+  "id": "t6"
+ },
+ {
+  "name": "Norfa",
+  "city": "Alytus",
+  "address": "Jurgiškių g. 2",
+  "id": "t7"
+ },
+ {
+  "name": "Norfa",
+  "city": "Alytus",
+  "address": "Topolių g. 1",
+  "id": "t8"
+ },
+ {
+  "name": "Rimi (Udrop)",
+  "city": "Alytus",
+  "address": "Ūdrijos g. 1",
+  "id": "t9"
+ },
+ {
+  "name": "Rimi Alytus",
+  "city": "Alytus",
+  "address": "Ūdrijos g. 1",
+  "id": "t10"
+ },
+ {
+  "name": "Santaikos",
+  "city": "Alytus",
+  "address": "Santaikos g. 30M",
+  "id": "t11"
+ },
+ {
+  "name": "Senukai (Udrop)",
+  "city": "Alytus",
+  "address": "Statybininkų g. 71A",
+  "id": "t12"
+ },
+ {
+  "name": "Rimi Zujūnai",
+  "city": "Antežeriai",
+  "address": "Žirgų g. 24",
+  "id": "t13"
+ },
+ {
+  "name": "Norfa",
+  "city": "Anykščiai",
+  "address": "Vilniaus g. 22",
+  "id": "t14"
+ },
+ {
+  "name": "Norfa",
+  "city": "Anykščiai",
+  "address": "Žiburio g. 12",
+  "id": "t15"
+ },
+ {
+  "name": "Maxima",
+  "city": "Ariogala",
+  "address": "Taurupio g. 15A",
+  "id": "t16"
+ },
+ {
+  "name": "Norfa",
+  "city": "Babtai",
+  "address": "Kauno g. 28B",
+  "id": "t17"
+ },
+ {
+  "name": "Šilas (Udrop)",
+  "city": "Bajorai",
+  "address": "Šaulio g. 70",
+  "id": "t18"
+ },
+ {
+  "name": "LIDL",
+  "city": "Biruliškės",
+  "address": "Industrijos g. 2",
+  "id": "t19"
+ },
+ {
+  "name": "IKI",
+  "city": "Birštonas",
+  "address": "S. Dariaus ir S. Girėno g. 24",
+  "id": "t20"
+ },
+ {
+  "name": "IKI",
+  "city": "Biržai",
+  "address": "Vytauto g. 27",
+  "id": "t21"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Biržai",
+  "address": "Vabalninko g. 8a",
+  "id": "t22"
+ },
+ {
+  "name": "Prekybos aikštė",
+  "city": "Darbėnai",
+  "address": "Vytauto g. 2",
+  "id": "t23"
+ },
+ {
+  "name": "MAXIMA",
+  "city": "Druskininkai",
+  "address": "Veisiejų g. 31",
+  "id": "t24"
+ },
+ {
+  "name": "Norfa",
+  "city": "Druskininkai",
+  "address": "Leipalingio g. 1",
+  "id": "t25"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Eišiškės",
+  "address": "Gegužės a. 18",
+  "id": "t26"
+ },
+ {
+  "name": "LIDL",
+  "city": "Elektrėnai",
+  "address": "Sabališkių g. 1D",
+  "id": "t27"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Elektrėnai",
+  "address": "Rungos g. 4",
+  "id": "t28"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Elektrėnai",
+  "address": "Trakų g. 4",
+  "id": "t29"
+ },
+ {
+  "name": "Aibė",
+  "city": "Gargždai",
+  "address": "Pušų g. 40",
+  "id": "t30"
+ },
+ {
+  "name": "Aibė",
+  "city": "Gargždai",
+  "address": "Vasarios 16-osios g.45",
+  "id": "t31"
+ },
+ {
+  "name": "Aibė (uDrop)",
+  "city": "Gargždai",
+  "address": "Karaliaus Mindaugo g. 3-50",
+  "id": "t32"
+ },
+ {
+  "name": "Norfa",
+  "city": "Gargždai",
+  "address": "Klaipėdos g. 41",
+  "id": "t33"
+ },
+ {
+  "name": "IKI (Udrop)",
+  "city": "Garliava",
+  "address": "S. Lozoraičio g. 2",
+  "id": "t34"
+ },
+ {
+  "name": "IKI Garliava",
+  "city": "Garliava",
+  "address": "Vytauto g. 67",
+  "id": "t35"
+ },
+ {
+  "name": "IKI Lozoraičio",
+  "city": "Garliava",
+  "address": "S. Lozoraičio g. 2",
+  "id": "t36"
+ },
+ {
+  "name": "Norfa",
+  "city": "Garliava",
+  "address": "Atgimimo g. 1",
+  "id": "t37"
+ },
+ {
+  "name": "Gulbelė",
+  "city": "Gelgaudiškis",
+  "address": "Taikos g. 66",
+  "id": "t38"
+ },
+ {
+  "name": "Maxima",
+  "city": "Ginduliai",
+  "address": "Žalioji g. 36",
+  "id": "t39"
+ },
+ {
+  "name": "Maxima",
+  "city": "Ginkūnai",
+  "address": "Rasos g. 1A",
+  "id": "t40"
+ },
+ {
+  "name": "Maxima",
+  "city": "Giraitė",
+  "address": "Automagistralės g. 4",
+  "id": "t41"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Grigiškės",
+  "address": "Kovo 11-osios g. 38B",
+  "id": "t42"
+ },
+ {
+  "name": "Norfa",
+  "city": "Grigiškės",
+  "address": "Kovo 11-osios g. 71",
+  "id": "t43"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Ignalina",
+  "address": "Taikos g. 11",
+  "id": "t44"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Ignalina",
+  "address": "Laisvės g. 64",
+  "id": "t45"
+ },
+ {
+  "name": "KOOPS",
+  "city": "Jašiūnai",
+  "address": "M.Balinsko g. 2",
+  "id": "t46"
+ },
+ {
+  "name": "Aibė (uDrop)",
+  "city": "Jieznas",
+  "address": "Vytauto g. 15A",
+  "id": "t47"
+ },
+ {
+  "name": "IKI-DOBILAS",
+  "city": "Jonava",
+  "address": "Chemikų g. 1",
+  "id": "t48"
+ },
+ {
+  "name": "LIDL",
+  "city": "Jonava",
+  "address": "Žemaitės g. 3",
+  "id": "t49"
+ },
+ {
+  "name": "Maxima",
+  "city": "Jonava",
+  "address": "Plento g. 3",
+  "id": "t50"
+ },
+ {
+  "name": "Norfa",
+  "city": "Jonava",
+  "address": "Žeimių g. 26 A",
+  "id": "t51"
+ },
+ {
+  "name": "Norfa",
+  "city": "Jonava",
+  "address": "Chemikų g. 2",
+  "id": "t52"
+ },
+ {
+  "name": "Rimi",
+  "city": "Jonava",
+  "address": "Vasario 16 - osios g. 4",
+  "id": "t53"
+ },
+ {
+  "name": "Elimart",
+  "city": "Joniškis",
+  "address": "V.Kudirkos g. 87",
+  "id": "t54"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Joniškis",
+  "address": "Upytės g. 19",
+  "id": "t55"
+ },
+ {
+  "name": "Šilas",
+  "city": "Jonučiai II",
+  "address": "Eglių g. 1",
+  "id": "t56"
+ },
+ {
+  "name": "IKI",
+  "city": "Jurbarkas",
+  "address": "Dariaus ir Girėno g. 25",
+  "id": "t57"
+ },
+ {
+  "name": "Lidl",
+  "city": "Jurbarkas",
+  "address": "Dariaus ir Girėno g. 83",
+  "id": "t58"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Jurbarkas",
+  "address": "Algirdo g. 1A",
+  "id": "t59"
+ },
+ {
+  "name": "Elimart",
+  "city": "Kairiai",
+  "address": "Salduvės g. 1",
+  "id": "t60"
+ },
+ {
+  "name": "Aibė",
+  "city": "Kaišiadorys",
+  "address": "Vytauto Didžiojo g. 35",
+  "id": "t61"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Kaišiadorys",
+  "address": "Gedimino g. 110",
+  "id": "t62"
+ },
+ {
+  "name": "Norfa",
+  "city": "Kaišiadorys",
+  "address": "Gedimino g. 140",
+  "id": "t63"
+ },
+ {
+  "name": "Meduolis",
+  "city": "Kaltinėnai",
+  "address": "Varnių g. 5",
+  "id": "t64"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Kalvarija",
+  "address": "Laisvės g. 1",
+  "id": "t65"
+ },
+ {
+  "name": "Aibė (uDrop)",
+  "city": "Kalveliai",
+  "address": "Bažnyčios g. 18",
+  "id": "t66"
+ },
+ {
+  "name": "B and B Hotel",
+  "city": "Karmėlava",
+  "address": "Vilniaus g. 52A",
+  "id": "t67"
+ },
+ {
+  "name": "Šilas (Udrop)",
+  "city": "Karmėlava",
+  "address": "Vilniaus g. 6",
+  "id": "t68"
+ },
+ {
+  "name": "Aibė Neveronys",
+  "city": "Kaunas",
+  "address": "Keramikų g. 7",
+  "id": "t69"
+ },
+ {
+  "name": "Akropolis",
+  "city": "Kaunas",
+  "address": "Karaliaus Mindaugo pr. 49",
+  "id": "t70"
+ },
+ {
+  "name": "Draugystės g. (Udrop)",
+  "city": "Kaunas",
+  "address": "Draugystės g. 6A",
+  "id": "t71"
+ },
+ {
+  "name": "Express Market",
+  "city": "Kaunas",
+  "address": "Kleboniškio g. 27 B",
+  "id": "t72"
+ },
+ {
+  "name": "Express Market",
+  "city": "Kaunas",
+  "address": "Kalniečių g. 172",
+  "id": "t73"
+ },
+ {
+  "name": "Express Market",
+  "city": "Kaunas",
+  "address": "Marių g. 2",
+  "id": "t74"
+ },
+ {
+  "name": "Express Market",
+  "city": "Kaunas",
+  "address": "Pilėnų g. 1",
+  "id": "t75"
+ },
+ {
+  "name": "Express Market",
+  "city": "Kaunas",
+  "address": "K. Donelaičio g. 44a",
+  "id": "t76"
+ },
+ {
+  "name": "Express Market",
+  "city": "Kaunas",
+  "address": "K. Petrausko g. 6",
+  "id": "t77"
+ },
+ {
+  "name": "IKI",
+  "city": "Kaunas",
+  "address": "Brastos g. 28",
+  "id": "t78"
+ },
+ {
+  "name": "IKI",
+  "city": "Kaunas",
+  "address": "Savanorių pr. 111",
+  "id": "t79"
+ },
+ {
+  "name": "IKI",
+  "city": "Kaunas",
+  "address": "Vieškeliuko g. 8",
+  "id": "t80"
+ },
+ {
+  "name": "IKI",
+  "city": "Kaunas",
+  "address": "Vijūkų g. 125",
+  "id": "t81"
+ },
+ {
+  "name": "IKI Baltai",
+  "city": "Kaunas",
+  "address": "Baltų pr. 81",
+  "id": "t82"
+ },
+ {
+  "name": "IKI Girstupis",
+  "city": "Kaunas",
+  "address": "Kovo 11-osios g. 22",
+  "id": "t83"
+ },
+ {
+  "name": "IKI Lituanica",
+  "city": "Kaunas",
+  "address": "Jonavos g. 3",
+  "id": "t84"
+ },
+ {
+  "name": "IKI Saulėtekis",
+  "city": "Kaunas",
+  "address": "V. Krėvės pr. 97",
+  "id": "t85"
+ },
+ {
+  "name": "IKI Taubūčiai",
+  "city": "Kaunas",
+  "address": "Jotvingių g. 15",
+  "id": "t86"
+ },
+ {
+  "name": "IKI Vaišvydava",
+  "city": "Kaunas",
+  "address": "Didžioji g. 98",
+  "id": "t87"
+ },
+ {
+  "name": "IKI Šilainiai",
+  "city": "Kaunas",
+  "address": "Žemaičių pl. 23",
+  "id": "t88"
+ },
+ {
+  "name": "Jozita (Udrop)",
+  "city": "Kaunas",
+  "address": "Kuršių g. 13A",
+  "id": "t89"
+ },
+ {
+  "name": "Lidl",
+  "city": "Kaunas",
+  "address": "Baltijos g. 48A",
+  "id": "t90"
+ },
+ {
+  "name": "Lidl",
+  "city": "Kaunas",
+  "address": "B.Brazdžionio g. 23B",
+  "id": "t91"
+ },
+ {
+  "name": "LIDL",
+  "city": "Kaunas",
+  "address": "Baltų pr. 10",
+  "id": "t92"
+ },
+ {
+  "name": "LIDL",
+  "city": "Kaunas",
+  "address": "Jonavos g. 40",
+  "id": "t93"
+ },
+ {
+  "name": "LIDL",
+  "city": "Kaunas",
+  "address": "Šiaurės pr. 1A",
+  "id": "t94"
+ },
+ {
+  "name": "LIDL",
+  "city": "Kaunas",
+  "address": "Veiverių g. 146",
+  "id": "t95"
+ },
+ {
+  "name": "LIDL",
+  "city": "Kaunas",
+  "address": "Savanorių pr. 315",
+  "id": "t96"
+ },
+ {
+  "name": "LIDL",
+  "city": "Kaunas",
+  "address": "K. Baršausko g. 66",
+  "id": "t97"
+ },
+ {
+  "name": "LIDL",
+  "city": "Kaunas",
+  "address": "A. Juozapavičiaus pr. 125",
+  "id": "t98"
+ },
+ {
+  "name": "LIDL",
+  "city": "Kaunas",
+  "address": "Ežero g. 3",
+  "id": "t99"
+ },
+ {
+  "name": "Maxima",
+  "city": "Kaunas",
+  "address": "Vaidoto g. 159",
+  "id": "t100"
+ },
+ {
+  "name": "Maxima",
+  "city": "Kaunas",
+  "address": "Veiverių g. 150B",
+  "id": "t101"
+ },
+ {
+  "name": "Maxima",
+  "city": "Kaunas",
+  "address": "Rokų g. 17",
+  "id": "t102"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Kaunas",
+  "address": "Vandžiogalos pl. 106A",
+  "id": "t103"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Kaunas",
+  "address": "V. Krėvės pr. 14B",
+  "id": "t104"
+ },
+ {
+  "name": "Maxima XXX",
+  "city": "Kaunas",
+  "address": "Pramonės pr. 29",
+  "id": "t105"
+ },
+ {
+  "name": "Maxima XXX",
+  "city": "Kaunas",
+  "address": "Savanorių pr. 255",
+  "id": "t106"
+ },
+ {
+  "name": "MEGA",
+  "city": "Kaunas",
+  "address": "Islandijos pl. 32",
+  "id": "t107"
+ },
+ {
+  "name": "Moki-veži (Udrop)",
+  "city": "Kaunas",
+  "address": "Raudondvario pl. 205",
+  "id": "t108"
+ },
+ {
+  "name": "Norfa",
+  "city": "Kaunas",
+  "address": "R. Kalantos g. 76",
+  "id": "t109"
+ },
+ {
+  "name": "Norfa",
+  "city": "Kaunas",
+  "address": "Šiaurės pr. 44",
+  "id": "t110"
+ },
+ {
+  "name": "Norfa",
+  "city": "Kaunas",
+  "address": "Baltų pr. 195",
+  "id": "t111"
+ },
+ {
+  "name": "Norfa (uDrop)",
+  "city": "Kaunas",
+  "address": "Juozapavičiaus pr. 84",
+  "id": "t112"
+ },
+ {
+  "name": "Norfa (Udrop)",
+  "city": "Kaunas",
+  "address": "Lukšio g. 70",
+  "id": "t113"
+ },
+ {
+  "name": "PC Vaišvydava",
+  "city": "Kaunas",
+  "address": "Piliuonos g. 32",
+  "id": "t114"
+ },
+ {
+  "name": "Rimi (Udrop)",
+  "city": "Kaunas",
+  "address": "V. Krėvės pr. 43",
+  "id": "t115"
+ },
+ {
+  "name": "Rimi (Udrop)",
+  "city": "Kaunas",
+  "address": "Baltijos g. 58",
+  "id": "t116"
+ },
+ {
+  "name": "Rimi Baltijos",
+  "city": "Kaunas",
+  "address": "Baltijos g. 58",
+  "id": "t117"
+ },
+ {
+  "name": "Rimi Europos",
+  "city": "Kaunas",
+  "address": "Europos pr. 43",
+  "id": "t118"
+ },
+ {
+  "name": "Rimi Juozapavičiaus",
+  "city": "Kaunas",
+  "address": "A.Juozapavičiaus pr. 11",
+  "id": "t119"
+ },
+ {
+  "name": "Rimi Krėvės",
+  "city": "Kaunas",
+  "address": "V. Krėvės pr.  43A",
+  "id": "t120"
+ },
+ {
+  "name": "Rimi Prancūzų",
+  "city": "Kaunas",
+  "address": "Prancūzų g. 81",
+  "id": "t121"
+ },
+ {
+  "name": "Rimi Raudondvaris",
+  "city": "Kaunas",
+  "address": "Raudondvario pl. 94B",
+  "id": "t122"
+ },
+ {
+  "name": "Rimi Savanoriai (Udrop)",
+  "city": "Kaunas",
+  "address": "Savanorių pr. 321",
+  "id": "t123"
+ },
+ {
+  "name": "Rimi Studentų",
+  "city": "Kaunas",
+  "address": "Studentų g. 19",
+  "id": "t124"
+ },
+ {
+  "name": "Rimi Varniai",
+  "city": "Kaunas",
+  "address": "Varnių g. 41",
+  "id": "t125"
+ },
+ {
+  "name": "Savas",
+  "city": "Kaunas",
+  "address": "Savanorių pr. 346",
+  "id": "t126"
+ },
+ {
+  "name": "Senukai (Udrop)",
+  "city": "Kaunas",
+  "address": "Veiverių g. 148",
+  "id": "t127"
+ },
+ {
+  "name": "Urmo prekybos miestelis",
+  "city": "Kaunas",
+  "address": "Pramonės pr. 16",
+  "id": "t128"
+ },
+ {
+  "name": "Viada (Udrop)",
+  "city": "Kaunas",
+  "address": "Karaliaus Mindaugo pr. 54",
+  "id": "t129"
+ },
+ {
+  "name": "Čia Market",
+  "city": "Kaunas",
+  "address": "Šiaurės pr. 47",
+  "id": "t130"
+ },
+ {
+  "name": "Šilas",
+  "city": "Kaunas",
+  "address": "A. Šapokos g. 38",
+  "id": "t131"
+ },
+ {
+  "name": "Šilas",
+  "city": "Kaunas",
+  "address": "Pašilės g. 108",
+  "id": "t132"
+ },
+ {
+  "name": "Šilas",
+  "city": "Kaunas",
+  "address": "Lubinų g. 155",
+  "id": "t133"
+ },
+ {
+  "name": "Šilas",
+  "city": "Kaunas",
+  "address": "M. Gimbutienės g. 3",
+  "id": "t134"
+ },
+ {
+  "name": "Šilas",
+  "city": "Kaunas",
+  "address": "Taikos pr. 31A",
+  "id": "t135"
+ },
+ {
+  "name": "Šilas",
+  "city": "Kaunas",
+  "address": "K. Škirpos g. 17",
+  "id": "t136"
+ },
+ {
+  "name": "Šilas (Udrop)",
+  "city": "Kaunas",
+  "address": "V. Krėvės pr. 106 C",
+  "id": "t137"
+ },
+ {
+  "name": "Šilas (Udrop)",
+  "city": "Kaunas",
+  "address": "Lubinų g. 155",
+  "id": "t138"
+ },
+ {
+  "name": "Šilas (Udrop)",
+  "city": "Kaunas",
+  "address": "Vandžiogalos pl. 22",
+  "id": "t139"
+ },
+ {
+  "name": "Šilas (Udrop)",
+  "city": "Kaunas",
+  "address": "Mildos g. 5",
+  "id": "t140"
+ },
+ {
+  "name": "Šilas (Udrop)",
+  "city": "Kaunas",
+  "address": "Juozapavičiaus pr. 33",
+  "id": "t141"
+ },
+ {
+  "name": "Maxima",
+  "city": "Kazlų Rūda",
+  "address": "M.Valančiaus g. 7",
+  "id": "t142"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Kazlų Rūda",
+  "address": "J. Basanavičiaus 6A",
+  "id": "t143"
+ },
+ {
+  "name": "Norfa",
+  "city": "Kelmė",
+  "address": "S. Šilingo g. 5",
+  "id": "t144"
+ },
+ {
+  "name": "Senasis Šilas",
+  "city": "Kelmė",
+  "address": "Kęstučio g. 1D",
+  "id": "t145"
+ },
+ {
+  "name": "Aibė (Udrop)",
+  "city": "Klaipėda",
+  "address": "Žardininkų g. 27A",
+  "id": "t146"
+ },
+ {
+  "name": "Aibė (Udrop)",
+  "city": "Klaipėda",
+  "address": "Plieno g. 1",
+  "id": "t147"
+ },
+ {
+  "name": "Aibė (Udrop)",
+  "city": "Klaipėda",
+  "address": "Taikos pr. 100",
+  "id": "t148"
+ },
+ {
+  "name": "Akropolis",
+  "city": "Klaipėda",
+  "address": "Taikos pr. 61",
+  "id": "t149"
+ },
+ {
+  "name": "Banginis",
+  "city": "Klaipėda",
+  "address": "Šilutės pl. 35",
+  "id": "t150"
+ },
+ {
+  "name": "BIG2",
+  "city": "Klaipėda",
+  "address": "Taikos pr. 141",
+  "id": "t151"
+ },
+ {
+  "name": "Express Market (Udrop)",
+  "city": "Klaipėda",
+  "address": "Kretingos g. 9",
+  "id": "t152"
+ },
+ {
+  "name": "Gausa",
+  "city": "Klaipėda",
+  "address": "Taikos pr. 8A",
+  "id": "t153"
+ },
+ {
+  "name": "Helios (Udrop)",
+  "city": "Klaipėda",
+  "address": "Taikos pr. 56",
+  "id": "t154"
+ },
+ {
+  "name": "IKI",
+  "city": "Klaipėda",
+  "address": "Priestočio g. 24",
+  "id": "t155"
+ },
+ {
+  "name": "IKI Draugystė",
+  "city": "Klaipėda",
+  "address": "Debreceno g. 54",
+  "id": "t156"
+ },
+ {
+  "name": "IKI Naikupė",
+  "city": "Klaipėda",
+  "address": "Nidos g. 5",
+  "id": "t157"
+ },
+ {
+  "name": "IKI Žardė",
+  "city": "Klaipėda",
+  "address": "Taikos pr. 115",
+  "id": "t158"
+ },
+ {
+  "name": "Lidl",
+  "city": "Klaipėda",
+  "address": "Statybininkų pr. 18",
+  "id": "t159"
+ },
+ {
+  "name": "Lidl",
+  "city": "Klaipėda",
+  "address": "Piligrimų g. 2",
+  "id": "t160"
+ },
+ {
+  "name": "LIDL",
+  "city": "Klaipėda",
+  "address": "Taikos pr. 66B",
+  "id": "t161"
+ },
+ {
+  "name": "LIDL",
+  "city": "Klaipėda",
+  "address": "Tilžės g. 56B",
+  "id": "t162"
+ },
+ {
+  "name": "LIDL",
+  "city": "Klaipėda",
+  "address": "Smiltelės g. 19",
+  "id": "t163"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Klaipėda",
+  "address": "H. Manto g. 11",
+  "id": "t164"
+ },
+ {
+  "name": "Moki-veži (Udrop)",
+  "city": "Klaipėda",
+  "address": "Šilutės pl. 83A",
+  "id": "t165"
+ },
+ {
+  "name": "Norfa",
+  "city": "Klaipėda",
+  "address": "Vingio g. 21 A",
+  "id": "t166"
+ },
+ {
+  "name": "Norfa (Udrop)",
+  "city": "Klaipėda",
+  "address": "Baltijos pr. 101",
+  "id": "t167"
+ },
+ {
+  "name": "Pepco",
+  "city": "Klaipėda",
+  "address": "H. Manto g. 36",
+  "id": "t168"
+ },
+ {
+  "name": "Rimi",
+  "city": "Klaipėda",
+  "address": "Liepojos g. 27",
+  "id": "t169"
+ },
+ {
+  "name": "Rimi Dercekliai",
+  "city": "Klaipėda",
+  "address": "Nidos g. 1",
+  "id": "t170"
+ },
+ {
+  "name": "Rimi Klipščiai",
+  "city": "Klaipėda",
+  "address": "Žaliakelio g. 1",
+  "id": "t171"
+ },
+ {
+  "name": "Rimi Slengiai",
+  "city": "Klaipėda",
+  "address": "Dangaus g. 34",
+  "id": "t172"
+ },
+ {
+  "name": "Rimi Tauralaukis",
+  "city": "Klaipėda",
+  "address": "Pajūrio g. 5A",
+  "id": "t173"
+ },
+ {
+  "name": "Senukai",
+  "city": "Klaipėda",
+  "address": "Liepų g. 81",
+  "id": "t174"
+ },
+ {
+  "name": "Studlendas",
+  "city": "Klaipėda",
+  "address": "H.Manto g. 90-1",
+  "id": "t175"
+ },
+ {
+  "name": "Technorama",
+  "city": "Klaipėda",
+  "address": "Taikos pr. 39",
+  "id": "t176"
+ },
+ {
+  "name": "Čia Market",
+  "city": "Klaipėda",
+  "address": "Mogiliovo g. 12",
+  "id": "t177"
+ },
+ {
+  "name": "Aibė",
+  "city": "Kretinga",
+  "address": "Minijos g. 1",
+  "id": "t178"
+ },
+ {
+  "name": "Lidl",
+  "city": "Kretinga",
+  "address": "Žemaitės al. 12",
+  "id": "t179"
+ },
+ {
+  "name": "MAXIMA",
+  "city": "Kretinga",
+  "address": "Rotušės a. 15",
+  "id": "t180"
+ },
+ {
+  "name": "Rimi Kretinga",
+  "city": "Kretinga",
+  "address": "Šventosios g. 27B",
+  "id": "t181"
+ },
+ {
+  "name": "Aibė (uDrop)",
+  "city": "Kretingalė",
+  "address": "Klaipėdos gatvė 22",
+  "id": "t182"
+ },
+ {
+  "name": "Gulbelė",
+  "city": "Kudirkos Naumiestis",
+  "address": "Tilto g. 11",
+  "id": "t183"
+ },
+ {
+  "name": "Norfa",
+  "city": "Kupiškis",
+  "address": "Pergalės g. 8",
+  "id": "t184"
+ },
+ {
+  "name": "Tehasas",
+  "city": "Kupiškis",
+  "address": "Vytauto g. 41",
+  "id": "t185"
+ },
+ {
+  "name": "Norfa",
+  "city": "Kuršėnai",
+  "address": "Vytauto g. 78",
+  "id": "t186"
+ },
+ {
+  "name": "Norfa",
+  "city": "Kuršėnai",
+  "address": "Vilniaus g. 2",
+  "id": "t187"
+ },
+ {
+  "name": "Kvėdarnos seniūnija (uDrop)",
+  "city": "Kvėdarna",
+  "address": "Dariaus ir Girėno g. 24",
+  "id": "t188"
+ },
+ {
+  "name": "Norfa",
+  "city": "Kybartai",
+  "address": "Vištyčio g. 40",
+  "id": "t189"
+ },
+ {
+  "name": "IKI",
+  "city": "Kėdainiai",
+  "address": "P. Lukšio g. 1A",
+  "id": "t190"
+ },
+ {
+  "name": "IKI Gegučių",
+  "city": "Kėdainiai",
+  "address": "Gegučių g. 13",
+  "id": "t191"
+ },
+ {
+  "name": "LIDL",
+  "city": "Kėdainiai",
+  "address": "J.Basanavičiaus g. 87B",
+  "id": "t192"
+ },
+ {
+  "name": "MAXIMA",
+  "city": "Kėdainiai",
+  "address": "S. Dariaus ir S. Girėno g. 50a",
+  "id": "t193"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Kėdainiai",
+  "address": "J. Basanavičiaus g. 53",
+  "id": "t194"
+ },
+ {
+  "name": "AIBĖ",
+  "city": "Kūlupėnai",
+  "address": "Mokyklos g. 3",
+  "id": "t195"
+ },
+ {
+  "name": "Laisves gyneju aikste",
+  "city": "Lapės",
+  "address": "Mokyklos g. 2c",
+  "id": "t196"
+ },
+ {
+  "name": "Senukai",
+  "city": "Lazdijai",
+  "address": "Sodų g. 12",
+  "id": "t197"
+ },
+ {
+  "name": "Viešoji biblioteka",
+  "city": "Lazdijai",
+  "address": "Seinų g. 1",
+  "id": "t198"
+ },
+ {
+  "name": "IKI Lentvaris",
+  "city": "Lentvaris",
+  "address": "Geležinkelio g. 38-1",
+  "id": "t199"
+ },
+ {
+  "name": "Norfa",
+  "city": "Lentvaris",
+  "address": "Klevų al. 4",
+  "id": "t200"
+ },
+ {
+  "name": "Norfa (Udrop)",
+  "city": "Lentvaris",
+  "address": "Klevų al. 4",
+  "id": "t201"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Linkuva",
+  "address": "Vienybės a. 7",
+  "id": "t202"
+ },
+ {
+  "name": "Maxima",
+  "city": "Maišiagala",
+  "address": "Mokyklos g. 3",
+  "id": "t203"
+ },
+ {
+  "name": "Aibė (Udrop)",
+  "city": "Marijampolė",
+  "address": "Mokolų g. 23",
+  "id": "t204"
+ },
+ {
+  "name": "IKI",
+  "city": "Marijampolė",
+  "address": "Vilkaviškio g. 72a",
+  "id": "t205"
+ },
+ {
+  "name": "IKI",
+  "city": "Marijampolė",
+  "address": "Vytauto g. 48a",
+  "id": "t206"
+ },
+ {
+  "name": "LIDL",
+  "city": "Marijampolė",
+  "address": "Žemaitės g. 22",
+  "id": "t207"
+ },
+ {
+  "name": "LIDL",
+  "city": "Marijampolė",
+  "address": "Palangos g. 22",
+  "id": "t208"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Marijampolė",
+  "address": "Sporto g. 16",
+  "id": "t209"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Marijampolė",
+  "address": "Bažnyčios g. 38",
+  "id": "t210"
+ },
+ {
+  "name": "Maxima XXX",
+  "city": "Marijampolė",
+  "address": "V. Kudirkos g. 3",
+  "id": "t211"
+ },
+ {
+  "name": "Rasa (Udrop)",
+  "city": "Marijampolė",
+  "address": "Dariaus ir Girėno g. 15",
+  "id": "t212"
+ },
+ {
+  "name": "Aibė",
+  "city": "Mastaičiai",
+  "address": "Mokslo g. 11",
+  "id": "t213"
+ },
+ {
+  "name": "Grūstė-26",
+  "city": "Mažeikiai",
+  "address": "Mažeikių 100-mečio g. 2",
+  "id": "t214"
+ },
+ {
+  "name": "IKI Venta",
+  "city": "Mažeikiai",
+  "address": "Ventos g. 10B",
+  "id": "t215"
+ },
+ {
+  "name": "LIDL",
+  "city": "Mažeikiai",
+  "address": "Daukšos g. 24A",
+  "id": "t216"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Mažeikiai",
+  "address": "Laisvės g. 56",
+  "id": "t217"
+ },
+ {
+  "name": "Norfa",
+  "city": "Mažeikiai",
+  "address": "Sedos g. 53",
+  "id": "t218"
+ },
+ {
+  "name": "Senukai (Udrop)",
+  "city": "Mažeikiai",
+  "address": "Tirkšlių g. 5E",
+  "id": "t219"
+ },
+ {
+  "name": "Merkinės seniūnija",
+  "city": "Merkinė",
+  "address": "Gardino g. 1",
+  "id": "t220"
+ },
+ {
+  "name": "Aibė",
+  "city": "Mickūnai",
+  "address": "Vilniaus g. 17A",
+  "id": "t221"
+ },
+ {
+  "name": "MAXIMA",
+  "city": "Molėtai",
+  "address": "Sakalo g. 1",
+  "id": "t222"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Molėtai",
+  "address": "Vilniaus g. 43",
+  "id": "t223"
+ },
+ {
+  "name": "Moki-veži",
+  "city": "Narsiečiai",
+  "address": "Vytauto g. 183",
+  "id": "t224"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Naujoji Akmenė",
+  "address": "V. Kudirkos g. 18",
+  "id": "t225"
+ },
+ {
+  "name": "Norfa (Udrop)",
+  "city": "Naujoji Akmenė",
+  "address": "Respublikos g. 30A",
+  "id": "t226"
+ },
+ {
+  "name": "Lidl",
+  "city": "Nemenčinė",
+  "address": "Vilniaus g. 42",
+  "id": "t227"
+ },
+ {
+  "name": "Norfa",
+  "city": "Nemenčinė",
+  "address": "Vilijos g. 2",
+  "id": "t228"
+ },
+ {
+  "name": "IKI Nemėžis",
+  "city": "Nemėžis",
+  "address": "V.Sirokomlės g. 17",
+  "id": "t229"
+ },
+ {
+  "name": "Maxima",
+  "city": "Nida",
+  "address": "Naglių g. 29A",
+  "id": "t230"
+ },
+ {
+  "name": "Šilas",
+  "city": "Noreikiškės",
+  "address": "Šiltnamių g. 19",
+  "id": "t231"
+ },
+ {
+  "name": "Norfa",
+  "city": "Pabradė",
+  "address": "Molėtų g. 4",
+  "id": "t232"
+ },
+ {
+  "name": "IKI",
+  "city": "Pagiriai",
+  "address": "Durpių g. 40",
+  "id": "t233"
+ },
+ {
+  "name": "Norfa",
+  "city": "Pagėgiai",
+  "address": "Vilniaus g. 18A",
+  "id": "t234"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Pakruojis",
+  "address": "Vytauto Didžiojo g. 17",
+  "id": "t235"
+ },
+ {
+  "name": "LIDL",
+  "city": "Palanga",
+  "address": "Klaipėdos pl. 59",
+  "id": "t236"
+ },
+ {
+  "name": "Maxima",
+  "city": "Palanga",
+  "address": "Klaipėdos pl. 42",
+  "id": "t237"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Palanga",
+  "address": "Plytų g. 9a",
+  "id": "t238"
+ },
+ {
+  "name": "Norfa",
+  "city": "Palanga",
+  "address": "Bangų g. 11A",
+  "id": "t239"
+ },
+ {
+  "name": "Aibė (Udrop)",
+  "city": "Panevėžys",
+  "address": "Nemuno g. 70",
+  "id": "t240"
+ },
+ {
+  "name": "Bičiulis",
+  "city": "Panevėžys",
+  "address": "Marijonų g. 25",
+  "id": "t241"
+ },
+ {
+  "name": "IKI Basanavičiaus",
+  "city": "Panevėžys",
+  "address": "Ukmergės g. 18",
+  "id": "t242"
+ },
+ {
+  "name": "IKI Rožynas",
+  "city": "Panevėžys",
+  "address": "Piniavos skg. 10 - 1",
+  "id": "t243"
+ },
+ {
+  "name": "IKI-DEMBAVA",
+  "city": "Panevėžys",
+  "address": "Vilniaus g. 60",
+  "id": "t244"
+ },
+ {
+  "name": "Kubas (Udrop)",
+  "city": "Panevėžys",
+  "address": "Kniaudiškių g. 42",
+  "id": "t245"
+ },
+ {
+  "name": "Lidl",
+  "city": "Panevėžys",
+  "address": "Klaipėdos g. 109",
+  "id": "t246"
+ },
+ {
+  "name": "LIDL",
+  "city": "Panevėžys",
+  "address": "Kosmonautų g. 14",
+  "id": "t247"
+ },
+ {
+  "name": "LIDL",
+  "city": "Panevėžys",
+  "address": "J.Basanavičiaus g. 67",
+  "id": "t248"
+ },
+ {
+  "name": "LIDL",
+  "city": "Panevėžys",
+  "address": "Smėlynės g. 112A",
+  "id": "t249"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Panevėžys",
+  "address": "Respublikos g. 71",
+  "id": "t250"
+ },
+ {
+  "name": "Molainių (Udrop)",
+  "city": "Panevėžys",
+  "address": "Molainių g 15",
+  "id": "t251"
+ },
+ {
+  "name": "Norfa",
+  "city": "Panevėžys",
+  "address": "Nemuno g. 29B",
+  "id": "t252"
+ },
+ {
+  "name": "Norfa",
+  "city": "Panevėžys",
+  "address": "Vasario 16-osios g. 55",
+  "id": "t253"
+ },
+ {
+  "name": "Norfa",
+  "city": "Panevėžys",
+  "address": "Molainių g. 11",
+  "id": "t254"
+ },
+ {
+  "name": "Norfa (Udrop)",
+  "city": "Panevėžys",
+  "address": "Klaipėdos g. 103",
+  "id": "t255"
+ },
+ {
+  "name": "PC Molas",
+  "city": "Panevėžys",
+  "address": "Klaipėdos g. 143A",
+  "id": "t256"
+ },
+ {
+  "name": "Rimi Panevėžys",
+  "city": "Panevėžys",
+  "address": "Klaipėdos g. 82",
+  "id": "t257"
+ },
+ {
+  "name": "Rimi Ragaudžiai",
+  "city": "Panevėžys",
+  "address": "Ragaudžių g. 2",
+  "id": "t258"
+ },
+ {
+  "name": "Senukai (Udrop)",
+  "city": "Panevėžys",
+  "address": "Darbo a. 7",
+  "id": "t259"
+ },
+ {
+  "name": "Aibė (Udrop)",
+  "city": "Pasvalys",
+  "address": "Taikos g. 20",
+  "id": "t260"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Pasvalys",
+  "address": "Vilniaus g. 48",
+  "id": "t261"
+ },
+ {
+  "name": "Aidas",
+  "city": "PC",
+  "address": "Druskininkai",
+  "id": "t262"
+ },
+ {
+  "name": "Gausa",
+  "city": "PC",
+  "address": "Baisogala",
+  "id": "t263"
+ },
+ {
+  "name": "Malonė",
+  "city": "PC",
+  "address": "Druskininkai",
+  "id": "t264"
+ },
+ {
+  "name": "Tau",
+  "city": "PC",
+  "address": "Šiauliai",
+  "id": "t265"
+ },
+ {
+  "name": "Vasaris",
+  "city": "PC",
+  "address": "Panevėžys",
+  "id": "t266"
+ },
+ {
+  "name": "Maisto ir pramonės prekės",
+  "city": "Pilviškiai",
+  "address": "Vasario 16-osios g. 16",
+  "id": "t267"
+ },
+ {
+  "name": "IKI Plungė-Turgus",
+  "city": "Plungė",
+  "address": "Laisvės g. 5",
+  "id": "t268"
+ },
+ {
+  "name": "LIDL",
+  "city": "Plungė",
+  "address": "J.Tumo-Vaižganto g. 110",
+  "id": "t269"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Plungė",
+  "address": "J.Tumo-Vaižganto g. 81",
+  "id": "t270"
+ },
+ {
+  "name": "Norfa",
+  "city": "Plungė",
+  "address": "Dariaus ir Girėno g. 54",
+  "id": "t271"
+ },
+ {
+  "name": "Norfa",
+  "city": "Plungė",
+  "address": "Kalniškių g. 18",
+  "id": "t272"
+ },
+ {
+  "name": "DNC maisto prekės",
+  "city": "Prienai",
+  "address": "J.Basanavičiaus g. 15",
+  "id": "t273"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Prienai",
+  "address": "Kauno g. 34",
+  "id": "t274"
+ },
+ {
+  "name": "Swedbank",
+  "city": "Prienai",
+  "address": "Vytauto g. 33",
+  "id": "t275"
+ },
+ {
+  "name": "Lidl",
+  "city": "Radviliškis",
+  "address": "Gedimino g. 35",
+  "id": "t276"
+ },
+ {
+  "name": "Norfa",
+  "city": "Radviliškis",
+  "address": "Vasario 16-osios g. 10",
+  "id": "t277"
+ },
+ {
+  "name": "Norfa",
+  "city": "Radviliškis",
+  "address": "Taikos g. 9",
+  "id": "t278"
+ },
+ {
+  "name": "Žirnis Aibė",
+  "city": "Radviliškis",
+  "address": "Turgaus g. 12",
+  "id": "t279"
+ },
+ {
+  "name": "IKI",
+  "city": "Ramučiai",
+  "address": "Centrinė g. 56",
+  "id": "t280"
+ },
+ {
+  "name": "Eoltas",
+  "city": "Raseiniai",
+  "address": "Žemaičių g. 2",
+  "id": "t281"
+ },
+ {
+  "name": "MAXIMA",
+  "city": "Raseiniai",
+  "address": "Vilniaus g. 93",
+  "id": "t282"
+ },
+ {
+  "name": "Vigosa",
+  "city": "Raseiniai",
+  "address": "Jaunimo g. 14",
+  "id": "t283"
+ },
+ {
+  "name": "IKI",
+  "city": "Raudondvaris",
+  "address": "J.Naujalio g. 20B",
+  "id": "t284"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Rietavas",
+  "address": "Plungės g. 21",
+  "id": "t285"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Riešė",
+  "address": "Beržų g. 92",
+  "id": "t286"
+ },
+ {
+  "name": "Lidl",
+  "city": "Ringaudai",
+  "address": "Obelynės g. 1",
+  "id": "t287"
+ },
+ {
+  "name": "IKI",
+  "city": "Rokiškis",
+  "address": "Panevėžio g. 16",
+  "id": "t288"
+ },
+ {
+  "name": "IKI (Udrop)",
+  "city": "Rokiškis",
+  "address": "Jaunystės g. 1",
+  "id": "t289"
+ },
+ {
+  "name": "Lidl",
+  "city": "Rokiškis",
+  "address": "Respublikos g. 113",
+  "id": "t290"
+ },
+ {
+  "name": "IKI",
+  "city": "Rudamina",
+  "address": "Gamyklos g. 26",
+  "id": "t291"
+ },
+ {
+  "name": "Norfa",
+  "city": "Rukla",
+  "address": "Karaliaus Mindaugo g. 10",
+  "id": "t292"
+ },
+ {
+  "name": "Maxima",
+  "city": "Rumšiškės",
+  "address": "L. Lekavičiaus g. 32",
+  "id": "t293"
+ },
+ {
+  "name": "Norfa",
+  "city": "Rūdiškės",
+  "address": "Paluknės g. 1",
+  "id": "t294"
+ },
+ {
+  "name": "Ūkinės prekės",
+  "city": "Salantai",
+  "address": "A.Salio g. 3",
+  "id": "t295"
+ },
+ {
+  "name": "Aibė (uDrop)",
+  "city": "Senieji Trakai",
+  "address": "Nerūdininkų g. 5A",
+  "id": "t296"
+ },
+ {
+  "name": "Aibė",
+  "city": "Simnas",
+  "address": "Vytauto g. 30",
+  "id": "t297"
+ },
+ {
+  "name": "Maxima",
+  "city": "Skaidiškės",
+  "address": "Rudaminos g. 29",
+  "id": "t298"
+ },
+ {
+  "name": "Skaudvilės prekyba",
+  "city": "Skaudvilė",
+  "address": "Tauragės g. 15",
+  "id": "t299"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Skuodas",
+  "address": "Gedimino g. 6",
+  "id": "t300"
+ },
+ {
+  "name": "Skuoda kvietka",
+  "city": "Skuodas",
+  "address": "Vilniaus g. 34B",
+  "id": "t301"
+ },
+ {
+  "name": "Aibė",
+  "city": "Smalininkai",
+  "address": "Nemuno g. 32",
+  "id": "t302"
+ },
+ {
+  "name": "Ambulatorija",
+  "city": "Subačius",
+  "address": "Biržų g. 8",
+  "id": "t303"
+ },
+ {
+  "name": "KOOPS",
+  "city": "Svėdasai",
+  "address": "J.Tumo-Vaižganto g. 18A",
+  "id": "t304"
+ },
+ {
+  "name": "IKI",
+  "city": "Tauragė",
+  "address": "Gedimino g. 21A",
+  "id": "t305"
+ },
+ {
+  "name": "LIDL",
+  "city": "Tauragė",
+  "address": "Dariaus ir Girėno g. 48",
+  "id": "t306"
+ },
+ {
+  "name": "MAXIMA",
+  "city": "Tauragė",
+  "address": "Šlaito g. 1",
+  "id": "t307"
+ },
+ {
+  "name": "Norfa",
+  "city": "Tauragė",
+  "address": "Šilalės g. 87C",
+  "id": "t308"
+ },
+ {
+  "name": "Norfa (uDrop)",
+  "city": "Tauragė",
+  "address": "Bernotiškės g. 3",
+  "id": "t309"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Tauragė",
+  "address": "Dariaus ir Girėno g. 16",
+  "id": "t310"
+ },
+ {
+  "name": "LIDL",
+  "city": "Telšiai",
+  "address": "Luokės g. 74A",
+  "id": "t311"
+ },
+ {
+  "name": "Norfa",
+  "city": "Telšiai",
+  "address": "Luokės g. 91",
+  "id": "t312"
+ },
+ {
+  "name": "Rimi Telšiai",
+  "city": "Telšiai",
+  "address": "Plungės g. 4",
+  "id": "t313"
+ },
+ {
+  "name": "TULPĖ",
+  "city": "Telšiai",
+  "address": "Kęstučio g. 4",
+  "id": "t314"
+ },
+ {
+  "name": "Čia Market",
+  "city": "Telšiai",
+  "address": "Dariaus ir Girėno g. 11",
+  "id": "t315"
+ },
+ {
+  "name": "Norfa",
+  "city": "Trakai",
+  "address": "Vilniaus g. 15C",
+  "id": "t316"
+ },
+ {
+  "name": "Rimi Trakai",
+  "city": "Trakai",
+  "address": "Vytauto g. 90",
+  "id": "t317"
+ },
+ {
+  "name": "Aibė",
+  "city": "Tytuvėnai",
+  "address": "J. Basanavičiaus g. 1",
+  "id": "t318"
+ },
+ {
+  "name": "IKI",
+  "city": "Ukmergė",
+  "address": "Vilniaus g. 62",
+  "id": "t319"
+ },
+ {
+  "name": "LIDL",
+  "city": "Ukmergė",
+  "address": "Vytauto g. 111A",
+  "id": "t320"
+ },
+ {
+  "name": "MAXIMA",
+  "city": "Ukmergė",
+  "address": "Antakalnio g. 67",
+  "id": "t321"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Ukmergė",
+  "address": "Žiedo g. 1",
+  "id": "t322"
+ },
+ {
+  "name": "Papartis",
+  "city": "Ukmergė",
+  "address": "Vasario 16-osios g. 30",
+  "id": "t323"
+ },
+ {
+  "name": "RIMI",
+  "city": "Ukmergė",
+  "address": "Vytauto g. 60",
+  "id": "t324"
+ },
+ {
+  "name": "Senukai (Udrop)",
+  "city": "Ukmergė",
+  "address": "Kauno g. 120B",
+  "id": "t325"
+ },
+ {
+  "name": "Aukštakalnis",
+  "city": "Utena",
+  "address": "Taikos g. 2",
+  "id": "t326"
+ },
+ {
+  "name": "Husqvarna",
+  "city": "Utena",
+  "address": "J.Basanavičiaus g. 12",
+  "id": "t327"
+ },
+ {
+  "name": "LIDL",
+  "city": "Utena",
+  "address": "J. Basanavičiaus g. 121",
+  "id": "t328"
+ },
+ {
+  "name": "PC Vyturiai (Udrop)",
+  "city": "Utena",
+  "address": "J. Basanavičiaus g. 93B",
+  "id": "t329"
+ },
+ {
+  "name": "Rašė",
+  "city": "Utena",
+  "address": "Vaižganto g. 17",
+  "id": "t330"
+ },
+ {
+  "name": "Senukai",
+  "city": "Utena",
+  "address": "J. Basanavičiaus g. 52",
+  "id": "t331"
+ },
+ {
+  "name": "Šilas (Udrop)",
+  "city": "Užliedžiai",
+  "address": "Griežlės g. 40",
+  "id": "t332"
+ },
+ {
+  "name": "Gulbelė",
+  "city": "Užventis",
+  "address": "Kražių g. 11",
+  "id": "t333"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Vabalninkas",
+  "address": "B.Sruogos g.11A",
+  "id": "t334"
+ },
+ {
+  "name": "IKI Varėna",
+  "city": "Varėna",
+  "address": "Vytauto g. 18",
+  "id": "t335"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Varėna",
+  "address": "Savanorių g. 5",
+  "id": "t336"
+ },
+ {
+  "name": "Norfa",
+  "city": "Veisiejai",
+  "address": "Dariaus ir Girėno g. 13",
+  "id": "t337"
+ },
+ {
+  "name": "Norfa",
+  "city": "Venta",
+  "address": "Plento g. 2A",
+  "id": "t338"
+ },
+ {
+  "name": "AIBĖ",
+  "city": "Viduklė",
+  "address": "Kęstučio g. 12",
+  "id": "t339"
+ },
+ {
+  "name": "Grūstė",
+  "city": "Viekšniai",
+  "address": "Tilto g. 14",
+  "id": "t340"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Vievis",
+  "address": "Vilniaus g. 55A",
+  "id": "t341"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilkaviškis",
+  "address": "Vytauto g. 77",
+  "id": "t342"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Vilkaviškis",
+  "address": "J. Basanavičiaus a. 1",
+  "id": "t343"
+ },
+ {
+  "name": "Norfa",
+  "city": "Vilkaviškis",
+  "address": "Nepriklausomybės g. 61",
+  "id": "t344"
+ },
+ {
+  "name": "IKI",
+  "city": "Vilkija",
+  "address": "Čekiškės g. 98",
+  "id": "t345"
+ },
+ {
+  "name": "Aibė (Udrop)",
+  "city": "Vilnius",
+  "address": "Erfurto g. 1",
+  "id": "t346"
+ },
+ {
+  "name": "Akropolis",
+  "city": "Vilnius",
+  "address": "Ozo g. 25",
+  "id": "t347"
+ },
+ {
+  "name": "Amatų skveras",
+  "city": "Vilnius",
+  "address": "Švitrigailos g. 13",
+  "id": "t348"
+ },
+ {
+  "name": "Banginis",
+  "city": "Vilnius",
+  "address": "P. Lukšio g. 34",
+  "id": "t349"
+ },
+ {
+  "name": "BIG",
+  "city": "Vilnius",
+  "address": "Ukmergės g. 369",
+  "id": "t350"
+ },
+ {
+  "name": "Circle K",
+  "city": "Vilnius",
+  "address": "Sporto g. 16A",
+  "id": "t351"
+ },
+ {
+  "name": "CUP",
+  "city": "Vilnius",
+  "address": "Upės g. 9",
+  "id": "t352"
+ },
+ {
+  "name": "Dominikonų g.",
+  "city": "Vilnius",
+  "address": "Dominikonų g. 4",
+  "id": "t353"
+ },
+ {
+  "name": "Domus Pro",
+  "city": "Vilnius",
+  "address": "Ukmergės g. 308",
+  "id": "t354"
+ },
+ {
+  "name": "Domus Pro (Udrop)",
+  "city": "Vilnius",
+  "address": "Ukmergės g. 308",
+  "id": "t355"
+ },
+ {
+  "name": "Duetto (Udrop)",
+  "city": "Vilnius",
+  "address": "Spaudos g. 8",
+  "id": "t356"
+ },
+ {
+  "name": "Express Market",
+  "city": "Vilnius",
+  "address": "Žirmūnų g. 48A",
+  "id": "t357"
+ },
+ {
+  "name": "Express Market",
+  "city": "Vilnius",
+  "address": "Pelesos g. 57",
+  "id": "t358"
+ },
+ {
+  "name": "Express Market",
+  "city": "Vilnius",
+  "address": "L.Sapiegos g. 1C",
+  "id": "t359"
+ },
+ {
+  "name": "Express Market",
+  "city": "Vilnius",
+  "address": "Polocko g. 42A",
+  "id": "t360"
+ },
+ {
+  "name": "Express Market (Udrop)",
+  "city": "Vilnius",
+  "address": "Dzūkų g. 38a",
+  "id": "t361"
+ },
+ {
+  "name": "GO9",
+  "city": "Vilnius",
+  "address": "Gedimino pr. 9",
+  "id": "t362"
+ },
+ {
+  "name": "Go9 (Udrop)",
+  "city": "Vilnius",
+  "address": "Gedimino pr. 9",
+  "id": "t363"
+ },
+ {
+  "name": "Grūstė",
+  "city": "Vilnius",
+  "address": "Žirmūnų g. 84",
+  "id": "t364"
+ },
+ {
+  "name": "Helios City",
+  "city": "Vilnius",
+  "address": "Savanorių pr. 1",
+  "id": "t365"
+ },
+ {
+  "name": "HUMANA",
+  "city": "Vilnius",
+  "address": "Kęstučio g. 41A",
+  "id": "t366"
+ },
+ {
+  "name": "IKI",
+  "city": "Vilnius",
+  "address": "Vaduvos g. 4",
+  "id": "t367"
+ },
+ {
+  "name": "IKI (Udrop)",
+  "city": "Vilnius",
+  "address": "Visalaukio g. 1",
+  "id": "t368"
+ },
+ {
+  "name": "IKI Antakalnis",
+  "city": "Vilnius",
+  "address": "Nemenčinės pl. 2",
+  "id": "t369"
+ },
+ {
+  "name": "IKI Baltupiai",
+  "city": "Vilnius",
+  "address": "Didlaukio g. 80A",
+  "id": "t370"
+ },
+ {
+  "name": "IKI Fabijoniškės",
+  "city": "Vilnius",
+  "address": "Fabijoniškių g. 2A",
+  "id": "t371"
+ },
+ {
+  "name": "IKI Mindaugo",
+  "city": "Vilnius",
+  "address": "Mindaugo g. 25",
+  "id": "t372"
+ },
+ {
+  "name": "IKI Papartis",
+  "city": "Vilnius",
+  "address": "Architektų g. 43",
+  "id": "t373"
+ },
+ {
+  "name": "IKI Pašilaičiai",
+  "city": "Vilnius",
+  "address": "Gabijos g. 34",
+  "id": "t374"
+ },
+ {
+  "name": "IKI Plytinės",
+  "city": "Vilnius",
+  "address": "Saulėtekio al. 43",
+  "id": "t375"
+ },
+ {
+  "name": "IKI Vilnius",
+  "city": "Vilnius",
+  "address": "Žirmūnų g. 2",
+  "id": "t376"
+ },
+ {
+  "name": "IKI Visoriai",
+  "city": "Vilnius",
+  "address": "Bajorų kelias 4",
+  "id": "t377"
+ },
+ {
+  "name": "IKI Ąžuolas",
+  "city": "Vilnius",
+  "address": "Architektų g. 214",
+  "id": "t378"
+ },
+ {
+  "name": "IKI Šeškinė",
+  "city": "Vilnius",
+  "address": "Šeškinės g. 32",
+  "id": "t379"
+ },
+ {
+  "name": "IKI Žalieji Ežerai",
+  "city": "Vilnius",
+  "address": "Visalaukio g. 1",
+  "id": "t380"
+ },
+ {
+  "name": "Jeruzalės siuntų centras",
+  "city": "Vilnius",
+  "address": "Jeruzalės g. 14",
+  "id": "t381"
+ },
+ {
+  "name": "Jozita (Udrop)",
+  "city": "Vilnius",
+  "address": "Ukmergės g. 130",
+  "id": "t382"
+ },
+ {
+  "name": "Juozapavičiaus g. (Udrop)",
+  "city": "Vilnius",
+  "address": "Juozapavičiaus g. 13 (Udrop)",
+  "id": "t383"
+ },
+ {
+  "name": "K29 (Udrop)",
+  "city": "Vilnius",
+  "address": "Konstitucijos pr. 29",
+  "id": "t384"
+ },
+ {
+  "name": "Lidl",
+  "city": "Vilnius",
+  "address": "Mokslininkų g. 11B",
+  "id": "t385"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilnius",
+  "address": "L. Asanavičiūtės 1H",
+  "id": "t386"
+ },
+ {
+  "name": "Lidl",
+  "city": "Vilnius",
+  "address": "Draugystės g. 2M",
+  "id": "t387"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilnius",
+  "address": "Gariūnų g. 66",
+  "id": "t388"
+ },
+ {
+  "name": "Lidl",
+  "city": "Vilnius",
+  "address": "Pramonės g. 17A",
+  "id": "t389"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilnius",
+  "address": "S. Stanevičiaus g. 2A",
+  "id": "t390"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilnius",
+  "address": "J. Tiškevičiaus g. 17",
+  "id": "t391"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilnius",
+  "address": "Žirmūnų g. 67",
+  "id": "t392"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilnius",
+  "address": "Rasų g. 9A",
+  "id": "t393"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilnius",
+  "address": "Kapsų g. 1",
+  "id": "t394"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilnius",
+  "address": "Kalvarijų g.  180",
+  "id": "t395"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilnius",
+  "address": "Vėtrungių g. 16",
+  "id": "t396"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilnius",
+  "address": "Nidos g. 1",
+  "id": "t397"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilnius",
+  "address": "Sausio 13-osios g. 3",
+  "id": "t398"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilnius",
+  "address": "Dūkštų g. 34",
+  "id": "t399"
+ },
+ {
+  "name": "Lidl",
+  "city": "Vilnius",
+  "address": "Liepkalnio g. 102A",
+  "id": "t400"
+ },
+ {
+  "name": "Lidl",
+  "city": "Vilnius",
+  "address": "Dangeručio g. 4",
+  "id": "t401"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilnius",
+  "address": "Justiniškių g. 126",
+  "id": "t402"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilnius",
+  "address": "Ateities g. 4A",
+  "id": "t403"
+ },
+ {
+  "name": "Lidl",
+  "city": "Vilnius",
+  "address": "Juodasis kelias 34",
+  "id": "t404"
+ },
+ {
+  "name": "Lidl",
+  "city": "Vilnius",
+  "address": "Rinktinės g. 60",
+  "id": "t405"
+ },
+ {
+  "name": "LIDL",
+  "city": "Vilnius",
+  "address": "Žemaitės g. 16",
+  "id": "t406"
+ },
+ {
+  "name": "Lvivo g. (Udrop)",
+  "city": "Vilnius",
+  "address": "Lvivo g. 37",
+  "id": "t407"
+ },
+ {
+  "name": "Mandarinas",
+  "city": "Vilnius",
+  "address": "Ateities g. 91",
+  "id": "t408"
+ },
+ {
+  "name": "MAXIMA",
+  "city": "Vilnius",
+  "address": "Gelvonų g. 35",
+  "id": "t409"
+ },
+ {
+  "name": "Maxima",
+  "city": "Vilnius",
+  "address": "Lazdynėlių g. 23",
+  "id": "t410"
+ },
+ {
+  "name": "Maxima",
+  "city": "Vilnius",
+  "address": "Moravų g. 7",
+  "id": "t411"
+ },
+ {
+  "name": "Maxima",
+  "city": "Vilnius",
+  "address": "P.Žvirkos g. 1",
+  "id": "t412"
+ },
+ {
+  "name": "Maxima",
+  "city": "Vilnius",
+  "address": "Gilužio g. 5",
+  "id": "t413"
+ },
+ {
+  "name": "Maxima",
+  "city": "Vilnius",
+  "address": "Viršuliškių g. 30",
+  "id": "t414"
+ },
+ {
+  "name": "Maxima Avižieniai",
+  "city": "Vilnius",
+  "address": "Saulės g. 1",
+  "id": "t415"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Vilnius",
+  "address": "Žaliųjų ežerų g. 207",
+  "id": "t416"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Vilnius",
+  "address": "Dariaus ir Girėno g. 19B",
+  "id": "t417"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Vilnius",
+  "address": "Nemenčinės pl. 33",
+  "id": "t418"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Vilnius",
+  "address": "Savanorių pr. 31",
+  "id": "t419"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Vilnius",
+  "address": "Antakalnio g. 75A",
+  "id": "t420"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Vilnius",
+  "address": "Santaros g. 5",
+  "id": "t421"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Vilnius",
+  "address": "Sausio 13-osios g. 2",
+  "id": "t422"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Vilnius",
+  "address": "Laisvės pr. 26",
+  "id": "t423"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Vilnius",
+  "address": "Pergalės g. 42",
+  "id": "t424"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Vilnius",
+  "address": "Žalgirio g. 105",
+  "id": "t425"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Vilnius",
+  "address": "Naugarduko g. 84",
+  "id": "t426"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Vilnius",
+  "address": "Pilaitės pr. 31",
+  "id": "t427"
+ },
+ {
+  "name": "Maxima XX",
+  "city": "Vilnius",
+  "address": "J. Tiškevičiaus g. 22",
+  "id": "t428"
+ },
+ {
+  "name": "Maxima XXX",
+  "city": "Vilnius",
+  "address": "Ukmergės g. 282",
+  "id": "t429"
+ },
+ {
+  "name": "Maxima XXX (antras aukštas)",
+  "city": "Vilnius",
+  "address": "Mindaugo g. 11",
+  "id": "t430"
+ },
+ {
+  "name": "Norfa",
+  "city": "Vilnius",
+  "address": "Mokyklos g. 2C",
+  "id": "t431"
+ },
+ {
+  "name": "Norfa",
+  "city": "Vilnius",
+  "address": "Zujūnų g. 1",
+  "id": "t432"
+ },
+ {
+  "name": "Norfa",
+  "city": "Vilnius",
+  "address": "Salininkų g. 129A",
+  "id": "t433"
+ },
+ {
+  "name": "Norfa",
+  "city": "Vilnius",
+  "address": "A.P Kavoliuko g. 6",
+  "id": "t434"
+ },
+ {
+  "name": "Norfa",
+  "city": "Vilnius",
+  "address": "Rygos g. 49",
+  "id": "t435"
+ },
+ {
+  "name": "Norfa",
+  "city": "Vilnius",
+  "address": "Genių g. 10A",
+  "id": "t436"
+ },
+ {
+  "name": "Norfa",
+  "city": "Vilnius",
+  "address": "Minsko pl. 3",
+  "id": "t437"
+ },
+ {
+  "name": "Norfa (Udrop)",
+  "city": "Vilnius",
+  "address": "Ateities g. 10",
+  "id": "t438"
+ },
+ {
+  "name": "Norfa (Udrop)",
+  "city": "Vilnius",
+  "address": "Molėtų pl. 47B",
+  "id": "t439"
+ },
+ {
+  "name": "North Star (Udrop)",
+  "city": "Vilnius",
+  "address": "Ulonų g. 2",
+  "id": "t440"
+ },
+ {
+  "name": "Panorama",
+  "city": "Vilnius",
+  "address": "Saltoniškių g. 9",
+  "id": "t441"
+ },
+ {
+  "name": "Parko g. (Udrop)",
+  "city": "Vilnius",
+  "address": "Parko g. 37A",
+  "id": "t442"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Vilnius",
+  "address": "Antakalnio g. 75",
+  "id": "t443"
+ },
+ {
+  "name": "PC Kalnėnai",
+  "city": "Vilnius",
+  "address": "Estų g. 1",
+  "id": "t444"
+ },
+ {
+  "name": "PC Pašilaičiai",
+  "city": "Vilnius",
+  "address": "Pavilnionių g. 55",
+  "id": "t445"
+ },
+ {
+  "name": "PC Pikas",
+  "city": "Vilnius",
+  "address": "Ukmergės g. 221",
+  "id": "t446"
+ },
+ {
+  "name": "PC UNA",
+  "city": "Vilnius",
+  "address": "Dangeručio g. 1",
+  "id": "t447"
+ },
+ {
+  "name": "Pigu.lt",
+  "city": "Vilnius",
+  "address": "Saltoniškių g. 29",
+  "id": "t448"
+ },
+ {
+  "name": "RIMI",
+  "city": "Vilnius",
+  "address": "Džiaugsmo g. 116",
+  "id": "t449"
+ },
+ {
+  "name": "Rimi (Udrop)",
+  "city": "Vilnius",
+  "address": "Senasis Ukmergės kl. 46A",
+  "id": "t450"
+ },
+ {
+  "name": "Rimi Bendorėliai",
+  "city": "Vilnius",
+  "address": "Senasis Ukmergės kl. 46A",
+  "id": "t451"
+ },
+ {
+  "name": "Rimi Erfurtas",
+  "city": "Vilnius",
+  "address": "Architektų g. 19",
+  "id": "t452"
+ },
+ {
+  "name": "Rimi Galgiai",
+  "city": "Vilnius",
+  "address": "Žvaigždikių g. 2",
+  "id": "t453"
+ },
+ {
+  "name": "Rimi Kareivių",
+  "city": "Vilnius",
+  "address": "Kareivių g. 11A",
+  "id": "t454"
+ },
+ {
+  "name": "Rimi Mylia",
+  "city": "Vilnius",
+  "address": "Kedrų g. 4",
+  "id": "t455"
+ },
+ {
+  "name": "Rimi Naujoji Vilnia",
+  "city": "Vilnius",
+  "address": "Šiaurės g. 37",
+  "id": "t456"
+ },
+ {
+  "name": "Rimi Pavilnionių",
+  "city": "Vilnius",
+  "address": "Pavilnionių g. 22",
+  "id": "t457"
+ },
+ {
+  "name": "Rimi Pilaitė",
+  "city": "Vilnius",
+  "address": "Vydūno g. 4",
+  "id": "t458"
+ },
+ {
+  "name": "Rimi Rygos",
+  "city": "Vilnius",
+  "address": "Rygos g. 8",
+  "id": "t459"
+ },
+ {
+  "name": "Rimi Tarandė",
+  "city": "Vilnius",
+  "address": "Vaivadiškių g. 2",
+  "id": "t460"
+ },
+ {
+  "name": "Rimi Užupis",
+  "city": "Vilnius",
+  "address": "Zarasų g. 5A",
+  "id": "t461"
+ },
+ {
+  "name": "Rimi Šiaurės miestelis",
+  "city": "Vilnius",
+  "address": "Žirmūnų g. 64",
+  "id": "t462"
+ },
+ {
+  "name": "Rimi Šiltnamių",
+  "city": "Vilnius",
+  "address": "Šiltnamių g. 21",
+  "id": "t463"
+ },
+ {
+  "name": "RIMI-Čekoniškės",
+  "city": "Vilnius",
+  "address": "Pilaitės pr. 65",
+  "id": "t464"
+ },
+ {
+  "name": "Santariškių (Udrop)",
+  "city": "Vilnius",
+  "address": "Santariškių g. 1",
+  "id": "t465"
+ },
+ {
+  "name": "Saurida degalinė",
+  "city": "Vilnius",
+  "address": "Buivydiškių g. 1A",
+  "id": "t466"
+ },
+ {
+  "name": "Senukai (Udrop)",
+  "city": "Vilnius",
+  "address": "V. Pociūno g. 10",
+  "id": "t467"
+ },
+ {
+  "name": "Simbiocity",
+  "city": "Vilnius",
+  "address": "V. Gerulaičio g. 10",
+  "id": "t468"
+ },
+ {
+  "name": "Skulas (Udrop)",
+  "city": "Vilnius",
+  "address": "J. Kazlausko g. 33",
+  "id": "t469"
+ },
+ {
+  "name": "Smėlio arena (Udrop)",
+  "city": "Vilnius",
+  "address": "Justiniškių g. 12",
+  "id": "t470"
+ },
+ {
+  "name": "Sostinės turgus (Udrop)",
+  "city": "Vilnius",
+  "address": "Kalvarijų g. 88",
+  "id": "t471"
+ },
+ {
+  "name": "Stateta (Udrop)",
+  "city": "Vilnius",
+  "address": "Ukmergės g. 246",
+  "id": "t472"
+ },
+ {
+  "name": "Verslo namai Paupys",
+  "city": "Vilnius",
+  "address": "Aukštaičių g. 7",
+  "id": "t473"
+ },
+ {
+  "name": "Verslo trikampis",
+  "city": "Vilnius",
+  "address": "J. Jasinskio g. 16",
+  "id": "t474"
+ },
+ {
+  "name": "Vichy (Udrop)",
+  "city": "Vilnius",
+  "address": "Ozo g. 14C",
+  "id": "t475"
+ },
+ {
+  "name": "Čia Market",
+  "city": "Vilnius",
+  "address": "S.Krasausko g. 1",
+  "id": "t476"
+ },
+ {
+  "name": "Šilas (uDrop)",
+  "city": "Vilnius",
+  "address": "Girulių g. 2",
+  "id": "t477"
+ },
+ {
+  "name": "Šilas (Udrop)",
+  "city": "Vilnius",
+  "address": "Zujūnų g. 5",
+  "id": "t478"
+ },
+ {
+  "name": "IKI",
+  "city": "Visaginas",
+  "address": "Parko g. 7B-6",
+  "id": "t479"
+ },
+ {
+  "name": "LIDL",
+  "city": "Visaginas",
+  "address": "Veteranų g. 9",
+  "id": "t480"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Visaginas",
+  "address": "Taikos g. 66",
+  "id": "t481"
+ },
+ {
+  "name": "Aibė (uDrop)",
+  "city": "Vydmantai",
+  "address": "Gintaro g. 9",
+  "id": "t482"
+ },
+ {
+  "name": "Aibė",
+  "city": "Vėžaičiai",
+  "address": "Gargždų g. 29",
+  "id": "t483"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Zarasai",
+  "address": "D. Bukonto g. 7",
+  "id": "t484"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Šakiai",
+  "address": "V. Kudirkos g. 66",
+  "id": "t485"
+ },
+ {
+  "name": "Norfa",
+  "city": "Šakiai",
+  "address": "Šaulių g. 49",
+  "id": "t486"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Šalčininkai",
+  "address": "Vilniaus g. 61",
+  "id": "t487"
+ },
+ {
+  "name": "Norfa",
+  "city": "Šeduva",
+  "address": "Panevėžio g. 33",
+  "id": "t488"
+ },
+ {
+  "name": "Akropolis",
+  "city": "Šiauliai",
+  "address": "Aido g. 8",
+  "id": "t489"
+ },
+ {
+  "name": "Elimart",
+  "city": "Šiauliai",
+  "address": "Gegužių g. 11",
+  "id": "t490"
+ },
+ {
+  "name": "IKI Dainai",
+  "city": "Šiauliai",
+  "address": "Gardino g. 2",
+  "id": "t491"
+ },
+ {
+  "name": "IKI Lyra",
+  "city": "Šiauliai",
+  "address": "Lyros g. 19A",
+  "id": "t492"
+ },
+ {
+  "name": "Kubas",
+  "city": "Šiauliai",
+  "address": "Draugystės pr. 2",
+  "id": "t493"
+ },
+ {
+  "name": "Kubas (Udrop)",
+  "city": "Šiauliai",
+  "address": "Draugystės pr. 14",
+  "id": "t494"
+ },
+ {
+  "name": "Kubas (Udrop)",
+  "city": "Šiauliai",
+  "address": "Aido g. 12",
+  "id": "t495"
+ },
+ {
+  "name": "Kubas (Udrop)",
+  "city": "Šiauliai",
+  "address": "Vytauto g. 122",
+  "id": "t496"
+ },
+ {
+  "name": "LIDL",
+  "city": "Šiauliai",
+  "address": "Tilžės g. 3",
+  "id": "t497"
+ },
+ {
+  "name": "LIDL",
+  "city": "Šiauliai",
+  "address": "Tilžės g. 217",
+  "id": "t498"
+ },
+ {
+  "name": "LIDL",
+  "city": "Šiauliai",
+  "address": "Pramonės g.  1A",
+  "id": "t499"
+ },
+ {
+  "name": "Maxima",
+  "city": "Šiauliai",
+  "address": "Vilniaus g. 3",
+  "id": "t500"
+ },
+ {
+  "name": "Norfa",
+  "city": "Šiauliai",
+  "address": "Tilžės g. 59 A",
+  "id": "t501"
+ },
+ {
+  "name": "Norfa",
+  "city": "Šiauliai",
+  "address": "Vilties g. 1",
+  "id": "t502"
+ },
+ {
+  "name": "Norfa",
+  "city": "Šiauliai",
+  "address": "Gumbinės g. 145A",
+  "id": "t503"
+ },
+ {
+  "name": "Norfa",
+  "city": "Šiauliai",
+  "address": "M. Valančiaus g. 18",
+  "id": "t504"
+ },
+ {
+  "name": "Pramonės (Udrop)",
+  "city": "Šiauliai",
+  "address": "Pramonės g. 23",
+  "id": "t505"
+ },
+ {
+  "name": "Rimi Lieporiai",
+  "city": "Šiauliai",
+  "address": "Statybininkų g. 23",
+  "id": "t506"
+ },
+ {
+  "name": "Saulės miestas",
+  "city": "Šiauliai",
+  "address": "Tilžės g. 109",
+  "id": "t507"
+ },
+ {
+  "name": "IKI",
+  "city": "Šilalė",
+  "address": "J. Basanavičiaus g. 21",
+  "id": "t508"
+ },
+ {
+  "name": "Maxima X",
+  "city": "Šilalė",
+  "address": "Dariaus ir Girėno g. 12",
+  "id": "t509"
+ },
+ {
+  "name": "IKI",
+  "city": "Šilutė",
+  "address": "Dariaus ir Girėno g. 11",
+  "id": "t510"
+ },
+ {
+  "name": "LIDL",
+  "city": "Šilutė",
+  "address": "Tilžės g. 22",
+  "id": "t511"
+ },
+ {
+  "name": "Lietuvininkų",
+  "city": "Šilutė",
+  "address": "Lietuvininkų g. 39",
+  "id": "t512"
+ },
+ {
+  "name": "Maxima",
+  "city": "Širvintos",
+  "address": "I.Šeiniaus g. 19",
+  "id": "t513"
+ },
+ {
+  "name": "Norfa",
+  "city": "Širvintos",
+  "address": "Zibalų g. 11",
+  "id": "t514"
+ },
+ {
+  "name": "Kultūros centras",
+  "city": "Šveicarija",
+  "address": "Pergalės g. 17A",
+  "id": "t515"
+ },
+ {
+  "name": "Lakaja",
+  "city": "Švenčionys",
+  "address": "Vilniaus g. 8",
+  "id": "t516"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Švenčionys",
+  "address": "Vilniaus g. 18",
+  "id": "t517"
+ },
+ {
+  "name": "Maxima",
+  "city": "Švenčionėliai",
+  "address": "Priestočio g. 6",
+  "id": "t518"
+ },
+ {
+  "name": "Norfa",
+  "city": "Švenčionėliai",
+  "address": "Žemutinės g. 26",
+  "id": "t519"
+ },
+ {
+  "name": "Čia Market",
+  "city": "Švėkšna",
+  "address": "Liepų a. 9",
+  "id": "t520"
+ },
+ {
+  "name": "Žirnis Aibė",
+  "city": "Žagarė",
+  "address": "Miesto a. 8",
+  "id": "t521"
+ },
+ {
+  "name": "Žeimių seniūnija",
+  "city": "Žeimiai",
+  "address": "Kauno g. 47",
+  "id": "t522"
+ },
+ {
+  "name": "Etnokultūros centras (Udrop)",
+  "city": "Žemaičių Naumiestis",
+  "address": "Pergalės a. 15",
+  "id": "t523"
+ },
+ {
+  "name": "Pašto skyrius",
+  "city": "Žiežmariai",
+  "address": "Žąslių g. 5",
+  "id": "t524"
+ }
+]

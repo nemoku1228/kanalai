@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mano paskyra | market</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--navy:#0B1929;--navy2:#13233A;--bg:#F7F8FA;--accent:#FF5C35;--green:#16A34A;--text:#1E293B;--text2:#64748B;--text3:#94A3B8;--border:#E7EAEE}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+header{background:var(--navy2);padding:14px 0}
+.header-inner{max-width:900px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Sora',sans-serif;font-weight:800;font-size:22px;color:white}
+.logo span{color:var(--accent)}
+.logout-link{color:#94a3b8;font-size:13px;cursor:pointer}
+.logout-link:hover{color:white}
+.lang-pills{display:flex;gap:3px}
+.lang-pill{background:transparent;border:1px solid #2d3f57;color:#94a3b8;padding:2px 7px;font-size:11px;font-weight:600;cursor:pointer;border-radius:4px;display:inline-flex;align-items:center;gap:3px}
+.lang-pill.active{background:var(--accent);border-color:var(--accent);color:white}
+.lang-flag{width:14px;height:14px;border-radius:2px;flex-shrink:0}
+.lang-code{line-height:1}
+main{flex:1;max-width:900px;width:100%;margin:0 auto;padding:28px 20px}
+.welcome-title{font-family:'Sora',sans-serif;font-size:24px;font-weight:700}
+.welcome-sub{color:var(--text2);font-size:13px;margin-top:4px;margin-bottom:20px}
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:20px}
+.tab-btn{padding:11px 18px;font-family:'Sora',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer;border:none;background:none;color:var(--text2);border-bottom:2px solid transparent;margin-bottom:-2px}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.card{background:white;border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:14px}
+.card-title{font-family:'Sora',sans-serif;font-weight:700;font-size:15px;margin-bottom:16px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+@media(max-width:480px){.form-grid{grid-template-columns:1fr}}
+label{font-size:10.5px;font-weight:700;color:var(--text3);text-transform:uppercase;display:block;margin-bottom:5px}
+.form-input{width:100%;padding:10px 13px;border:1px solid var(--border);border-radius:9px;font-size:13.5px;outline:none}
+.form-input:disabled{background:#f8fafc;color:#94a3b8}
+.form-input:focus{border-color:var(--accent)}
+.btn-save{background:var(--navy);color:white;border:none;padding:11px 22px;border-radius:9px;font-weight:700;font-size:13.5px;cursor:pointer}
+.btn-save:hover{background:var(--accent)}
+.msg{display:none;margin-top:12px;padding:10px 14px;border-radius:8px;font-size:13px}
+
+.order-item{border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.order-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#fafbfc;border-bottom:1px solid var(--border)}
+.order-id{font-family:'Sora',sans-serif;font-weight:700;color:var(--accent)}
+.order-date{font-size:11px;color:var(--text3);margin-left:8px}
+.status-badge{padding:3px 11px;border-radius:20px;font-size:11px;font-weight:700}
+.order-body{padding:14px 16px}
+.order-item-line{display:flex;justify-content:space-between;font-size:12.5px;padding:4px 0;border-bottom:1px solid #f8fafc}
+.order-item-line:last-of-type{border-bottom:none}
+.order-total{display:flex;justify-content:space-between;font-weight:700;font-size:13.5px;border-top:1px solid var(--border);padding-top:8px;margin-top:6px}
+.tracking-info{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:#166534}
+.invoice-download-link{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:#2563eb;margin-top:10px;text-decoration:none}
+.invoice-download-link:hover{text-decoration:underline}
+.no-orders{text-align:center;padding:50px 20px;color:var(--text3)}
+.no-orders i{font-size:36px;display:block;margin-bottom:10px}
+.loading{text-align:center;padding:40px;color:var(--text3)}
+footer{background:var(--navy);color:#94a3b8;text-align:center;padding:16px;font-size:11.5px}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css">
+<script src="i18n.js"></script>
+</head>
+<body>
+<header>
+<div class="header-inner">
+<a href="index.html" class="logo"><span data-site-name>market</span><span>.</span></a>
+<div style="display:flex;align-items:center;gap:14px">
+<div class="lang-pills" id="lang-switcher"></div>
+<a href="logout.php" class="logout-link" data-i18n="logout">Atsijungti</a>
+</div>
+</div>
+</header>
+<main>
+<div id="loading" style="text-align:center;padding:60px;color:#94a3b8"><i class="fa-solid fa-spinner fa-spin" style="font-size:24px"></i></div>
+
+<div id="auth-content" style="display:none;max-width:420px;margin:20px auto">
+<div class="card" id="panel-auth-choice">
+<div class="card-title" style="font-size:18px" data-i18n="login_to_account_title">Prisijunkite prie paskyros</div>
+<p style="font-size:13px;color:#64748b;margin-bottom:18px" data-i18n="login_to_account_sub">Prisijunkite, kad galėtumėte peržiūrėti savo užsakymus ir valdyti duomenis.</p>
+<div style="display:flex;flex-direction:column;gap:10px">
+<button class="btn-save" style="width:100%;padding:12px" onclick="showAuthStep('login')"><i class="fa-solid fa-user" style="margin-right:8px"></i><span data-i18n="login_btn">Prisijungti</span></button>
+<button style="width:100%;padding:12px;background:white;color:#0B1929;border:2px solid #0B1929;border-radius:9px;font-weight:700;font-size:13.5px;cursor:pointer" onclick="showAuthStep('register')"><i class="fa-solid fa-user-plus" style="margin-right:8px"></i><span data-i18n="create_account">Susikurti paskyrą</span></button>
+</div>
+</div>
+
+<div class="card" id="panel-auth-login" style="display:none">
+<button style="background:none;border:none;color:#64748b;cursor:pointer;font-size:13px;margin-bottom:14px" onclick="showAuthStep('choice')"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="back">Atgal</span></button>
+<div class="card-title" data-i18n="login_title">Prisijungimas</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<input class="form-input" type="email" id="login-email" data-i18n-placeholder="email_label" placeholder="El. paštas">
+<input class="form-input" type="password" id="login-pass" data-i18n-placeholder="password_label" placeholder="Slaptažodis" onkeydown="if(event.key==='Enter')doLogin()">
+</div>
+<p style="text-align:right;margin-top:8px"><a onclick="showAuthStep('forgot')" style="color:#64748b;font-size:12px;cursor:pointer" data-i18n="forgot_password_link">Pamiršote slaptažodį?</a></p>
+<div id="login-err" style="display:none;background:#fef2f2;color:#dc2626;font-size:12.5px;padding:9px 13px;border-radius:8px;margin-top:10px"></div>
+<button class="btn-save" style="width:100%;margin-top:12px;padding:12px" onclick="doLogin()" data-i18n="login_btn">Prisijungti</button>
+<p style="text-align:center;margin-top:12px;font-size:12.5px;color:#64748b"><span data-i18n="no_account_q">Neturite paskyros?</span> <a onclick="showAuthStep('register')" style="color:#FF5C35;font-weight:700;cursor:pointer" data-i18n="register_link">Registruotis</a></p>
+</div>
+
+<div class="card" id="panel-auth-forgot" style="display:none">
+<button style="background:none;border:none;color:#64748b;cursor:pointer;font-size:13px;margin-bottom:14px" onclick="showAuthStep('login')"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="back">Atgal</span></button>
+<div class="card-title" data-i18n="forgot_password_title">Slaptažodžio atstatymas</div>
+<p style="font-size:13px;color:#64748b;margin-bottom:14px" data-i18n="forgot_password_sub">Įveskite savo el. paštą — atsiųsime nuorodą slaptažodžio atstatymui.</p>
+<input class="form-input" type="email" id="forgot-email" data-i18n-placeholder="email_label" placeholder="El. paštas" onkeydown="if(event.key==='Enter')doForgotPassword()">
+<div id="forgot-msg" style="display:none;font-size:12.5px;padding:9px 13px;border-radius:8px;margin-top:10px"></div>
+<button class="btn-save" style="width:100%;margin-top:12px;padding:12px" onclick="doForgotPassword()" data-i18n="send_reset_link_btn">Siųsti nuorodą</button>
+</div>
+
+<div class="card" id="panel-auth-register" style="display:none">
+<button style="background:none;border:none;color:#64748b;cursor:pointer;font-size:13px;margin-bottom:14px" onclick="showAuthStep('choice')"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="back">Atgal</span></button>
+<div class="card-title" data-i18n="register_title">Registracija</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<input class="form-input" type="text" id="reg-name" data-i18n-placeholder="name_label" placeholder="Vardas">
+<input class="form-input" type="email" id="reg-email" data-i18n-placeholder="email_label" placeholder="El. paštas">
+<input class="form-input" type="password" id="reg-pass" data-i18n-placeholder="password_min" placeholder="Slaptažodis (min. 6)">
+<input class="form-input" type="password" id="reg-pass2" data-i18n-placeholder="repeat_password" placeholder="Pakartoti slaptažodį" onkeydown="if(event.key==='Enter')doRegister()">
+</div>
+<div id="reg-err" style="display:none;background:#fef2f2;color:#dc2626;font-size:12.5px;padding:9px 13px;border-radius:8px;margin-top:10px"></div>
+<button class="btn-save" style="width:100%;margin-top:12px;padding:12px" onclick="doRegister()" data-i18n="register_link">Registruotis</button>
+<p style="text-align:center;margin-top:12px;font-size:12.5px;color:#64748b"><span data-i18n="have_account_q">Jau turite paskyrą?</span> <a onclick="showAuthStep('login')" style="color:#FF5C35;font-weight:700;cursor:pointer" data-i18n="login_btn">Prisijungti</a></p>
+</div>
+</div>
+
+<div id="account-content" style="display:none">
+<div class="welcome-title" id="welcome-title"></div>
+<div class="welcome-sub" data-i18n="account_sub">Čia galite peržiūrėti užsakymus ir keisti duomenis.</div>
+<div class="tabs">
+<button class="tab-btn active" onclick="showTab('orders',this)" data-i18n="my_orders_tab">Mano užsakymai</button>
+<button class="tab-btn" onclick="showTab('addresses',this)" data-i18n="my_addresses_tab">Mano adresai</button>
+<button class="tab-btn" onclick="showTab('profile',this)" data-i18n="profile_tab">Profilis</button>
+<button class="tab-btn" onclick="showTab('password',this)" data-i18n="password_tab">Slaptažodis</button>
+</div>
+<div class="tab-panel active" id="panel-orders"></div>
+<div class="tab-panel" id="panel-addresses">
+<div class="card">
+<div class="card-title" data-i18n="saved_addresses_title">Išsaugoti adresai</div>
+<div id="addresses-list" style="margin-bottom:16px"></div>
+<button class="btn-save" onclick="showAddAddressForm()" data-i18n="add_new_address_btn"><i class="fa-solid fa-plus"></i> Pridėti naują adresą</button>
+<div id="add-address-form" style="display:none;margin-top:16px;padding-top:16px;border-top:1px solid #f1f5f9">
+<div class="form-grid">
+<div><label data-i18n="address_label_field">Pavadinimas (pvz. Namai)</label><input class="form-input" id="addr-label" placeholder="Namai"></div>
+<div><label data-i18n="phone_label">Telefonas</label><input class="form-input" id="addr-phone"></div>
+<div><label data-i18n="name_label">Vardas</label><input class="form-input" id="addr-name"></div>
+<div><label data-i18n="surname_label">Pavardė</label><input class="form-input" id="addr-surname"></div>
+<div><label data-i18n="city_label">Miestas</label><input class="form-input" id="addr-city"></div>
+<div><label data-i18n="zip_label">Pašto kodas</label><input class="form-input" id="addr-zipcode"></div>
+<div style="grid-column:1/-1"><label data-i18n="street_label">Gatvė</label><input class="form-input" id="addr-street"></div>
+</div>
+<div style="display:flex;gap:10px;margin-top:10px">
+<button class="btn-save" onclick="submitNewAddress()" data-i18n="save_btn">Išsaugoti</button>
+<button onclick="hideAddAddressForm()" style="background:white;border:1px solid #e2e8f0;border-radius:9px;padding:11px 22px;font-weight:700;font-size:13.5px;cursor:pointer" data-i18n="cancel_btn">Atšaukti</button>
+</div>
+</div>
+<div class="msg" id="address-msg"></div>
+</div>
+</div>
+<div class="tab-panel" id="panel-profile">
+<div class="card">
+<div class="card-title" data-i18n="contact_data">Kontaktiniai duomenys</div>
+<div class="form-grid">
+<div><label data-i18n="name_label">Vardas</label><input class="form-input" id="p-name"></div>
+<div><label data-i18n="email_label">El. paštas</label><input class="form-input" id="p-email" disabled></div>
+<div><label data-i18n="city_label">Miestas</label><input class="form-input" id="p-city"></div>
+<div><label data-i18n="street_label">Gatvė</label><input class="form-input" id="p-street"></div>
+<div><label data-i18n="zip_label">Pašto kodas</label><input class="form-input" id="p-zipcode"></div>
+</div>
+<button class="btn-save" onclick="saveProfile()" data-i18n="save_btn">Išsaugoti</button>
+<div class="msg" id="profile-msg"></div>
+</div>
+</div>
+<div class="tab-panel" id="panel-password">
+<div class="card">
+<div class="card-title" data-i18n="change_password_title">Keisti slaptažodį</div>
+<div class="form-grid">
+<div style="grid-column:1/-1"><label data-i18n="current_password">Dabartinis slaptažodis</label><input class="form-input" type="password" id="p-old-pass"></div>
+<div><label data-i18n="new_password">Naujas slaptažodis</label><input class="form-input" type="password" id="p-new-pass"></div>
+<div><label data-i18n="repeat_new_password">Pakartoti naują</label><input class="form-input" type="password" id="p-new-pass2"></div>
+</div>
+<button class="btn-save" onclick="changePassword()" data-i18n="change_btn">Pakeisti</button>
+<div class="msg" id="pass-msg"></div>
+</div>
+</div>
+</div>
+</main>
+<footer>&#169; 2026 market</footer>
+<script>
+const STATUS_I18N_KEY = {'Submitted':'status_new','Confirmed':'status_processing','Processed':'status_shipped','Completed':'status_delivered','Cancelled':'status_cancelled'};
+const statusColors = {'Submitted':'background:#dbeafe;color:#1d4ed8','Confirmed':'background:#fef3c7;color:#92400e','Processed':'background:#ede9fe;color:#6d28d9','Completed':'background:#dcfce7;color:#166534','Cancelled':'background:#fee2e2;color:#991b1b'};
+function statusLabel(key){ return t(STATUS_I18N_KEY[key]) || key; }
+let sessionData = null;
+
+function showTab(name, btn){
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-'+name).classList.add('active');
+    if(name==='addresses') loadAddresses();
+}
+
+async function loadSession(){
+    try{
+        const res = await fetch('session.php');
+        const data = await res.json();
+        document.getElementById('loading').style.display='none';
+        if(!data.ok){ document.getElementById('auth-content').style.display='block'; return; }
+        sessionData = data;
+        document.getElementById('account-content').style.display='block';
+        document.getElementById('welcome-title').textContent = t('welcome_back')+' '+data.name+'!';
+        document.getElementById('p-email').value = data.email;
+        loadProfile(); loadOrders();
+    }catch(e){
+        document.getElementById('loading').innerHTML = `
+            <div style="text-align:center;padding:40px 20px">
+                <i class="fa-solid fa-triangle-exclamation" style="font-size:32px;color:#f59e0b;display:block;margin-bottom:12px"></i>
+                <p style="font-weight:700;margin-bottom:8px">${t('account_unavailable')}</p>
+                <p style="color:#94a3b8;font-size:13px;margin-bottom:16px">${t('account_unavailable_sub')}</p>
+                <a href="index.html" style="background:#FF5C35;color:white;padding:10px 22px;border-radius:9px;font-weight:700;font-size:13px">${t('return_to_shop')}</a>
+            </div>`;
+    }
+}
+
+function showAuthStep(step){
+    document.getElementById('panel-auth-choice').style.display = step==='choice' ? 'block' : 'none';
+    document.getElementById('panel-auth-login').style.display = step==='login' ? 'block' : 'none';
+    document.getElementById('panel-auth-register').style.display = step==='register' ? 'block' : 'none';
+    document.getElementById('panel-auth-forgot').style.display = step==='forgot' ? 'block' : 'none';
+}
+
+async function doForgotPassword(){
+    const email = document.getElementById('forgot-email').value.trim();
+    const msg = document.getElementById('forgot-msg');
+    msg.style.display = 'block';
+    if(!email){ msg.style.background='#fef2f2'; msg.style.color='#dc2626'; msg.textContent=t('fill_all_fields'); return; }
+    try{
+        const res = await fetch('forgot_password.php', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email})});
+        const data = await res.json();
+        msg.style.background = data.ok ? '#f0fdf4' : '#fef2f2';
+        msg.style.color = data.ok ? '#166534' : '#dc2626';
+        msg.textContent = data.msg;
+    }catch(e){
+        msg.style.background='#fef2f2'; msg.style.color='#dc2626'; msg.textContent=t('order_save_error');
+    }
+}
+
+async function doLogin(){
+    const email=document.getElementById('login-email').value.trim();
+    const pass=document.getElementById('login-pass').value;
+    const err=document.getElementById('login-err');
+    if(!email||!pass){ err.style.display='block'; err.textContent=t('fill_all_fields'); return; }
+    const res=await fetch('login.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password:pass})});
+    const data=await res.json();
+    if(data.ok){ document.getElementById('auth-content').style.display='none'; loadSession(); }
+    else { err.style.display='block'; err.textContent=data.msg; }
+}
+
+async function doRegister(){
+    const name=document.getElementById('reg-name').value.trim();
+    const email=document.getElementById('reg-email').value.trim();
+    const pass=document.getElementById('reg-pass').value;
+    const pass2=document.getElementById('reg-pass2').value;
+    const err=document.getElementById('reg-err');
+    err.style.display='none';
+    if(!name||!email||!pass||!pass2){ err.style.display='block'; err.textContent=t('fill_all_fields'); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.style.display='block'; err.textContent=t('invalid_email_format'); return; }
+    if(pass!==pass2){ err.style.display='block'; err.textContent=t('passwords_mismatch'); return; }
+    if(pass.length<6){ err.style.display='block'; err.textContent=t('password_too_short'); return; }
+    const res=await fetch('register.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,password:pass})});
+    const data=await res.json();
+    if(data.ok && data.needs_verification){
+        document.getElementById('panel-auth-register').innerHTML = `
+            <div style="text-align:center;padding:10px 0">
+                <i class="fa-solid fa-envelope-circle-check" style="font-size:40px;color:#16A34A;margin-bottom:14px;display:block"></i>
+                <div class="card-title">${t('check_your_email')}</div>
+                <p style="font-size:13px;color:#64748b;margin-top:8px">${t('verification_email_sent_to')} <strong>${email}</strong></p>
+            </div>`;
+    } else if(data.ok){
+        document.getElementById('auth-content').style.display='none'; loadSession();
+    } else { err.style.display='block'; err.textContent=data.msg; }
+}
+
+async function loadProfile(){
+    try{
+        const res = await fetch('get_profile.php');
+        const data = await res.json();
+        if(data.ok){
+            document.getElementById('p-name').value = data.user.name||'';
+            document.getElementById('p-city').value = data.user.address?.city||'';
+            document.getElementById('p-street').value = data.user.address?.street||'';
+            document.getElementById('p-zipcode').value = data.user.address?.zipcode||'';
+        }
+    }catch(e){}
+}
+
+async function loadAddresses(){
+    const el = document.getElementById('addresses-list');
+    el.innerHTML = `<p style="color:#94a3b8;font-size:13px"><i class="fa-solid fa-spinner fa-spin"></i></p>`;
+    try{
+        const res = await fetch('manage_addresses.php', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({action:'list'})});
+        const data = await res.json();
+        if(!data.ok || !data.addresses.length){
+            el.innerHTML = `<p style="color:#94a3b8;font-size:13px">${t('no_saved_addresses')}</p>`;
+            return;
+        }
+        el.innerHTML = data.addresses.map(a=>`
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
+                <div>
+                    <div style="font-weight:700;font-size:13.5px;margin-bottom:4px">${a.label}</div>
+                    <div style="font-size:12.5px;color:#64748b">${a.name} ${a.surname}</div>
+                    <div style="font-size:12.5px;color:#64748b">${a.street}, ${a.city} ${a.zipcode}</div>
+                    ${a.phone?`<div style="font-size:12.5px;color:#64748b">${a.phone}</div>`:''}
+                </div>
+                <button onclick="deleteAddress('${a.id}')" style="background:none;border:none;color:#dc2626;cursor:pointer;padding:4px"><i class="fa-solid fa-trash"></i></button>
+            </div>`).join('');
+    }catch(e){ el.innerHTML = `<p style="color:#94a3b8;font-size:13px">${t('order_save_error')}</p>`; }
+}
+
+function showAddAddressForm(){
+    document.getElementById('add-address-form').style.display = 'block';
+    if(sessionData){
+        document.getElementById('addr-name').value = sessionData.name.split(' ')[0] || '';
+    }
+}
+
+function hideAddAddressForm(){
+    document.getElementById('add-address-form').style.display = 'none';
+}
+
+async function submitNewAddress(){
+    const label = document.getElementById('addr-label').value.trim() || 'Adresas';
+    const name = document.getElementById('addr-name').value.trim();
+    const surname = document.getElementById('addr-surname').value.trim();
+    const city = document.getElementById('addr-city').value.trim();
+    const street = document.getElementById('addr-street').value.trim();
+    const zipcode = document.getElementById('addr-zipcode').value.trim();
+    const phone = document.getElementById('addr-phone').value.trim();
+    const msg = document.getElementById('address-msg');
+    msg.style.display = 'block';
+
+    if(!name || !city || !street || !zipcode){
+        msg.style.background='#fef2f2'; msg.style.color='#dc2626'; msg.textContent=t('fill_all_fields');
+        return;
+    }
+
+    try{
+        const res = await fetch('manage_addresses.php', {
+            method:'POST', headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({action:'add', label, name, surname, city, street, zipcode, phone})
+        });
+        const data = await res.json();
+        if(data.ok){
+            msg.style.background='#f0fdf4'; msg.style.color='#166534'; msg.textContent=t('saved_msg');
+            hideAddAddressForm();
+            ['addr-label','addr-name','addr-surname','addr-city','addr-street','addr-zipcode','addr-phone'].forEach(id=>document.getElementById(id).value='');
+            loadAddresses();
+        } else {
+            msg.style.background='#fef2f2'; msg.style.color='#dc2626'; msg.textContent=data.msg;
+        }
+    }catch(e){
+        msg.style.background='#fef2f2'; msg.style.color='#dc2626'; msg.textContent=t('order_save_error');
+    }
+    setTimeout(()=>msg.style.display='none', 3000);
+}
+
+async function deleteAddress(addressId){
+    if(!confirm(t('confirm_delete_address'))) return;
+    await fetch('manage_addresses.php', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({action:'delete', address_id:addressId})});
+    loadAddresses();
+}
+
+async function loadOrders(){
+    const el = document.getElementById('panel-orders');
+    try{
+        const res = await fetch('get_my_orders.php');
+        const data = await res.json();
+        if(!data.ok || !data.orders.length){
+            el.innerHTML = `<div class="no-orders"><i class="fa-solid fa-box-open"></i>${t('no_orders_yet')}</div>`; return;
+        }
+        el.innerHTML = data.orders.map(o=>`
+            <div class="order-item">
+                <div class="order-head">
+                    <div><span class="order-id">${o.id}</span><span class="order-date">${o.date}</span></div>
+                    <span class="status-badge" style="${statusColors[o.status]||''}">${statusLabel(o.status)}</span>
+                </div>
+                <div class="order-body">
+                    ${o.cart.map(i=>`<div class="order-item-line"><span>${i.name} <span style="color:#94a3b8">x${i.quantity}</span></span><span style="font-weight:700">${(i.price*i.quantity).toFixed(2)} €</span></div>`).join('')}
+                    <div class="order-total"><span>${t('total')}</span><span style="color:#FF5C35">${o.total}</span></div>
+                    ${o.tracking?`<div class="tracking-info"><i class="fa-solid fa-truck"></i> ${t('tracking_number')}: <strong style="font-family:'Sora',sans-serif">${o.tracking}</strong></div>`:''}
+                    ${o.invoice ? `<a href="download_invoice.php?id=${o.id}" target="_blank" class="invoice-download-link"><i class="fa-solid fa-file-invoice"></i> ${t('download_invoice')}</a>` : ''}
+                    ${o.status==='Cancelled' && o.invoice ? `<a href="download_invoice.php?id=${o.id}&type=credit" target="_blank" class="invoice-download-link" style="margin-left:8px;color:#dc2626"><i class="fa-solid fa-file-circle-minus"></i> ${t('download_credit_invoice')}</a>` : ''}
+                </div>
+            </div>`).join('');
+    }catch(e){ el.innerHTML = `<p style="text-align:center;color:#94a3b8;padding:30px">${t('order_save_error')}</p>`; }
+}
+
+async function saveProfile(){
+    const body = {name:document.getElementById('p-name').value, city:document.getElementById('p-city').value, street:document.getElementById('p-street').value, zipcode:document.getElementById('p-zipcode').value};
+    const res = await fetch('update_profile.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const data = await res.json();
+    const msg = document.getElementById('profile-msg');
+    msg.style.display='block'; msg.style.background=data.ok?'#f0fdf4':'#fef2f2'; msg.style.color=data.ok?'#166534':'#dc2626';
+    msg.textContent = data.ok?t('saved_msg'):data.msg;
+    setTimeout(()=>msg.style.display='none',3000);
+}
+
+async function changePassword(){
+    const oldP=document.getElementById('p-old-pass').value, newP=document.getElementById('p-new-pass').value, newP2=document.getElementById('p-new-pass2').value;
+    const msg=document.getElementById('pass-msg'); msg.style.display='block';
+    if(newP!==newP2){ msg.style.background='#fef2f2'; msg.style.color='#dc2626'; msg.textContent=t('passwords_mismatch'); return; }
+    if(newP.length<6){ msg.style.background='#fef2f2'; msg.style.color='#dc2626'; msg.textContent=t('password_too_short'); return; }
+    const res = await fetch('update_profile.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({old_password:oldP,new_password:newP})});
+    const data = await res.json();
+    msg.style.background = data.ok?'#f0fdf4':'#fef2f2'; msg.style.color = data.ok?'#166534':'#dc2626';
+    msg.textContent = data.ok?t('password_changed'):data.msg;
+    if(data.ok){ document.getElementById('p-old-pass').value=''; document.getElementById('p-new-pass').value=''; document.getElementById('p-new-pass2').value=''; }
+    setTimeout(()=>msg.style.display='none',3000);
+}
+
+renderLangSwitcher('lang-switcher', () => { if(sessionData) loadOrders(); });
+applyI18n();
+applySiteSettings();
+loadSession();
+</script>
+</body>
+</html>

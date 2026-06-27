@@ -1,0 +1,27 @@
+{
+    "gmail_user": "mb.probaltic@gmail.com",
+    "gmail_pass": "NAUJAS_APP_PASSWORD",
+    "admin_email": "mb.probaltic@gmail.com",
+    "site_url": "http:\/\/pneumatinepagalve.lt",
+    "site_name": "KestMarket",
+    "hero_eyebrow": {
+        "lt": "KESTAICIO EL. PARDUOTUVĖ",
+        "en": "LITHUANIAN ONLINE STORE",
+        "ru": "ЛИТОВСКИЙ ИНТЕРНЕТ-МАГАЗИН",
+        "lv": "LIETUVAS INTERNETA VEIKALS",
+        "et": "LEEDU E-POOD",
+        "fi": "LIETTUAN VERKKOKAUPPA"
+    },
+    "hero_title": {
+        "lt": "Viskas, ko reikia, vienoje vietoje",
+        "en": "Everything you need, in one place",
+        "ru": "Всё, что вам нужно, в одном месте",
+        "lv": "Viss, kas nepieciešams, vienā vietā",
+        "et": "Kõik, mida vajate, ühes kohas",
+        "fi": "Kaikki tarvittava, yhdessä paikassa"
+    },
+    "default_markup_percent": 50,
+    "default_discount_percent": 20,
+    "category_markup": [],
+    "price_range_markup": []
+}

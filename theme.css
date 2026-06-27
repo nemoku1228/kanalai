@@ -1,0 +1,267 @@
+/* ============================================================
+   market. — bendras dizaino sluoksnis (theme)
+   Pritaiko naują „market-standalone" dizainą visai svetainei.
+   Įkeliamas PASKUTINIS <head> dalyje, todėl perrašo senus stilius.
+   Nekeičia jokios logikos (krepšelis, atsiskaitymas, PHP) — tik išvaizdą.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap');
+
+/* ── Dizaino spalvos / tokenai ─────────────────────────────── */
+:root{
+  --navy:#0B1929; --navy2:#0B1929;
+  --ink:#0B1929;
+  --bg:#FAFAF8; --card:#FFFFFF;
+  --accent:#FF5A33; --accent-dark:#E0431D; --accentSoft:#FFEDE6;
+  --green:#10B981;
+  --text:#0F1B2D; --text2:#5C6B7E; --text3:#98A4B2;
+  --border:#E9ECF1; --searchbd:#E4E8EE;
+  --herobg:linear-gradient(170deg,#FBFCFE 0%,#F4F1FB 55%,#FCF1EC 100%);
+  --shadow-sm:0 1px 2px rgba(11,25,41,.05);
+  --shadow-card:0 18px 40px -16px rgba(11,25,41,.22);
+  --shadow-accent:0 14px 30px -10px rgba(255,90,51,.5);
+}
+
+/* ── Tipografija ───────────────────────────────────────────── */
+body{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text)}
+.disp,.section-title,.hero-title,.logo,.product-price{font-family:'Sora',sans-serif}
+
+/* ── Viršutinė juosta (topbar) → šviesi ────────────────────── */
+.topbar{background:#FFFFFF;color:var(--text2);border-bottom:1px solid var(--border)}
+.topbar-links a{color:var(--text2)}
+.topbar-links a:hover{color:var(--accent)}
+.lang-pill{background:#fff;border:1px solid var(--border);color:var(--text2)}
+.lang-pill:hover,.lang-pill.active{border-color:var(--accent);color:var(--accent);background:var(--accentSoft)}
+
+/* ── Antraštė (header) → šviesi, permatoma, su blur ────────── */
+header{
+  background:rgba(255,255,255,.82);
+  -webkit-backdrop-filter:blur(20px) saturate(1.4);
+  backdrop-filter:blur(20px) saturate(1.4);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 1px 0 rgba(11,25,41,.04);
+}
+.logo{color:var(--text);letter-spacing:-1px}
+.logo span{color:var(--accent)}
+.header-action{color:var(--text2)}
+.header-action:hover{color:var(--accent)}
+.cart-badge{box-shadow:0 0 0 2px #fff}
+
+/* ── Paieškos laukas → suapvalintas, su švelniu šešėliu ────── */
+.search-combo{
+  background:#fff;border:1.5px solid var(--searchbd);border-radius:15px;overflow:hidden;
+  box-shadow:0 1px 2px rgba(11,25,41,.04);transition:border-color .2s,box-shadow .2s;
+}
+.search-combo:focus-within{border-color:var(--accent);box-shadow:0 6px 22px -8px rgba(255,90,51,.28)}
+.search-cat-select{background:#fff;border-right:1px solid var(--border);color:var(--text2)}
+.search-input{color:var(--text)}
+.search-btn{background:var(--accent)}
+.search-btn:hover{background:var(--accent-dark)}
+
+/* ── Kategorijų juosta ─────────────────────────────────────── */
+.cat-strip{background:#fff;border-bottom:1px solid var(--border)}
+.cat-strip-item{color:var(--text2)}
+.cat-strip-item:hover{color:var(--accent)}
+.cat-strip-item.all-cats{color:var(--text);font-weight:700}
+.cat-strip-item.all-cats:hover{color:var(--accent)}
+.cat-mega-menu{border-radius:16px;box-shadow:0 24px 60px -20px rgba(11,25,41,.28);border:1px solid var(--border)}
+.cat-mega-parent-item:hover,.cat-mega-parent-item.active{background:var(--accentSoft);color:var(--accent)}
+.cat-mega-child-item:hover{color:var(--accent)}
+
+/* ── HERO → šviesus gradientas, tamsus tekstas, švytintys ratai ─ */
+.hero{
+  background:var(--herobg);position:relative;overflow:hidden;
+  padding:64px 20px 72px;
+}
+.hero::before{
+  content:"";position:absolute;top:-120px;left:-80px;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,90,51,.20),transparent 70%);filter:blur(20px);
+  pointer-events:none;animation:themeBlob 14s ease-in-out infinite;
+}
+.hero::after{
+  content:"";position:absolute;bottom:-170px;right:6%;width:480px;height:480px;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,.15),transparent 70%);filter:blur(20px);
+  pointer-events:none;animation:themeBlob 18s ease-in-out infinite reverse;
+}
+.hero>*{position:relative;z-index:1}
+@keyframes themeBlob{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(28px,-22px) scale(1.08)}}
+.hero-eyebrow{color:var(--accent)}
+.hero-title{color:var(--text);font-size:50px;line-height:1.06;letter-spacing:-1.4px}
+.hero-title-accent{color:var(--accent)}
+.hero-sub{color:var(--text2)}
+.hero-cta-primary{
+  background:var(--accent);color:#fff;border-radius:15px;padding:15px 28px;
+  box-shadow:var(--shadow-accent);transition:transform .2s,box-shadow .2s;
+}
+.hero-cta-primary:hover{background:var(--accent);transform:translateY(-2px)}
+.hero-cta-secondary{
+  background:#fff;color:var(--text);border:1px solid var(--border);border-radius:15px;padding:15px 28px;
+  box-shadow:0 4px 16px -6px rgba(11,25,41,.1);transition:all .2s;
+}
+.hero-cta-secondary:hover{background:var(--accentSoft);border-color:var(--accent);color:var(--accent)}
+@media(max-width:640px){.hero{padding:44px 20px 50px}.hero-title{font-size:33px;letter-spacing:-1px}}
+
+/* ── Sekcijos ──────────────────────────────────────────────── */
+.section-title{color:var(--text)}
+.section-sub{color:var(--text3)}
+.section-link{color:var(--accent);font-weight:700}
+.section-link:hover{color:var(--accent-dark)}
+
+/* ── Greitos kategorijos / rekomenduojamos ─────────────────── */
+.quick-cat-card{
+  background:#fff;border:1px solid var(--border);border-radius:15px;box-shadow:var(--shadow-sm);
+  transition:transform .18s,box-shadow .18s,border-color .18s;
+}
+.quick-cat-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px -14px rgba(11,25,41,.2);border-color:#dfe4ea}
+.quick-cat-icon{background:var(--accentSoft);color:var(--accent)}
+
+/* ── Prekių kortelės ───────────────────────────────────────── */
+.product-card{
+  background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;
+  box-shadow:var(--shadow-sm);transition:transform .18s,box-shadow .18s,border-color .18s;
+}
+.product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-card);border-color:#dfe4ea}
+.product-price{color:var(--text)}
+.product-add{background:var(--ink);border-radius:11px}
+.product-add:hover{background:var(--accent)}
+.prow::-webkit-scrollbar-thumb{background:#dfe4ea}
+
+/* ── Pasitikėjimo juosta ───────────────────────────────────── */
+.trust-strip{background:#fff;border-top:1px solid var(--border);border-bottom:none}
+.trust-item i{color:var(--accent)}
+.trust-title{color:var(--text)}
+.trust-sub{color:var(--text3)}
+
+/* ── Bendri mygtukai (atsiskaitymas, prisijungimas ir kt.) ─── */
+.submit-btn,.confirm-btn,.auth-big-btn.solid,.add-to-cart-btn,.checkout-btn{
+  border-radius:13px;font-family:'Plus Jakarta Sans',sans-serif;
+}
+.confirm-btn,.checkout-btn{box-shadow:var(--shadow-accent)}
+.confirm-btn:hover,.checkout-btn:hover{transform:translateY(-1px)}
+.auth-big-btn.outline,.auth-guest-link{border-radius:13px}
+
+/* ── Formos laukai ─────────────────────────────────────────── */
+.form-input,.delivery-select,.search-input{font-family:'Plus Jakarta Sans',sans-serif}
+.form-input,.delivery-select{border-radius:12px;transition:border-color .15s,box-shadow .15s}
+.form-input:focus,.delivery-select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accentSoft);outline:none}
+
+/* ── Kortelės / paneliai ───────────────────────────────────── */
+.panel,.order-summary-box,.product-detail-card,.cart-box{border-radius:16px}
+
+/* ── Poraštė (footer) → tamsi navy, patobulinta ────────────── */
+footer{background:var(--ink);color:#9FB0C2;margin-top:56px;padding:48px 20px 26px}
+
+/* ── Krepšelio šoninis stalčius (jei naudojamas) ───────────── */
+.cart-drawer,.cart-panel{border-radius:18px 0 0 18px}
+
+/* ============================================================
+   PRADŽIOS PUSLAPIO BLOKAI (pagal market-standalone dizainą)
+   ============================================================ */
+
+/* ── HERO (du stulpeliai) ──────────────────────────────────── */
+.hero2{position:relative;overflow:hidden;background:var(--herobg);padding:0}
+.hero2-inner{position:relative;max-width:1340px;margin:0 auto;padding:64px 24px 70px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.hero2-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);box-shadow:0 4px 16px -6px rgba(11,25,41,.12);padding:7px 14px;border-radius:100px;font-size:12.5px;font-weight:700;color:var(--text);margin-bottom:22px}
+.hero2-badge .dot{width:7px;height:7px;border-radius:50%;background:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.18)}
+.hero2-title{font-family:'Sora',sans-serif;font-size:54px;line-height:1.05;font-weight:800;letter-spacing:-1.6px;color:var(--text);margin-bottom:20px}
+.hero2-title .ac{color:var(--accent)}
+.hero2-sub{font-size:16.5px;line-height:1.6;color:var(--text2);max-width:440px;margin-bottom:30px}
+.hero2-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
+.hero2-btn{display:inline-flex;align-items:center;gap:10px;border:none;padding:15px 26px;border-radius:15px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;cursor:pointer;transition:transform .2s,background .2s,border-color .2s;text-decoration:none}
+.hero2-btn.primary{background:var(--accent);color:#fff;box-shadow:0 14px 30px -10px rgba(255,90,51,.55)}
+.hero2-btn.primary:hover{transform:translateY(-2px)}
+.hero2-btn.ghost{background:#fff;color:var(--text);border:1.5px solid var(--border);box-shadow:0 4px 16px -6px rgba(11,25,41,.1)}
+.hero2-btn.ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+.hero2-stats{display:flex;gap:30px;flex-wrap:wrap}
+.hero2-stat .n{font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:var(--text);display:flex;align-items:center;gap:5px}
+.hero2-stat .n .fa-star{font-size:15px;color:#FBBF24}
+.hero2-stat .l{font-size:12.5px;color:var(--text3);font-weight:600;margin-top:2px}
+.hero2-blob{position:absolute;border-radius:50%;filter:blur(20px);pointer-events:none}
+.hero2-blob.a{top:-120px;left:-80px;width:420px;height:420px;background:radial-gradient(circle,rgba(255,90,51,.22),transparent 70%);animation:themeBlob 14s ease-in-out infinite}
+.hero2-blob.b{bottom:-160px;right:8%;width:480px;height:480px;background:radial-gradient(circle,rgba(37,99,235,.18),transparent 70%);animation:themeBlob 18s ease-in-out infinite reverse}
+/* Hero „dienos pasiūlymas" kortelė */
+.deal-card{position:relative;background:#fff;border:1px solid var(--border);border-radius:24px;padding:26px;box-shadow:0 30px 60px -24px rgba(11,25,41,.28)}
+.deal-card .deal-top{display:flex;flex-direction:column;align-items:center;text-align:center;padding-bottom:18px;border-bottom:1px solid var(--border)}
+.deal-card .deal-ico{width:108px;height:108px;border-radius:24px;background:linear-gradient(150deg,#F4F1FB,#FCF1EC);display:flex;align-items:center;justify-content:center;font-size:48px;color:var(--accent);margin-bottom:14px;overflow:hidden}
+.deal-card .deal-ico img{width:100%;height:100%;object-fit:cover}
+.deal-card .deal-tag{display:inline-block;background:var(--accentSoft);color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.5px;padding:5px 11px;border-radius:100px;margin-bottom:10px}
+.deal-card .deal-name{font-weight:700;font-size:15px;color:var(--text)}
+.deal-card .deal-price{font-family:'Sora',sans-serif;font-size:26px;font-weight:800;color:var(--accent);margin-top:4px}
+.deal-row{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--border)}
+.deal-row:last-child{border-bottom:none}
+.deal-row .ic{width:38px;height:38px;border-radius:11px;background:var(--accentSoft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.deal-row .t{font-size:13.5px;font-weight:700;color:var(--text)}
+.deal-row .s{font-size:12px;color:var(--text3)}
+@media(max-width:900px){.hero2-inner{grid-template-columns:1fr;gap:28px;padding:44px 20px 50px}.hero2-title{font-size:36px;letter-spacing:-1px}.deal-card{max-width:420px}}
+
+/* ── Sekcijų antraštės (mock stilius) ──────────────────────── */
+.sec{max-width:1340px;margin:0 auto;padding:46px 24px 8px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.sec-eyebrow{display:inline-flex;align-items:center;gap:7px;background:var(--accentSoft);color:var(--accent);font-size:11.5px;font-weight:800;letter-spacing:.5px;padding:5px 11px;border-radius:100px;margin-bottom:10px}
+.sec-h2{font-family:'Sora',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.5px;color:var(--text)}
+.sec-p{font-size:13.5px;color:var(--text3);margin-top:4px}
+.sec-link{font-size:13.5px;font-weight:700;color:var(--accent);cursor:pointer;text-decoration:none;white-space:nowrap}
+.sec-link:hover{color:var(--accent-dark)}
+
+/* ── Kategorijų tinklelis (v2) ─────────────────────────────── */
+.catgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media(max-width:900px){.catgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.catgrid{grid-template-columns:repeat(2,1fr)}}
+.catcard{position:relative;overflow:hidden;background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px 18px;cursor:pointer;text-decoration:none;display:block;transition:transform .25s,box-shadow .25s,border-color .25s}
+.catcard:hover{transform:translateY(-4px);box-shadow:0 18px 36px -16px rgba(11,25,41,.22);border-color:transparent}
+.catcard .ci{width:46px;height:46px;border-radius:14px;background:var(--accentSoft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:19px}
+.catcard .cn{font-size:14px;font-weight:700;color:var(--text);margin-top:14px}
+.catcard .cc{font-size:12px;color:var(--text3);margin-top:3px}
+
+/* ── Žaibo pasiūlymai (tamsus blokas + laikmatis) ──────────── */
+.flash-wrap{background:linear-gradient(120deg,#0B1929 0%,#16263F 60%,#3A1F18 100%);border-radius:26px;padding:24px 26px;position:relative;overflow:hidden}
+.flash-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.flash-title-wrap{display:flex;align-items:center;gap:13px}
+.flash-bolt{width:44px;height:44px;border-radius:13px;background:rgba(255,90,51,.18);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:18px}
+.flash-h2{font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:#fff;letter-spacing:-.4px}
+.flash-p{font-size:12.5px;color:rgba(255,255,255,.6);margin-top:2px}
+.flash-cd{display:flex;align-items:center;gap:12px}
+.flash-cd .lbl{font-size:12.5px;font-weight:600;color:rgba(255,255,255,.7)}
+.flash-cd .boxes{display:flex;gap:6px;align-items:center}
+.cd-box{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:16px;min-width:40px;text-align:center;padding:7px 4px;border-radius:10px}
+.cd-sep{color:#fff;font-weight:800}
+.flash-wrap .prow .product-card{background:#fff}
+
+/* ── Patikimi prekės ženklai ───────────────────────────────── */
+.brandgrid{display:grid;grid-template-columns:repeat(8,1fr);gap:12px}
+@media(max-width:900px){.brandgrid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:520px){.brandgrid{grid-template-columns:repeat(3,1fr)}}
+.brandchip{display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px 10px;font-family:'Sora',sans-serif;font-weight:700;font-size:14px;color:var(--text2);cursor:pointer;text-decoration:none;transition:all .2s}
+.brandchip:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:0 12px 26px -14px rgba(11,25,41,.2)}
+
+/* ── Turtinga poraštė (footer mega) ────────────────────────── */
+.footmega{max-width:1340px;margin:0 auto;padding:0}
+.footmega-cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.2fr;gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.08)}
+@media(max-width:860px){.footmega-cols{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:480px){.footmega-cols{grid-template-columns:1fr}}
+.footmega .fbrand{font-family:'Sora',sans-serif;font-weight:800;font-size:24px;color:#fff;margin-bottom:14px}
+.footmega .fbrand span{color:var(--accent)}
+.footmega .fdesc{font-size:13px;line-height:1.6;max-width:240px;color:#7E90A4}
+.footmega .fsoc{display:flex;gap:10px;margin-top:18px}
+.footmega .fsoc span{width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:#9FB0C2;cursor:pointer;transition:all .2s}
+.footmega .fsoc span:hover{background:var(--accent);color:#fff}
+.footmega .fcol-t{font-family:'Sora',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:14px}
+.footmega .fcol a{display:block;font-size:13px;color:#9FB0C2;margin-bottom:9px;text-decoration:none;transition:color .15s}
+.footmega .fcol a:hover{color:#fff}
+.footmega .fnews-p{font-size:13px;color:#7E90A4;line-height:1.6;margin-bottom:12px}
+.footmega .fnews{display:flex;gap:8px}
+.footmega .fnews input{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:11px 13px;color:#fff;font-size:13px;font-family:inherit;outline:none}
+.footmega .fnews input::placeholder{color:#64758a}
+.footmega .fnews button{background:var(--accent);border:none;color:#fff;width:46px;border-radius:11px;font-size:17px;cursor:pointer;flex-shrink:0}
+.footmega-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:24px;font-size:12.5px;color:#7E90A4}
+.footmega-pay{display:flex;gap:8px;flex-wrap:wrap}
+.footmega-pay span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:7px;padding:5px 10px;font-size:11px;font-weight:700;color:#9FB0C2}
+
+/* ── Funkcijų juosta (Greitas pristatymas, Pirkėjo apsauga…) ── */
+.featgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:900px){.featgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.featgrid{grid-template-columns:1fr}}
+.featcard{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px}
+.featcard .fi{width:46px;height:46px;border-radius:13px;background:var(--accentSoft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.featcard .ft{font-size:14.5px;font-weight:700;color:var(--text)}
+.featcard .fs{font-size:12.5px;color:var(--text3);margin-top:2px}

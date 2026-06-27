@@ -1,0 +1,26 @@
+# Leidžia naudoti URL be .html galūnės, pvz:
+#   svetaine.lt/login    -> login.html
+#   svetaine.lt/account  -> account.html
+#   svetaine.lt/product  -> product.html
+#
+# PHP failai (admin.php, login.php, save_order.php ir t.t.) PALIEKAMI su .php
+# galūne, nes jie naudojami kaip API endpoint'ai (fetch/POST iš JS) ir
+# automatinis galūnės paslėpimas sulaužytų tas užklausas.
+
+RewriteEngine On
+
+# Jei prašomas failas/aplankas egzistuoja tiksliai toks kaip nurodyta — naudoja jį
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Jei užklausa be galūnės atitinka egzistuojantį .html failą — naudoja jį
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Paslepia .html galūnę naršyklės adreso juostoje (papildoma apsauga / SEO)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\.html [NC]
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+# Klaidos puslapiai (nebūtina, bet rekomenduojama)
+ErrorDocument 404 /index.html

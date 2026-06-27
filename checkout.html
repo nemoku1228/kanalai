@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Užsakymo patvirtinimas | market</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --navy:#0B1929; --navy2:#13233A;
+  --bg:#F7F8FA; --card:#FFFFFF;
+  --accent:#FF5C35; --accent-dark:#E0431D;
+  --green:#16A34A;
+  --text:#1E293B; --text2:#64748B; --text3:#94A3B8;
+  --border:#E7EAEE;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
+a{color:inherit;text-decoration:none}
+header{background:var(--navy2);padding:14px 0}
+.header-inner{max-width:1000px;margin:0 auto;padding:0 20px;display:flex;align-items:center}
+.logo{font-family:'Sora',sans-serif;font-weight:800;font-size:22px;color:white}
+.logo span{color:var(--accent)}
+.lang-pills{display:flex;gap:3px}
+.lang-pill{background:transparent;border:1px solid #2d3f57;color:#94a3b8;padding:2px 7px;font-size:11px;font-weight:600;cursor:pointer;border-radius:4px;display:inline-flex;align-items:center;gap:3px}
+.lang-pill.active{background:var(--accent);border-color:var(--accent);color:white}
+.lang-flag{width:14px;height:14px;border-radius:2px;flex-shrink:0}
+.lang-code{line-height:1}
+
+.steps{max-width:1000px;margin:24px auto 0;padding:0 20px;display:flex;gap:8px;align-items:center}
+.step{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--text3)}
+.step.active{color:var(--accent)}
+.step.done{color:var(--green)}
+.step-dot{width:22px;height:22px;border-radius:50%;background:var(--border);color:white;display:flex;align-items:center;justify-content:center;font-size:11px}
+.step.active .step-dot{background:var(--accent)}
+.step.done .step-dot{background:var(--green)}
+.step-line{flex:1;height:2px;background:var(--border);margin:0 4px}
+
+.layout{max-width:1000px;margin:24px auto 60px;padding:0 20px;display:grid;grid-template-columns:1fr 360px;gap:24px}
+@media(max-width:768px){.layout{grid-template-columns:1fr}}
+
+.panel{background:white;border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:16px}
+.panel-title{font-family:'Sora',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px}
+
+.auth-choice-btns{display:flex;flex-direction:column;gap:10px}
+.auth-big-btn{padding:13px 16px;border:none;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:all .15s;width:100%}
+.auth-big-btn.solid{background:var(--navy);color:white}
+.auth-big-btn.solid:hover{background:var(--accent)}
+.auth-big-btn.outline{background:white;color:var(--navy);border:2px solid var(--navy)}
+.auth-big-btn.outline:hover{background:#f8fafc}
+.auth-guest-link{background:none;border:none;color:var(--text2);font-size:13px;font-weight:600;cursor:pointer;text-decoration:underline;padding:8px 0;text-align:center;width:100%}
+
+.auth-form{display:none}
+.auth-back{background:none;border:none;color:var(--text2);cursor:pointer;font-size:13px;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.form-inputs{display:flex;flex-direction:column;gap:10px}
+.form-input{padding:11px 13px;border:1px solid var(--border);border-radius:9px;font-size:13.5px;outline:none;width:100%;font-family:inherit;transition:border-color .15s}
+.form-input:focus{border-color:var(--accent)}
+.form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.auth-err{display:none;background:#fef2f2;color:#dc2626;font-size:12.5px;padding:9px 13px;border-radius:8px;margin-top:8px}
+.submit-btn{width:100%;padding:12px;background:var(--navy);color:white;border:none;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;margin-top:12px;transition:background .15s}
+.submit-btn:hover{background:var(--accent)}
+.auth-switch{text-align:center;margin-top:12px;font-size:12.5px;color:var(--text2)}
+.auth-switch a{color:var(--accent);font-weight:700;cursor:pointer}
+
+.delivery-select{width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:9px;font-size:13.5px;background:white;cursor:pointer;outline:none;margin-bottom:14px}
+
+.terminal-item{padding:10px 13px;cursor:pointer;border-bottom:1px solid #f1f5f9;transition:background .1s}
+.terminal-item:last-child{border-bottom:none}
+.terminal-item:hover{background:#fff1ec}
+.terminal-item-name{font-size:13px;font-weight:600;color:var(--text)}
+.terminal-item-addr{font-size:11.5px;color:var(--text2);margin-top:1px}
+.terminal-item-city{display:inline-block;font-size:10.5px;font-weight:700;color:var(--accent);background:#fff1ec;border-radius:4px;padding:1px 6px;margin-left:6px}
+.terminal-empty{padding:16px;text-align:center;color:var(--text3);font-size:12.5px}
+.terminal-loading{padding:16px;text-align:center;color:var(--text3);font-size:12.5px}
+
+.order-summary-box{background:white;border:1px solid var(--border);border-radius:14px;padding:20px;position:sticky;top:20px}
+.summary-items{margin-bottom:14px;max-height:240px;overflow-y:auto}
+.summary-item{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid #f1f5f9}
+.summary-item img{width:48px;height:48px;border-radius:8px;object-fit:cover;background:#f1f5f9;flex-shrink:0}
+.summary-item-name{font-size:12.5px;font-weight:600;line-height:1.3}
+.summary-item-qty{font-size:11.5px;color:var(--text3)}
+.summary-item-price{font-size:12.5px;font-weight:700;color:var(--accent);margin-left:auto}
+.summary-row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;color:var(--text2)}
+.summary-row.grand{font-weight:700;font-size:16px;color:var(--text);border-top:1px solid var(--border);padding-top:10px;margin-top:6px}
+.confirm-btn{width:100%;padding:14px;background:var(--accent);color:white;border:none;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer;margin-top:14px;transition:background .15s}
+.confirm-btn:hover{background:var(--accent-dark)}
+.confirm-btn:disabled{background:#cbd5e1;cursor:not-allowed}
+
+.empty-cart{text-align:center;padding:60px 20px;color:var(--text3)}
+.empty-cart i{font-size:40px;display:block;margin-bottom:14px}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css">
+<script src="i18n.js"></script>
+</head>
+<body>
+<header>
+  <div class="header-inner" style="justify-content:space-between"><a href="index.html" class="logo"><span data-site-name>market</span><span>.</span></a><div class="lang-pills" id="lang-switcher"></div></div>
+</header>
+
+<div class="steps">
+  <div class="step done" id="step-cart-ind"><div class="step-dot"><i class="fa-solid fa-check"></i></div><span data-i18n="step_cart">Krepšelis</span></div>
+  <div class="step-line"></div>
+  <div class="step active" id="step-auth-ind"><div class="step-dot">2</div><span data-i18n="step_login">Prisijungimas</span></div>
+  <div class="step-line"></div>
+  <div class="step" id="step-delivery-ind"><div class="step-dot">3</div><span data-i18n="step_delivery">Pristatymas</span></div>
+</div>
+
+<div class="layout" id="layout">
+  <div class="main-col">
+    <div class="panel" id="panel-auth">
+      <div class="panel-title" data-i18n="continue_how">Kaip norite tęsti?</div>
+      <div class="auth-choice-btns">
+        <button class="auth-big-btn solid" onclick="showStep('login')"><i class="fa-solid fa-user"></i><span data-i18n="login_to_account">Prisijungti prie paskyros</span></button>
+        <button class="auth-big-btn outline" onclick="showStep('register')"><i class="fa-solid fa-user-plus"></i><span data-i18n="create_account">Susikurti paskyrą</span></button>
+        <button class="auth-guest-link" onclick="showStep('order')" data-i18n="guest_checkout">Pirkti be registracijos</button>
+      </div>
+    </div>
+
+    <div class="panel auth-form" id="panel-login">
+      <button class="auth-back" onclick="showStep('auth')"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="back">Atgal</span></button>
+      <div class="panel-title" data-i18n="login_title">Prisijungimas</div>
+      <div class="form-inputs">
+        <input class="form-input" type="email" id="login-email" data-i18n-placeholder="email_label" placeholder="El. paštas">
+        <input class="form-input" type="password" id="login-pass" data-i18n-placeholder="password_label" placeholder="Slaptažodis" onkeydown="if(event.key==='Enter')doLogin()">
+      </div>
+      <div class="auth-err" id="login-err"></div>
+      <button class="submit-btn" onclick="doLogin()" data-i18n="login_btn">Prisijungti</button>
+      <div class="auth-switch"><span data-i18n="no_account_q">Neturite paskyros?</span> <a onclick="showStep('register')" data-i18n="register_link">Registruotis</a></div>
+    </div>
+
+    <div class="panel auth-form" id="panel-register">
+      <button class="auth-back" onclick="showStep('auth')"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="back">Atgal</span></button>
+      <div class="panel-title" data-i18n="register_title">Registracija</div>
+      <div class="form-inputs">
+        <input class="form-input" type="text" id="reg-name" data-i18n-placeholder="name_label" placeholder="Vardas">
+        <input class="form-input" type="email" id="reg-email" data-i18n-placeholder="email_label" placeholder="El. paštas">
+        <input class="form-input" type="password" id="reg-pass" data-i18n-placeholder="password_min" placeholder="Slaptažodis (min. 6)">
+        <input class="form-input" type="password" id="reg-pass2" data-i18n-placeholder="repeat_password" placeholder="Pakartoti slaptažodį" onkeydown="if(event.key==='Enter')doRegister()">
+      </div>
+      <div class="auth-err" id="reg-err"></div>
+      <button class="submit-btn" onclick="doRegister()" data-i18n="register_link">Registruotis</button>
+      <div class="auth-switch"><span data-i18n="have_account_q">Jau turite paskyrą?</span> <a onclick="showStep('login')" data-i18n="login_btn">Prisijungti</a></div>
+    </div>
+
+    <div class="auth-form" id="panel-order">
+      <div class="panel">
+        <div class="panel-title" data-i18n="delivery_method">Pristatymo būdas</div>
+        <select class="delivery-select" id="delivery-method" onchange="onDeliveryChange()">
+          <option value="none" data-i18n="select_delivery">Pasirinkite pristatymą...</option>
+          <option value="courier" data-i18n="courier_opt">Kurjeriu (+5.90 €)</option>
+          <option value="post" data-i18n="post_opt">Paštomatas (+4.90 €)</option>
+          <option value="bus" data-i18n="bus_opt">Autobusų siuntos (+7.00 €)</option>
+        </select>
+
+        <div id="terminal-block" style="display:none;margin-bottom:14px;position:relative">
+          <input class="form-input" id="terminal-search" data-i18n-placeholder="terminal_search_placeholder" placeholder="Įveskite miestą arba gatvę..." oninput="searchTerminals()" onfocus="searchTerminals()" autocomplete="off">
+          <input type="hidden" id="terminal-selected-id">
+          <div id="terminal-dropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:white;border:1px solid var(--border);border-top:none;border-radius:0 0 9px 9px;max-height:280px;overflow-y:auto;z-index:50;box-shadow:0 8px 20px rgba(0,0,0,.08)"></div>
+          <div id="terminal-chosen" style="display:none;margin-top:8px;padding:10px 12px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:9px;font-size:13px;color:#166534"></div>
+        </div>
+
+        <div class="panel-title" style="margin-top:6px" data-i18n="contact_details">Kontaktiniai duomenys</div>
+        <div class="form-inputs">
+          <div class="form-grid-2">
+            <input class="form-input" id="cust-name" data-i18n-placeholder="name_label" placeholder="Vardas">
+            <input class="form-input" id="cust-surname" data-i18n-placeholder="surname_label" placeholder="Pavardė">
+          </div>
+          <input class="form-input" id="cust-email" type="email" data-i18n-placeholder="email_label" placeholder="El. paštas">
+          <input class="form-input" id="cust-phone" data-i18n-placeholder="phone_label" placeholder="Telefonas">
+        </div>
+
+        <div id="address-block">
+          <div class="panel-title" style="margin-top:14px" data-i18n="delivery_address">Pristatymo adresas</div>
+          <div id="saved-address-selector" style="display:none;margin-bottom:12px">
+            <select class="delivery-select" id="saved-address-select" onchange="onSavedAddressSelect()">
+              <option value="" data-i18n="new_address_option">+ Naujas adresas</option>
+            </select>
+          </div>
+          <div class="form-inputs" id="address-manual-fields">
+            <div class="form-grid-2">
+              <input class="form-input" id="cust-city" data-i18n-placeholder="city_label" placeholder="Miestas">
+              <input class="form-input" id="cust-zipcode" data-i18n-placeholder="zip_label" placeholder="Pašto kodas">
+            </div>
+            <input class="form-input" id="cust-street" data-i18n-placeholder="street_label" placeholder="Gatvė, namo nr.">
+          </div>
+          <div id="save-address-row" style="display:none;align-items:center;gap:10px;margin-top:10px">
+            <input type="checkbox" id="save-address-checkbox" style="width:18px;height:18px;cursor:pointer;accent-color:var(--accent)">
+            <label for="save-address-checkbox" style="font-size:13px;cursor:pointer" data-i18n="save_address_checkbox">Išsaugoti šį adresą ateičiai</label>
+          </div>
+        </div>
+
+        <div class="invoice-toggle-row" style="display:flex;align-items:center;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--border)">
+          <input type="checkbox" id="want-invoice" onchange="toggleInvoiceFields()" style="width:18px;height:18px;cursor:pointer;accent-color:var(--accent)">
+          <label for="want-invoice" style="font-size:13.5px;font-weight:600;cursor:pointer" data-i18n="want_invoice_label">Noriu gauti PVM sąskaitą faktūrą įmonei</label>
+        </div>
+        <div id="invoice-fields" style="display:none;margin-top:12px">
+          <div class="form-inputs">
+            <input class="form-input" id="inv-company-name" data-i18n-placeholder="invoice_company_name" placeholder="Įmonės pavadinimas">
+            <div class="form-grid-2">
+              <input class="form-input" id="inv-company-code" data-i18n-placeholder="invoice_company_code" placeholder="Įmonės kodas">
+              <input class="form-input" id="inv-vat-code" data-i18n-placeholder="invoice_vat_code" placeholder="PVM kodas (jei yra)">
+            </div>
+            <input class="form-input" id="inv-company-address" data-i18n-placeholder="invoice_company_address" placeholder="Įmonės adresas">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="side-col">
+    <div class="order-summary-box">
+      <div class="panel-title" data-i18n="order_summary">Užsakymo suvestinė</div>
+      <div class="summary-items" id="summary-items"></div>
+      <div class="summary-row"><span data-i18n="items_label">Prekės:</span><span id="sum-items">0.00 €</span></div>
+      <div class="summary-row"><span data-i18n="shipping_label">Pristatymas:</span><span id="sum-shipping">0.00 €</span></div>
+      <div class="summary-row grand"><span data-i18n="total">Viso:</span><span id="sum-grand">0.00 €</span></div>
+      <button class="confirm-btn" id="confirm-btn" onclick="sendOrder()" style="display:none" data-i18n="confirm_order">Patvirtinti užsakymą</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+let authUser = null;
+function renderSummary(){
+    const items = document.getElementById('summary-items');
+    if(cart.length===0){
+        document.getElementById('layout').innerHTML = `<div class="empty-cart" style="grid-column:1/-1"><i class="fa-solid fa-bag-shopping"></i><p>${t('cart_is_empty_full')}</p><a href="index.html" style="color:#FF5C35;font-weight:700">${t('return_to_shop')}</a></div>`;
+        return false;
+    }
+    items.innerHTML = cart.map(i=>`
+        <div class="summary-item">
+            ${i.img?`<img src="${resolveImageSrc(i.img)}">`:'<div style="width:48px;height:48px;border-radius:8px;background:#f1f5f9"></div>'}
+            <div>
+                <div class="summary-item-name">${i.name}</div>
+                <div class="summary-item-qty">x${i.quantity}</div>
+            </div>
+            <div class="summary-item-price">${(i.price*i.quantity).toFixed(2)} €</div>
+        </div>`).join('');
+    updateSummary();
+    return true;
+}
+
+function updateSummary(){
+    const total = cart.reduce((a,b)=>a+b.price*b.quantity,0);
+    const method = document.getElementById('delivery-method')?.value || 'none';
+    const ship = (total>=80||method==='none')?0:method==='courier'?5.90:method==='post'?4.90:7.00;
+    document.getElementById('sum-items').textContent = total.toFixed(2)+' €';
+    document.getElementById('sum-shipping').textContent = ship.toFixed(2)+' €';
+    document.getElementById('sum-grand').textContent = (total+ship).toFixed(2)+' €';
+}
+
+let terminalsLoaded = false;
+let searchDebounceTimer = null;
+let selectedTerminal = null;
+
+function loadTerminals(){
+    if (terminalsLoaded) return;
+    terminalsLoaded = true;
+}
+
+async function fetchTerminals(query){
+    const dropdown = document.getElementById('terminal-dropdown');
+    dropdown.style.display = 'block';
+
+    if (!query) {
+        dropdown.innerHTML = `<div class="terminal-empty"><i class="fa-solid fa-keyboard" style="display:block;font-size:18px;margin-bottom:6px;color:#cbd5e1"></i>${t('start_typing_city')}</div>`;
+        return;
+    }
+
+    dropdown.innerHTML = `<div class="terminal-loading"><i class="fa-solid fa-spinner fa-spin"></i> ${t('searching')}</div>`;
+    try{
+        const res = await fetch('get_terminals.php?search=' + encodeURIComponent(query));
+        const data = await res.json();
+        if (data.ok) {
+            renderTerminalDropdown(data.terminals, data.total, query);
+        } else {
+            dropdown.innerHTML = `<div class="terminal-empty">${t('order_save_error')}</div>`;
+        }
+    }catch(e){
+        dropdown.innerHTML = `<div class="terminal-empty">${t('error_try_later')}</div>`;
+    }
+}
+
+function renderTerminalDropdown(list, total, query){
+    const dropdown = document.getElementById('terminal-dropdown');
+    if (!list || !list.length) {
+        dropdown.innerHTML = `<div class="terminal-empty"><i class="fa-solid fa-magnifying-glass" style="display:block;font-size:18px;margin-bottom:6px;color:#cbd5e1"></i>${t('no_terminals_found')} "${query}"</div>`;
+        return;
+    }
+    dropdown.innerHTML = list.map(term => `
+        <div class="terminal-item" onclick="chooseTerminal('${term.id}','${String(term.name).replace(/'/g,"\\'")}','${String(term.city).replace(/'/g,"\\'")}','${String(term.address).replace(/'/g,"\\'")}')">
+            <div class="terminal-item-name">${term.name}<span class="terminal-item-city">${term.city}</span></div>
+            <div class="terminal-item-addr">${term.address}</div>
+        </div>`).join('');
+}
+
+function chooseTerminal(id, name, city, address){
+    selectedTerminal = { id, name: `${name} — ${city}, ${address}` };
+    document.getElementById('terminal-selected-id').value = id;
+    document.getElementById('terminal-search').value = `${name}, ${city}`;
+    document.getElementById('terminal-dropdown').style.display = 'none';
+    const chosenBox = document.getElementById('terminal-chosen');
+    chosenBox.style.display = 'block';
+    chosenBox.innerHTML = `<i class="fa-solid fa-circle-check" style="margin-right:6px"></i><strong>${name}</strong> — ${city}, ${address}`;
+}
+
+function searchTerminals(){
+    selectedTerminal = null;
+    document.getElementById('terminal-selected-id').value = '';
+    document.getElementById('terminal-chosen').style.display = 'none';
+    clearTimeout(searchDebounceTimer);
+    const raw = document.getElementById('terminal-search').value.trim();
+    searchDebounceTimer = setTimeout(() => fetchTerminals(raw), 250);
+}
+
+// Uždaro dropdown paspaudus už jo ribų
+document.addEventListener('click', function(e){
+    const block = document.getElementById('terminal-block');
+    if (block && !block.contains(e.target)) {
+        document.getElementById('terminal-dropdown').style.display = 'none';
+    }
+});
+
+function onDeliveryChange(){
+    const method = document.getElementById('delivery-method').value;
+    const terminalBlock = document.getElementById('terminal-block');
+    const addressBlock = document.getElementById('address-block');
+
+    if(method==='post'){
+        terminalBlock.style.display = 'block';
+        addressBlock.style.display = 'none';
+        loadTerminals();
+    } else {
+        terminalBlock.style.display = 'none';
+        addressBlock.style.display = 'block';
+    }
+    updateSummary();
+}
+
+function showStep(step){
+    ['auth','login','register','order'].forEach(s=>{
+        const el = document.getElementById('panel-'+s);
+        if(el) el.style.display='none';
+    });
+    document.getElementById('panel-'+step).style.display='block';
+
+    const indAuth = document.getElementById('step-auth-ind');
+    const indDelivery = document.getElementById('step-delivery-ind');
+    if(step==='order'){
+        indAuth.classList.remove('active'); indAuth.classList.add('done');
+        indAuth.querySelector('.step-dot').innerHTML = '<i class="fa-solid fa-check"></i>';
+        indDelivery.classList.add('active');
+        indDelivery.querySelector('.step-dot').textContent = '3';
+        document.getElementById('confirm-btn').style.display = 'block';
+        if(authUser) prefillForm(authUser.email, authUser.name);
+    } else {
+        indAuth.classList.add('active'); indAuth.classList.remove('done');
+        indAuth.querySelector('.step-dot').textContent = '2';
+        indDelivery.classList.remove('active');
+        document.getElementById('confirm-btn').style.display = 'none';
+    }
+}
+
+let savedAddresses = [];
+
+async function checkSession(){
+    try{
+        const res = await fetch('session.php');
+        const data = await res.json();
+        if(data.ok){ authUser = data; showStep('order'); loadSavedAddressesForCheckout(); }
+    }catch(e){}
+}
+
+async function loadSavedAddressesForCheckout(){
+    try{
+        const res = await fetch('manage_addresses.php', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({action:'list'})});
+        const data = await res.json();
+        if(data.ok && data.addresses.length){
+            savedAddresses = data.addresses;
+            const sel = document.getElementById('saved-address-select');
+            sel.innerHTML = `<option value="" data-i18n="new_address_option">${t('new_address_option')}</option>` +
+                savedAddresses.map(a=>`<option value="${a.id}">${a.label} — ${a.street}, ${a.city}</option>`).join('');
+            document.getElementById('saved-address-selector').style.display = 'block';
+            document.getElementById('save-address-row').style.display = 'flex';
+        } else {
+            document.getElementById('save-address-row').style.display = 'flex';
+        }
+    }catch(e){}
+}
+
+function onSavedAddressSelect(){
+    const id = document.getElementById('saved-address-select').value;
+    const manualFields = document.getElementById('address-manual-fields');
+    const saveRow = document.getElementById('save-address-row');
+    if(!id){
+        manualFields.style.display = 'flex';
+        manualFields.style.flexDirection = 'column';
+        manualFields.style.gap = '10px';
+        saveRow.style.display = 'flex';
+        document.getElementById('cust-city').value = '';
+        document.getElementById('cust-zipcode').value = '';
+        document.getElementById('cust-street').value = '';
+        return;
+    }
+    const addr = savedAddresses.find(a=>a.id===id);
+    if(!addr) return;
+    document.getElementById('cust-name').value = addr.name;
+    document.getElementById('cust-surname').value = addr.surname;
+    document.getElementById('cust-city').value = addr.city;
+    document.getElementById('cust-zipcode').value = addr.zipcode;
+    document.getElementById('cust-street').value = addr.street;
+    if(addr.phone) document.getElementById('cust-phone').value = addr.phone;
+    manualFields.style.display = 'none';
+    saveRow.style.display = 'none';
+}
+
+async function doLogin(){
+    const email=document.getElementById('login-email').value.trim();
+    const pass=document.getElementById('login-pass').value;
+    const err=document.getElementById('login-err');
+    if(!email||!pass){ err.style.display='block'; err.textContent=t('fill_all_fields'); return; }
+    const res=await fetch('login.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password:pass})});
+    const data=await res.json();
+    if(data.ok){ authUser={name:data.name,email}; showStep('order'); loadSavedAddressesForCheckout(); }
+    else { err.style.display='block'; err.textContent=data.msg; }
+}
+
+async function doRegister(){
+    const name=document.getElementById('reg-name').value.trim();
+    const email=document.getElementById('reg-email').value.trim();
+    const pass=document.getElementById('reg-pass').value;
+    const pass2=document.getElementById('reg-pass2').value;
+    const err=document.getElementById('reg-err');
+    err.style.display='none';
+    if(!name||!email||!pass||!pass2){ err.style.display='block'; err.textContent=t('fill_all_fields'); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.style.display='block'; err.textContent=t('invalid_email_format'); return; }
+    if(pass!==pass2){ err.style.display='block'; err.textContent=t('passwords_mismatch'); return; }
+    if(pass.length<6){ err.style.display='block'; err.textContent=t('password_too_short'); return; }
+    const res=await fetch('register.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,password:pass})});
+    const data=await res.json();
+    if(data.ok && data.needs_verification){
+        document.getElementById('panel-register').innerHTML = `
+            <div style="text-align:center;padding:30px 20px">
+                <i class="fa-solid fa-envelope-circle-check" style="font-size:40px;color:#16A34A;margin-bottom:14px;display:block"></i>
+                <div class="panel-title">${t('check_your_email')}</div>
+                <p style="font-size:13px;color:#64748b;margin-top:8px;margin-bottom:16px">${t('verification_email_sent_to')} <strong>${email}</strong></p>
+                <button class="auth-guest-link" onclick="showStep('order')">${t('guest_checkout')}</button>
+            </div>`;
+    } else if(data.ok){
+        authUser={name:data.name,email}; showStep('order');
+    } else { err.style.display='block'; err.textContent=data.msg; }
+}
+
+function prefillForm(email,name){
+    if(email) document.getElementById('cust-email').value = email;
+    if(name) document.getElementById('cust-name').value = name.split(' ')[0]||'';
+}
+
+function toggleInvoiceFields(){
+    const checked = document.getElementById('want-invoice').checked;
+    document.getElementById('invoice-fields').style.display = checked ? 'block' : 'none';
+}
+
+async function sendOrder(){
+    const method = document.getElementById('delivery-method').value;
+    if(method==='none'){ alert(t('select_delivery_alert')); return; }
+
+    const fields=['name','surname','phone','email'];
+    const labels=[t('name_label'),t('surname_label'),t('phone_label'),t('email_label')];
+    const customer={};
+    for(let i=0;i<fields.length;i++){
+        const inp = document.getElementById('cust-'+fields[i]);
+        inp.style.borderColor = '';
+        customer[fields[i]] = inp.value.trim();
+        if(!customer[fields[i]]){ inp.style.borderColor='#ef4444'; inp.focus(); alert(t('fill_field_alert')+' '+labels[i]); return; }
+    }
+    // El. pašto formato patikra (galioja ir perkant be registracijos)
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email)){
+        const em = document.getElementById('cust-email');
+        em.style.borderColor = '#ef4444';
+        em.focus();
+        alert(t('invalid_email_format'));
+        return;
+    }
+    // Telefono numerio patikra — leidžiama +, skaičiai, tarpai, brūkšneliai; 8–15 skaitmenų
+    const phoneDigits = customer.phone.replace(/[\s\-()]/g,'');
+    if(!/^\+?\d{8,15}$/.test(phoneDigits)){
+        const ph = document.getElementById('cust-phone');
+        ph.style.borderColor = '#ef4444';
+        ph.focus();
+        alert(t('invalid_phone_format'));
+        return;
+    }
+
+    let terminalInfo = null;
+    if(method==='post'){
+        if(!selectedTerminal){ alert(t('select_terminal_alert')); return; }
+        terminalInfo = selectedTerminal;
+        customer.city = '';
+        customer.street = terminalInfo.name;
+        customer.zipcode = '';
+    } else {
+        customer.city = document.getElementById('cust-city').value.trim();
+        customer.street = document.getElementById('cust-street').value.trim();
+        customer.zipcode = document.getElementById('cust-zipcode').value.trim();
+        if(!customer.city){ alert(t('fill_field_alert')+' '+t('city_label')); return; }
+        if(!customer.street){ alert(t('fill_field_alert')+' '+t('street_label')); return; }
+        if(!customer.zipcode){ alert(t('fill_field_alert')+' '+t('zip_label')); return; }
+    }
+
+    let invoice = null;
+    if(document.getElementById('want-invoice').checked){
+        const companyName = document.getElementById('inv-company-name').value.trim();
+        const companyCode = document.getElementById('inv-company-code').value.trim();
+        const vatCode = document.getElementById('inv-vat-code').value.trim();
+        const companyAddress = document.getElementById('inv-company-address').value.trim();
+        if(!companyName){ alert(t('fill_field_alert')+' '+t('invoice_company_name')); return; }
+        if(!companyCode){ alert(t('fill_field_alert')+' '+t('invoice_company_code')); return; }
+        if(!companyAddress){ alert(t('fill_field_alert')+' '+t('invoice_company_address')); return; }
+        invoice = { company_name: companyName, company_code: companyCode, vat_code: vatCode, company_address: companyAddress };
+    }
+
+    const total = cart.reduce((a,b)=>a+b.price*b.quantity,0);
+    const ship = (total>=80)?0:method==='courier'?5.90:method==='post'?4.90:7.00;
+    const order = { cart, total:(total+ship).toFixed(2)+' €', customer, delivery:method, terminal:terminalInfo, invoice, id:'ORD-'+Date.now().toString().slice(-6) };
+    try{
+        const res = await fetch('save_order.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(order)});
+        const data = await res.json().catch(()=>null);
+        if(!res.ok || !data || !data.ok){
+            if(data && data.stock_error){ alert(data.msg); }
+            else if(data && data.email_error){ alert(t('invalid_email_format')); }
+            else if(data && data.phone_error){ alert(t('invalid_phone_format')); }
+            else { alert(t('order_save_error')); }
+            return;
+        }
+        localStorage.setItem('last_order', JSON.stringify(order));
+        localStorage.setItem('cart', '[]');
+
+        // Išsaugom naują adresą ateičiai, jei prisijungęs klientas pažymėjo varnelę
+        const saveAddrCheckbox = document.getElementById('save-address-checkbox');
+        if(authUser && saveAddrCheckbox && saveAddrCheckbox.checked && method !== 'post'){
+            try{
+                await fetch('manage_addresses.php', {
+                    method:'POST', headers:{'Content-Type':'application/json'},
+                    body: JSON.stringify({
+                        action:'add', label: customer.city || 'Adresas',
+                        name: customer.name, surname: customer.surname,
+                        city: customer.city, street: customer.street,
+                        zipcode: customer.zipcode, phone: customer.phone
+                    })
+                });
+            }catch(e){}
+        }
+
+        window.location.href='completed.html';
+    }catch(e){ alert(t('order_save_error')); }
+}
+
+renderLangSwitcher('lang-switcher');
+applyI18n();
+applySiteSettings();
+if(renderSummary()){
+    checkSession();
+}
+</script>
+</body>
+</html>

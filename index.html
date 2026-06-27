@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketas | Viskas vienoje vietoje</title>
+<meta name="description" content="Platus prekių pasirinkimas — elektronika, mada, namų prekės, automobiliai ir daugiau.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --navy:#0B1929; --navy2:#13233A;
+  --bg:#F7F8FA; --card:#FFFFFF;
+  --accent:#FF5C35; --accent-dark:#E0431D;
+  --green:#16A34A;
+  --text:#1E293B; --text2:#64748B; --text3:#94A3B8;
+  --border:#E7EAEE;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+.disp{font-family:'Sora',sans-serif}
+a{color:inherit;text-decoration:none}
+
+/* TOPBAR */
+.topbar{background:var(--navy);color:#cbd5e1;font-size:12px;padding:6px 0}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+.topbar-links{display:flex;gap:16px}
+.topbar-links a{color:#94a3b8;transition:color .15s}
+.topbar-links a:hover{color:white}
+.lang-pills{display:flex;gap:3px}
+.lang-pill{background:transparent;border:1px solid #2d3f57;color:#94a3b8;padding:2px 7px;font-size:11px;font-weight:600;cursor:pointer;border-radius:4px;display:inline-flex;align-items:center;gap:3px}
+.lang-flag{width:14px;height:14px;border-radius:2px;flex-shrink:0}
+.lang-code{line-height:1}
+.lang-pill.active{background:var(--accent);border-color:var(--accent);color:white}
+
+/* HEADER */
+header{background:var(--navy2);padding:16px 0 18px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.header-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:20px}
+.logo{font-family:'Sora',sans-serif;font-weight:800;font-size:24px;color:white;letter-spacing:-0.5px;flex-shrink:0}
+.logo span{color:var(--accent)}
+
+.search-combo{flex:1;display:flex;background:white;border-radius:10px;overflow:hidden;max-width:680px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.search-cat-select{border:none;background:#f1f5f9;padding:0 12px;font-size:13px;font-weight:600;color:var(--text2);cursor:pointer;outline:none;border-right:1px solid var(--border);max-width:140px}
+.search-input{flex:1;border:none;padding:12px 14px;font-size:14px;outline:none;font-family:inherit;color:var(--text)}
+.search-btn{background:var(--accent);border:none;color:white;padding:0 22px;cursor:pointer;font-size:15px;transition:background .15s}
+.search-btn:hover{background:var(--accent-dark)}
+
+.header-actions{display:flex;align-items:center;gap:18px;flex-shrink:0}
+.header-action{display:flex;flex-direction:column;align-items:center;gap:2px;color:#cbd5e1;font-size:10.5px;font-weight:600;cursor:pointer;transition:color .15s;position:relative}
+.header-action:hover{color:white}
+.header-action i{font-size:19px}
+.cart-badge{position:absolute;top:-4px;right:-8px;background:var(--accent);color:white;font-size:10px;font-weight:700;border-radius:10px;min-width:16px;height:16px;display:flex;align-items:center;justify-content:center;padding:0 3px}
+
+/* CATEGORY STRIP */
+.cat-strip{background:white;border-bottom:1px solid var(--border);position:relative;z-index:50}
+.cat-strip-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;align-items:stretch;gap:4px;position:relative;min-width:0}
+/* Slankiojanti (scrollable) juostos dalis su kategorijų nuorodomis */
+.cat-strip-scroll{flex:1;min-width:0;display:flex;gap:4px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-behavior:smooth}
+.cat-strip-scroll::-webkit-scrollbar{display:none}
+.cat-strip-item{padding:11px 14px;font-size:13px;font-weight:600;color:var(--text2);white-space:nowrap;cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;display:flex;align-items:center;gap:6px;flex-shrink:0}
+.cat-strip-item:hover{color:var(--accent)}
+@media(max-width:640px){
+  .cat-strip-inner{padding:0 12px}
+  .cat-strip-item{padding:10px 11px;font-size:12.5px}
+}
+.cat-strip-item.all-cats{color:var(--accent)}
+
+.cat-mega-wrap{position:relative;flex-shrink:0}
+.cat-strip-item.all-cats{background:none;border:none;font-family:inherit;cursor:pointer}
+.cat-mega-menu{display:none !important;position:absolute;top:100%;left:0;background:white;border:1px solid var(--border);border-radius:0 0 10px 10px;box-shadow:0 12px 28px rgba(0,0,0,.12);z-index:9999;width:680px;max-height:480px}
+.cat-mega-menu.open{display:flex !important}
+.cat-mega-parents{width:260px;border-right:1px solid var(--border);overflow-y:auto;max-height:480px;flex-shrink:0}
+.cat-mega-parent-item{padding:10px 16px;font-size:13px;font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .12s}
+.cat-mega-parent-item:hover,.cat-mega-parent-item.active{background:#fff1ec;color:var(--accent)}
+.cat-mega-children{flex:1;overflow-y:auto;max-height:480px;padding:14px 18px}
+.cat-mega-child-item{display:block;padding:7px 0;font-size:13px;color:var(--text2);text-decoration:none;transition:color .12s}
+.cat-mega-child-item:hover{color:var(--accent)}
+.cat-mega-empty{color:var(--text3);font-size:13px;padding:10px 0}
+@media(max-width:720px){
+  .cat-mega-menu{width:calc(100vw - 24px);max-width:calc(100vw - 24px)}
+  .cat-mega-parents{width:46%}
+}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#16263f 100%);padding:56px 20px 64px;text-align:left}
+.hero-eyebrow{max-width:1280px;margin:0 auto;font-size:13px;font-weight:700;letter-spacing:1.2px;color:var(--accent);margin-bottom:14px}
+.hero-title{max-width:1280px;margin:0 auto 16px;font-family:'Sora',sans-serif;font-size:42px;font-weight:800;color:white;line-height:1.15}
+.hero-title-accent{color:var(--accent)}
+.hero-sub{max-width:560px;margin:0 auto 28px;color:#94a3b8;font-size:15px;line-height:1.6}
+.hero-cta-row{max-width:1280px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap}
+.hero-cta-primary{background:var(--accent);color:white;padding:13px 28px;border-radius:10px;font-weight:700;font-size:14.5px;transition:background .15s}
+.hero-cta-primary:hover{background:var(--accent-dark)}
+.hero-cta-secondary{background:rgba(255,255,255,.08);color:white;padding:13px 28px;border-radius:10px;font-weight:700;font-size:14.5px;border:1px solid rgba(255,255,255,.15);transition:background .15s}
+.hero-cta-secondary:hover{background:rgba(255,255,255,.14)}
+@media(max-width:640px){.hero-title{font-size:30px}}
+
+/* SECTIONS */
+.section{max-width:1280px;margin:0 auto;padding:32px 20px 0}
+.section-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
+.section-title{font-family:'Sora',sans-serif;font-size:19px;font-weight:700}
+.section-link{font-size:13px;font-weight:600;color:var(--accent)}
+
+/* QUICK CATEGORY CARDS */
+.quick-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.quick-cat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 14px;text-align:center;cursor:pointer;transition:all .15s}
+.quick-cat-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.quick-cat-icon{width:44px;height:44px;background:#fff1ec;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:18px;margin:0 auto 10px}
+.quick-cat-name{font-size:12.5px;font-weight:600;color:var(--text)}
+
+/* PRODUCT GRID */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+.product-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .15s;display:flex;flex-direction:column}
+.product-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.08);transform:translateY(-2px)}
+.product-img-wrap{width:100%;height:160px;background:#f1f5f9;position:relative;overflow:hidden}
+.product-img-wrap img{width:100%;height:100%;object-fit:cover}
+.product-img-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#cbd5e1;font-size:30px}
+.product-body{padding:12px 13px;flex:1;display:flex;flex-direction:column}
+.product-cat{font-size:10.5px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px}
+.product-name{font-size:13px;font-weight:600;line-height:1.4;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+.product-price{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;color:var(--text)}
+.product-old-price{font-size:12px;color:var(--text3);text-decoration:line-through;margin-left:6px;font-weight:500}
+.discount-badge{position:absolute;top:8px;right:8px;background:var(--green);color:white;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:6px;z-index:2}
+.product-code-badge{position:absolute;top:8px;left:8px;background:rgba(11,25,41,.75);color:white;font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;z-index:2;font-family:'Sora',sans-serif}
+.product-add{margin-top:8px;width:100%;background:var(--navy);color:white;border:none;padding:8px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;transition:background .15s;display:flex;align-items:center;justify-content:center;gap:6px}
+.product-add:hover{background:var(--accent)}
+
+/* HOME CAROUSEL ROWS (SUPER pasiūlymai, TOP pasirinkimai ir kt.) */
+.prow-wrap{position:relative}
+.prow{display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 10px;scroll-snap-type:x proximity;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.prow::-webkit-scrollbar{height:8px}
+.prow::-webkit-scrollbar-thumb{background:#d3d9e0;border-radius:4px}
+.prow::-webkit-scrollbar-track{background:transparent}
+.prow .product-card{flex:0 0 200px;width:200px;scroll-snap-align:start}
+@media(max-width:640px){.prow .product-card{flex:0 0 158px;width:158px}.prow .product-img-wrap{height:140px}}
+.section-sub{font-size:12.5px;color:var(--text3);margin-top:2px}
+.home-section[hidden]{display:none}
+
+.empty-state{text-align:center;padding:50px 20px;color:var(--text3);grid-column:1/-1}
+.empty-state i{font-size:32px;display:block;margin-bottom:10px}
+.loading{text-align:center;padding:50px;color:var(--text3);grid-column:1/-1}
+
+/* TRUST STRIP */
+.trust-strip{background:white;border-bottom:1px solid var(--border)}
+.trust-inner{max-width:1280px;margin:0 auto;padding:28px 20px;display:grid;grid-template-columns:repeat(2,1fr);gap:24px 32px}
+@media(max-width:640px){.trust-inner{grid-template-columns:1fr}}
+.trust-item{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;transition:opacity .15s}
+.trust-item:hover{opacity:.75}
+.trust-item i{font-size:22px;color:var(--accent);width:24px;text-align:center;flex-shrink:0}
+.trust-title{font-size:14.5px;font-weight:700;color:var(--text)}
+.trust-sub{font-size:12.5px;color:var(--text3);margin-top:2px}
+
+/* CART DRAWER */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;display:none}
+.cart-drawer{position:fixed;right:0;top:0;height:100vh;width:100%;max-width:400px;background:white;z-index:301;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column}
+.cart-drawer.open{transform:translateX(0)}
+.cart-head{background:var(--navy);color:white;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.cart-head h3{font-family:'Sora',sans-serif;font-size:16px;font-weight:700}
+.cart-close{background:none;border:none;color:white;font-size:20px;cursor:pointer}
+.cart-items{flex:1;overflow-y:auto;padding:8px}
+.cart-empty{text-align:center;padding:48px 20px;color:var(--text3)}
+.cart-empty i{font-size:36px;margin-bottom:10px;display:block}
+.cart-item{display:flex;gap:10px;padding:10px;border-bottom:1px solid var(--border)}
+.cart-item img{width:54px;height:54px;border-radius:8px;object-fit:cover;background:#f1f5f9;flex-shrink:0}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-name{font-size:12.5px;font-weight:600;line-height:1.3}
+.cart-item-price{font-size:12px;color:var(--accent);font-weight:700;margin-top:3px}
+.qty-controls{display:flex;align-items:center;gap:6px;margin-top:6px}
+.qty-btn{width:22px;height:22px;border:1px solid var(--border);background:white;border-radius:5px;font-size:12px;cursor:pointer}
+.qty-num{font-size:12px;font-weight:600;min-width:14px;text-align:center}
+.cart-footer{padding:16px 20px;border-top:1px solid var(--border)}
+.cart-total-row{display:flex;justify-content:space-between;font-size:15px;font-weight:700;margin-bottom:12px}
+.checkout-btn{width:100%;padding:13px;background:var(--accent);color:white;border:none;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer}
+.checkout-btn:disabled{background:#cbd5e1;cursor:not-allowed}
+
+footer{background:var(--navy);color:#94a3b8;margin-top:40px;padding:32px 20px 20px}
+.footer-inner{max-width:1280px;margin:0 auto;font-size:12.5px;text-align:center}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css">
+<script src="i18n.js"></script>
+<script src="categories_i18n.js"></script>
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-links">
+      <a href="account.html" id="topbar-account-link" data-i18n="my_account">Mano paskyra</a>
+    </div>
+    <div class="lang-pills" id="lang-switcher"></div>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span data-site-name>market</span><span>.</span></a>
+    <div class="search-combo">
+      <select class="search-cat-select" id="search-cat">
+        <option value="" data-i18n="all_categories">Visos kategorijos</option>
+      </select>
+      <input type="text" class="search-input" id="search-input" data-i18n-placeholder="search_placeholder" placeholder="Ko ieškote šiandien?">
+      <button class="search-btn" onclick="doSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <div class="header-actions">
+      <a href="account.html" class="header-action" id="header-account-link"><i class="fa-regular fa-user"></i><span id="header-account-label" data-i18n="my_account">Paskyra</span></a>
+      <div class="header-action" onclick="toggleCart()">
+        <i class="fa-solid fa-bag-shopping"></i><span data-i18n="cart">Krepšelis</span>
+        <span class="cart-badge" id="cart-count">0</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="cat-strip">
+  <div class="cat-strip-inner" id="cat-strip">
+    <div class="cat-mega-wrap">
+      <button class="cat-strip-item all-cats" onclick="toggleCatMegaMenu(event)"><i class="fa-solid fa-grip"></i> Visos kategorijos <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:2px"></i></button>
+      <div class="cat-mega-menu" id="cat-mega-menu">
+        <div class="cat-mega-parents" id="cat-mega-parents"></div>
+        <div class="cat-mega-children" id="cat-mega-children"></div>
+      </div>
+    </div>
+    <div class="cat-strip-scroll" id="cat-strip-scroll"></div>
+  </div>
+</div>
+
+<section class="hero2">
+  <div class="hero2-blob a"></div>
+  <div class="hero2-blob b"></div>
+  <div class="hero2-inner">
+    <div>
+      <div class="hero2-badge"><span class="dot"></span> <span data-i18n="hero_badge">2,4 mln. prekių · pristatymas visoje Lietuvoje</span></div>
+      <h1 class="hero2-title"><span data-i18n="hero_h1">Apsipirk protingiau su</span> <span class="ac">market.</span></h1>
+      <p class="hero2-sub" data-i18n="hero_sub2">Viena vieta elektronikai, madai, namams ir tūkstančiams prekių. Parenkame tai, ko tikrai reikia — greitai, saugiai ir už geriausią kainą.</p>
+      <div class="hero2-ctas">
+        <a href="categories.html" class="hero2-btn primary"><i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="hero_cta_search">Pradėti paiešką</span></a>
+        <a href="categories.html" class="hero2-btn ghost" data-i18n="hero_cta_browse">Naršyti kategorijas</a>
+      </div>
+      <div class="hero2-stats">
+        <div class="hero2-stat"><div class="n">12k+</div><div class="l" data-i18n="stat_sellers">pardavėjų</div></div>
+        <div class="hero2-stat"><div class="n">4.9 <i class="fa-solid fa-star"></i></div><div class="l" data-i18n="stat_reviews">98k atsiliepimų</div></div>
+        <div class="hero2-stat"><div class="n">24val.</div><div class="l" data-i18n="stat_delivery">pristatymas</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="deal-card" id="deal-card">
+        <div class="deal-top">
+          <div class="deal-ico" id="deal-ico"><i class="fa-solid fa-bolt"></i></div>
+          <div class="deal-tag" data-i18n="deal_tag">⚡ DIENOS PASIŪLYMAS</div>
+          <div class="deal-name" id="deal-name" data-i18n="deal_placeholder">Geriausias šios dienos pasiūlymas</div>
+          <div class="deal-price" id="deal-price"></div>
+        </div>
+        <div class="deal-row"><span class="ic"><i class="fa-solid fa-truck-fast"></i></span><div><div class="t" data-i18n="deal_ship_t">Pristatymas rytoj</div><div class="s" data-i18n="deal_ship_s">Nemokamai nuo 50 €</div></div></div>
+        <div class="deal-row"><span class="ic"><i class="fa-solid fa-tag"></i></span><div><div class="t" data-i18n="deal_price_t">Geriausia kaina</div><div class="s" data-i18n="deal_price_s">Atitinka rinkos kainą</div></div></div>
+        <div class="deal-row"><span class="ic"><i class="fa-solid fa-shield-halved"></i></span><div><div class="t" data-i18n="deal_warr_t">24 mėn. garantija</div><div class="s" data-i18n="deal_warr_s">14 d. grąžinimas</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Naršyk kategorijas -->
+<section class="sec">
+  <div class="sec-head">
+    <div>
+      <h2 class="sec-h2" data-i18n="browse_cats_title">Naršyk kategorijas</h2>
+      <p class="sec-p" data-i18n="browse_cats_sub">100+ kategorijų, viskas vienoje vietoje</p>
+    </div>
+    <a href="categories.html" class="sec-link" data-i18n="all_cats_link">Visos kategorijos →</a>
+  </div>
+  <div class="catgrid" id="quick-cats">
+    <div class="loading"><i class="fa-solid fa-spinner fa-spin"></i></div>
+  </div>
+</section>
+
+<!-- Žaibo pasiūlymai (tamsus blokas su laikmačiu) -->
+<section class="sec home-section" id="sec-super" hidden>
+  <div class="flash-wrap">
+    <div class="flash-head">
+      <div class="flash-title-wrap">
+        <span class="flash-bolt"><i class="fa-solid fa-bolt"></i></span>
+        <div>
+          <h2 class="flash-h2" data-i18n="flash_title">Žaibo pasiūlymai</h2>
+          <p class="flash-p" data-i18n="flash_sub">Ribotas kiekis · kainos krenta kas valandą</p>
+        </div>
+      </div>
+      <div class="flash-cd">
+        <span class="lbl" data-i18n="flash_ends">Baigiasi po</span>
+        <div class="boxes">
+          <span class="cd-box" id="cd-h">02</span><span class="cd-sep">:</span>
+          <span class="cd-box" id="cd-m">00</span><span class="cd-sep">:</span>
+          <span class="cd-box" id="cd-s">00</span>
+        </div>
+      </div>
+    </div>
+    <div class="prow" id="row-super"></div>
+  </div>
+</section>
+
+<!-- Rekomenduojama tau (AI PARINKTA TAU) -->
+<section class="sec home-section" id="sec-popular" hidden>
+  <div class="sec-head">
+    <div>
+      <div class="sec-eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="ai_picked">AI PARINKTA TAU</span></div>
+      <h2 class="sec-h2" data-i18n="recommended_for_you">Rekomenduojama tau</h2>
+    </div>
+    <a href="categories.html" class="sec-link" data-i18n="see_everything">Žiūrėti viską →</a>
+  </div>
+  <div class="prow" id="row-popular"></div>
+</section>
+
+<!-- Bestseleriai šią savaitę (PERKAMIAUSIA) -->
+<section class="sec home-section" id="sec-top" hidden>
+  <div class="sec-head">
+    <div>
+      <div class="sec-eyebrow"><i class="fa-solid fa-crown"></i> <span data-i18n="bestseller_eyebrow">PERKAMIAUSIA</span></div>
+      <h2 class="sec-h2" data-i18n="bestsellers_title">Bestseleriai šią savaitę</h2>
+    </div>
+    <a href="categories.html" class="sec-link" data-i18n="top100">Topas 100 →</a>
+  </div>
+  <div class="prow" id="row-top"></div>
+</section>
+
+<section class="sec featgrid-wrap" style="padding-top:52px">
+  <div class="featgrid">
+    <div class="featcard"><span class="fi"><i class="fa-solid fa-truck-fast"></i></span><div><div class="ft" data-i18n="feat_ship_t">Greitas pristatymas</div><div class="fs" data-i18n="feat_ship_s">24 val. didžiuosiuose miestuose</div></div></div>
+    <div class="featcard"><span class="fi"><i class="fa-solid fa-shield-halved"></i></span><div><div class="ft" data-i18n="feat_prot_t">Pirkėjo apsauga</div><div class="fs" data-i18n="feat_prot_s">Pinigai grąžinami 100%</div></div></div>
+    <div class="featcard"><span class="fi"><i class="fa-solid fa-rotate-left"></i></span><div><div class="ft" data-i18n="feat_ret_t">Lengvi grąžinimai</div><div class="fs" data-i18n="feat_ret_s">14 dienų be priežasties</div></div></div>
+    <div class="featcard"><span class="fi"><i class="fa-solid fa-headset"></i></span><div><div class="ft" data-i18n="feat_help_t">Pagalba 24/7</div><div class="fs" data-i18n="feat_help_s">Realūs žmonės, ne botai</div></div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footmega">
+    <div class="footmega-cols">
+      <div>
+        <div class="fbrand">market<span>.</span></div>
+        <p class="fdesc" data-i18n="foot_desc">Moderniausias Lietuvos turgus internete. Milijonai prekių, tūkstančiai pardavėjų, vienas patikimas adresas.</p>
+        <div class="fsoc">
+          <span><i class="fa-brands fa-facebook-f"></i></span>
+          <span><i class="fa-brands fa-instagram"></i></span>
+          <span><i class="fa-brands fa-tiktok"></i></span>
+        </div>
+      </div>
+      <div class="fcol">
+        <div class="fcol-t" data-i18n="foot_buyers">Pirkėjams</div>
+        <a href="pristatymas.html" data-i18n="foot_how_buy">Kaip pirkti</a>
+        <a href="pristatymas.html" data-i18n="fast_delivery">Pristatymas</a>
+        <a href="grazinimai.html" data-i18n="easy_returns">Grąžinimai</a>
+        <a href="pagalba.html" data-i18n="foot_warranties">Garantijos</a>
+      </div>
+      <div class="fcol">
+        <div class="fcol-t" data-i18n="foot_sellers">Pardavėjams</div>
+        <a href="pagalba.html" data-i18n="foot_start_selling">Pradėk pardavinėti</a>
+        <a href="pagalba.html" data-i18n="foot_pricing">Įkainiai</a>
+        <a href="pagalba.html" data-i18n="foot_seller_center">Pardavėjo centras</a>
+        <a href="pagalba.html" data-i18n="foot_ads">Reklama</a>
+      </div>
+      <div class="fcol">
+        <div class="fcol-t">market.</div>
+        <a href="pagalba.html" data-i18n="foot_about">Apie mus</a>
+        <a href="pagalba.html" data-i18n="foot_career">Karjera</a>
+        <a href="pagalba.html" data-i18n="foot_press">Spauda</a>
+        <a href="pagalba.html" data-i18n="foot_contacts">Kontaktai</a>
+      </div>
+      <div>
+        <div class="fcol-t" data-i18n="foot_newsletter">Naujienlaiškis</div>
+        <p class="fnews-p" data-i18n="foot_news_p">Gaukite išskirtinius pasiūlymus pirmieji.</p>
+        <div class="fnews">
+          <input type="email" data-i18n-placeholder="email_label" placeholder="El. paštas">
+          <button type="button" onclick="alert(t('foot_subscribed'))">→</button>
+        </div>
+      </div>
+    </div>
+    <div class="footmega-bottom">
+      <div>&#169; 2026 market. <span data-i18n="all_rights">Visos teisės saugomos.</span></div>
+      <div class="footmega-pay"><span>VISA</span><span>Mastercard</span><span>Apple Pay</span><span>Paysera</span></div>
+    </div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-head"><h3 data-i18n="cart">Krepšelis</h3><button class="cart-close" onclick="toggleCart()">&#x2715;</button></div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total-row"><span data-i18n="total">Viso:</span><span id="cart-grand">0.00 €</span></div>
+    <button class="checkout-btn" id="checkout-btn" disabled onclick="window.location.href='checkout.html'" data-i18n="checkout_btn">Pirkti</button>
+  </div>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+let categoriesData = [];
+
+const catIcons = {
+  "Telefonai ir priedai":"fa-mobile-screen","Kompiuteriai":"fa-laptop","TV ir video":"fa-tv",
+  "Konsolės ir automatai":"fa-gamepad","Smulkūs buitiniai prietaisai":"fa-blender",
+  "Laisvai stovintys buitiniai prietaisai":"fa-kitchen-set","Integruojami buitiniai prietaisai":"fa-kitchen-set",
+  "Fotografija":"fa-camera","Moterų drabužiai":"fa-person-dress","Vyrų drabužiai":"fa-shirt",
+  "Drabužiai ir avalynė":"fa-shoe-prints","Galanterija ir priedai":"fa-bag-shopping",
+  "Papuošalai ir laikrodžiai":"fa-gem","Namų įranga":"fa-house","Įrankiai":"fa-screwdriver-wrench",
+  "Apšvietimas":"fa-lightbulb","Baldai":"fa-couch","Statybos ir aksesuarai":"fa-trowel-bricks",
+  "Sodas":"fa-seedling","Maisto produktai":"fa-basket-shopping","Produktai gyvūnams":"fa-paw",
+  "Švara ir higiena":"fa-spray-can-sparkles","Žaislai":"fa-puzzle-piece","Vežimėliai":"fa-baby-carriage",
+  "Progos ir vakarėliai":"fa-champagne-glasses","Mokyklinės prekės":"fa-graduation-cap",
+  "Sveikata ir higiena":"fa-pump-medical","Kūdikių maitinimas":"fa-baby","Vaikų kambarys":"fa-child-reaching",
+  "Priežiūra":"fa-spa","Manikiūras ir pedikiūras":"fa-hand-sparkles","Makiažas":"fa-palette",
+  "Kvepalai ir vanduo":"fa-spray-can","Namų vaistinėlė":"fa-pills","Burnos higiena":"fa-tooth",
+  "Knygos":"fa-book","Žaidimai":"fa-chess","Instrumentai":"fa-guitar","Muzika":"fa-music",
+  "Filmai":"fa-film","Dviračiai ir priedai":"fa-bicycle","Žvejyba":"fa-fish","Turizmas":"fa-tent",
+  "Bėgimas":"fa-person-running","Sporto salė ir fitnesas":"fa-dumbbell","Sportas":"fa-volleyball",
+  "Automobilių dalys":"fa-car-side","Automobilių priedai":"fa-car","Padangos ir ratlankiai":"fa-circle-dot",
+  "Transporto priemonės":"fa-truck","Nekilnojamasis turtas pardavimui":"fa-building",
+  "Nekilnojamasis turtas nuomai":"fa-key","Dizainas ir antikvariniai daiktai":"fa-clock",
+  "Kolekcionavimas":"fa-stamp","Rankdarbiai":"fa-scissors","Menas":"fa-palette",
+  "Biuras ir reklama":"fa-briefcase","Pramonė":"fa-industry","Paslaugos":"fa-handshake",
+  "Bilietai":"fa-ticket"
+};
+
+async function loadCategories(){
+  const res = await fetch('get_categories.php');
+  const data = await res.json();
+  if(!data.ok) return;
+  categoriesData = data.categories;
+  renderCategoryUI();
+}
+
+function renderCategoryUI(){
+  const select = document.getElementById('search-cat');
+  select.innerHTML = `<option value="" data-i18n="all_categories">${t('all_categories')}</option>`;
+  categoriesData.forEach(c=>{
+    const opt = document.createElement('option');
+    opt.value = c.name; opt.textContent = categoryT(c.name);
+    select.appendChild(opt);
+  });
+
+  const strip = document.getElementById('cat-strip-scroll');
+  // Iš naujo užpildome tik nuorodų juostą (mega meniu lieka nepaliestas)
+  strip.innerHTML = '';
+  categoriesData.forEach(c=>{
+    const a = document.createElement('a');
+    a.href = `categories.html?parent=${encodeURIComponent(c.name)}`;
+    a.className = 'cat-strip-item';
+    a.textContent = categoryT(c.name);
+    strip.appendChild(a);
+  });
+
+  renderMegaMenuParents();
+
+  const quick = document.getElementById('quick-cats');
+  quick.innerHTML = categoriesData.slice(0,10).map(c=>`
+    <a href="categories.html?parent=${encodeURIComponent(c.name)}" class="catcard">
+      <span class="ci"><i class="fa-solid ${catIcons[c.name]||'fa-tag'}"></i></span>
+      <div class="cn">${categoryT(c.name)}</div>
+      <div class="cc">${(c.children&&c.children.length)?c.children.length+' '+t('subcats_word'):t('explore_word')}</div>
+    </a>`).join('');
+}
+
+function toggleCatMegaMenu(e){
+  e.stopPropagation();
+  e.preventDefault();
+  const menu = document.getElementById('cat-mega-menu');
+  const isOpen = menu.classList.contains('open');
+  if(isOpen){
+    menu.classList.remove('open');
+    menu.style.display = 'none';
+  } else {
+    menu.classList.add('open');
+    menu.style.display = 'flex';
+  }
+}
+
+function renderMegaMenuParents(){
+  const el = document.getElementById('cat-mega-parents');
+  if(!categoriesData.length) return;
+  el.innerHTML = categoriesData.map((c,i)=>`
+    <div class="cat-mega-parent-item${i===0?' active':''}" data-idx="${i}" onmouseenter="showMegaMenuChildren(${i})" onclick="window.location.href='categories.html?parent=${encodeURIComponent(c.name)}'">
+      <span>${categoryT(c.name)}</span><i class="fa-solid fa-chevron-right" style="font-size:10px;color:#cbd5e1"></i>
+    </div>`).join('');
+  showMegaMenuChildren(0);
+}
+
+function showMegaMenuChildren(idx){
+  document.querySelectorAll('.cat-mega-parent-item').forEach((el,i)=>el.classList.toggle('active', i===idx));
+  const cat = categoriesData[idx];
+  const el = document.getElementById('cat-mega-children');
+  if(!cat || !cat.children || !cat.children.length){
+    el.innerHTML = '<div class="cat-mega-empty">Pogrupių nėra</div>';
+    return;
+  }
+  el.innerHTML = cat.children.map(ch=>`
+    <a href="categories.html?parent=${encodeURIComponent(cat.name)}&sub=${encodeURIComponent(ch.name)}" class="cat-mega-child-item">${subcategoryT(ch.name)}</a>`).join('');
+}
+
+document.addEventListener('click', function(e){
+  const menu = document.getElementById('cat-mega-menu');
+  const wrap = document.querySelector('.cat-mega-wrap');
+  if(menu && menu.classList.contains('open') && wrap && !wrap.contains(e.target)){
+    menu.classList.remove('open');
+    menu.style.display = 'none';
+  }
+});
+
+function refreshCategoryLabels(){
+  if(categoriesData && categoriesData.length) renderCategoryUI();
+}
+
+let allProducts = [];
+
+function productCardHTML(p){
+  const outOfStock = (p.stock ?? 1) <= 0;
+  return `
+    <div class="product-card" style="position:relative">
+      ${p.discount_percent ? `<div class="discount-badge">-${p.discount_percent}%</div>` : ''}
+      ${p.display_code ? `<div class="product-code-badge">#${p.display_code}</div>` : ''}
+      ${outOfStock ? `<div class="discount-badge" style="background:#94a3b8;right:auto;left:8px;top:36px">${t('out_of_stock_badge')}</div>` : ''}
+      <a href="product.html?id=${p.id}" style="text-decoration:none;color:inherit">
+        <div class="product-img-wrap" style="${outOfStock?'opacity:.55':''}">
+          ${p.main_image ? `<img src="${resolveImageSrc(p.main_image)}" onerror="this.parentElement.innerHTML='<div class=&quot;product-img-ph&quot;><i class=&quot;fa-solid fa-image&quot;></i></div>'">` : '<div class="product-img-ph"><i class="fa-solid fa-image"></i></div>'}
+        </div>
+        <div class="product-body">
+          <div class="product-cat">${p.category_sub?subcategoryT(p.category_sub):categoryT(p.category_parent)}</div>
+          <div class="product-name">${p.name}</div>
+        </div>
+      </a>
+      <div class="product-body" style="padding-top:0">
+        <div class="product-price">${p.price.toFixed(2)} &euro;${p.old_price?`<span class="product-old-price">${p.old_price.toFixed(2)} €</span>`:''}</div>
+        ${outOfStock
+          ? `<button class="product-add" disabled style="opacity:.5;cursor:not-allowed"><i class="fa-solid fa-ban"></i> ${t('out_of_stock_badge')}</button>`
+          : `<button class="product-add" onclick="quickAdd('${p.id}','${p.name.replace(/'/g,"\\'")}',${p.price},'${p.main_image||''}','${(p.sku||'').replace(/'/g,"\\'")}',${p.stock})">
+              <i class="fa-solid fa-bag-shopping"></i> ${t('add_to_cart')}
+            </button>`}
+      </div>
+    </div>`;
+}
+
+async function loadProducts(){
+  const grid = document.getElementById('products-grid');
+  if(grid) grid.innerHTML = '<div class="loading"><i class="fa-solid fa-spinner fa-spin"></i></div>';
+  const res = await fetch(`get_products.php?lang=${currentLangCode()}`);
+  const data = await res.json();
+  if(!data.ok || data.products.length===0){
+    if(grid) grid.innerHTML = `<div class="empty-state"><i class="fa-solid fa-box-open"></i>${t('no_products')}</div>`;
+    allProducts = [];
+    buildHomeSections();
+    return;
+  }
+  allProducts = data.products;
+  if(grid) grid.innerHTML = allProducts.slice(0,18).map(productCardHTML).join('');
+  buildHomeSections();
+}
+
+/* ── Pagrindinio puslapio sekcijų užpildymas ─────────────────────── */
+function fillRow(rowId, sectionId, items){
+  const row = document.getElementById(rowId);
+  const sec = document.getElementById(sectionId);
+  if(!row || !sec) return;
+  if(!items || items.length===0){ sec.hidden = true; return; }
+  row.innerHTML = items.map(productCardHTML).join('');
+  sec.hidden = false;
+}
+
+// Stabilus „maišymas" pagal id, kad sąrašas atrodytų įvairus, bet nešokinėtų
+function pseudoShuffle(arr){
+  return arr.map(p=>{
+    let h=0; const s=String(p.id);
+    for(let i=0;i<s.length;i++){ h=(h*31 + s.charCodeAt(i))>>>0; }
+    return {p, h};
+  }).sort((a,b)=>a.h-b.h).map(x=>x.p);
+}
+
+function buildHomeSections(){
+  const inStock = allProducts.filter(p => (p.stock ?? 0) > 0);
+  const pool = inStock.length ? inStock : allProducts;
+
+  // SUPER pasiūlymai — pirmiausia su nuolaida, paskui užpildoma kitomis
+  const discounted = pool.filter(p => p.discount_percent)
+                         .sort((a,b)=>(b.discount_percent||0)-(a.discount_percent||0));
+  const superItems = discounted.length
+    ? [...discounted, ...pool.filter(p=>!p.discount_percent)].slice(0,12)
+    : [...pool].sort((a,b)=>a.price-b.price).slice(0,12);
+  fillRow('row-super','sec-super', superItems);
+
+  // Bestseleriai šią savaitę — brangiausios/populiariausios turimos
+  fillRow('row-top','sec-top', [...pool].sort((a,b)=>b.price-a.price).slice(0,12));
+
+  // Rekomenduojama tau — stabilus „maišymas"
+  fillRow('row-popular','sec-popular', pseudoShuffle(pool).slice(0,12));
+
+  // Hero „Dienos pasiūlymas" kortelė — geriausias pasiūlymas (su nuolaida arba brangiausias turimas)
+  const dealProduct = discounted[0] || [...pool].sort((a,b)=>b.price-a.price)[0] || allProducts[0];
+  if(dealProduct){
+    const nameEl=document.getElementById('deal-name');
+    const priceEl=document.getElementById('deal-price');
+    const icoEl=document.getElementById('deal-ico');
+    const card=document.getElementById('deal-card');
+    if(nameEl) nameEl.textContent = dealProduct.name;
+    if(priceEl) priceEl.textContent = dealProduct.price.toFixed(2).replace('.',',')+' €';
+    if(icoEl && dealProduct.main_image) icoEl.innerHTML = `<img src="${resolveImageSrc(dealProduct.main_image)}" onerror="this.parentElement.innerHTML='<i class=&quot;fa-solid fa-bolt&quot;></i>'">`;
+    if(card){ card.style.cursor='pointer'; card.onclick=()=>{ window.location.href='product.html?id='+dealProduct.id; }; }
+  }
+}
+
+/* ── Žaibo pasiūlymų laikmatis (atsistato kas 3 val.) ──────────────── */
+function startFlashCountdown(){
+  function tick(){
+    const now=Date.now();
+    const period=3*60*60*1000; // 3 val.
+    const left=period-(now%period);
+    const h=Math.floor(left/3600000), m=Math.floor(left%3600000/60000), s=Math.floor(left%60000/1000);
+    const pad=n=>String(n).padStart(2,'0');
+    const H=document.getElementById('cd-h'),M=document.getElementById('cd-m'),S=document.getElementById('cd-s');
+    if(H) H.textContent=pad(h); if(M) M.textContent=pad(m); if(S) S.textContent=pad(s);
+  }
+  tick(); setInterval(tick,1000);
+}
+startFlashCountdown();
+
+/* ── Peržiūrėtų prekių sekcijos (iš naršyklės istorijos) ──────────── */
+function getViewedIds(){
+  try { return JSON.parse(localStorage.getItem('viewed_products') || '[]'); }
+  catch(e){ return []; }
+}
+
+function buildViewedSections(){
+  const viewedIds = getViewedIds();
+  const viewed = viewedIds.map(id => allProducts.find(p => p.id === id)).filter(Boolean);
+
+  // Jūsų peržiūrėtos prekės
+  fillRow('row-viewed','sec-viewed', viewed.slice(0,12));
+
+  // Įkvėpta Jūsų peržiūrėtų produktų — kitos prekės iš tų pačių kategorijų
+  const viewedCats = new Set(viewed.map(p => p.category_parent).filter(Boolean));
+  const viewedSet = new Set(viewed.map(p => p.id));
+  let inspired = allProducts.filter(p => viewedCats.has(p.category_parent) && !viewedSet.has(p.id));
+  fillRow('row-inspired','sec-inspired', inspired.slice(0,12));
+}
+
+const clearBtn = document.getElementById('clear-viewed');
+if(clearBtn){
+  clearBtn.addEventListener('click', () => {
+    localStorage.removeItem('viewed_products');
+    buildViewedSections();
+  });
+}
+
+function quickAdd(id, name, price, img, sku, stock){
+  const existing = cart.find(i=>i.id===id);
+  const maxStock = stock ?? Infinity;
+  if(existing){
+    if(existing.quantity >= maxStock){ alert(t('stock_limit_reached')); return; }
+    existing.quantity++;
+  } else {
+    if(maxStock <= 0){ alert(t('out_of_stock')); return; }
+    cart.push({id,name,price,img,sku,stock:maxStock,quantity:1});
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartUI();
+  if(!document.getElementById('cart-drawer').classList.contains('open')) toggleCart();
+}
+
+function changeQty(id, delta){
+  const item = cart.find(i=>i.id===id);
+  if(item){
+    if(delta > 0 && item.stock !== undefined && item.quantity >= item.stock){
+      alert(t('stock_limit_reached'));
+      return;
+    }
+    item.quantity+=delta;
+    if(item.quantity<=0) cart=cart.filter(i=>i.id!==id);
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartUI();
+}
+
+function updateCartUI(){
+  const total = cart.reduce((a,b)=>a+b.price*b.quantity,0);
+  document.getElementById('cart-count').textContent = cart.reduce((a,b)=>a+b.quantity,0);
+  document.getElementById('cart-grand').textContent = total.toFixed(2)+' €';
+  document.getElementById('checkout-btn').disabled = cart.length===0;
+  const el = document.getElementById('cart-items');
+  if(cart.length===0){ el.innerHTML=`<div class="cart-empty"><i class="fa-solid fa-bag-shopping"></i><p>${t('cart_empty')}</p></div>`; return; }
+  el.innerHTML = cart.map(i=>`
+    <div class="cart-item">
+      ${i.img?`<img src="${resolveImageSrc(i.img)}">`:'<div style="width:54px;height:54px;border-radius:8px;background:#f1f5f9"></div>'}
+      <div class="cart-item-info">
+        <div class="cart-item-name">${i.name}</div>
+        <div class="cart-item-price">${(i.price*i.quantity).toFixed(2)} €</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty('${i.id}',-1)">−</button>
+          <span class="qty-num">${i.quantity}</span>
+          <button class="qty-btn" onclick="changeQty('${i.id}',1)">+</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function toggleCart(){
+  document.getElementById('cart-drawer').classList.toggle('open');
+  document.getElementById('overlay').style.display = document.getElementById('cart-drawer').classList.contains('open')?'block':'none';
+}
+
+function doSearch(){
+  const q = document.getElementById('search-input').value;
+  const cat = document.getElementById('search-cat').value;
+  const params = new URLSearchParams();
+  if(q) params.set('search', q);
+  if(cat) params.set('parent', cat);
+  window.location.href='categories.html?'+params;
+}
+document.getElementById('search-input').addEventListener('keydown', e=>{ if(e.key==='Enter') doSearch(); });
+
+renderLangSwitcher('lang-switcher', () => { loadProducts(); refreshCategoryLabels(); applySiteSettings(); checkAccountState(); });
+applyI18n();
+applySiteSettings();
+checkAccountState();
+loadCategories();
+loadProducts();
+updateCartUI();
+</script>
+</body>
+</html>

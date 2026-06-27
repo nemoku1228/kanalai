@@ -1,0 +1,15 @@
+# Apsaugoti JSON failus nuo tiesioginės prieigos
+<FilesMatch "\.(json)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Leisti tik PHP failams skaityti juos
+<Files "users.json">
+    Order Allow,Deny
+    Deny from all
+</Files>
+<Files "orders.json">
+    Order Allow,Deny
+    Deny from all
+</Files>

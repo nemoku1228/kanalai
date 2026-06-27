@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kategorijos | market</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --navy:#0B1929; --navy2:#13233A;
+  --bg:#F7F8FA; --card:#FFFFFF;
+  --accent:#FF5C35; --accent-dark:#E0431D;
+  --green:#16A34A;
+  --text:#1E293B; --text2:#64748B; --text3:#94A3B8;
+  --border:#E7EAEE;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
+a{color:inherit;text-decoration:none}
+
+.topbar{background:var(--navy);color:#cbd5e1;font-size:12px;padding:6px 0}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+.lang-pills{display:flex;gap:3px}
+.lang-pill{background:transparent;border:1px solid #2d3f57;color:#94a3b8;padding:2px 7px;font-size:11px;font-weight:600;cursor:pointer;border-radius:4px;display:inline-flex;align-items:center;gap:3px}
+.lang-flag{width:14px;height:14px;border-radius:2px;flex-shrink:0}
+.lang-code{line-height:1}
+.lang-pill.active{background:var(--accent);border-color:var(--accent);color:white}
+
+header{background:var(--navy2);padding:14px 0}
+.header-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:20px}
+.logo{font-family:'Sora',sans-serif;font-weight:800;font-size:22px;color:white}
+.logo span{color:var(--accent)}
+.search-input-h{flex:1;max-width:500px;padding:9px 14px;border:none;border-radius:8px;font-size:13px;outline:none}
+.header-right{margin-left:auto;display:flex;gap:18px;align-items:center}
+.header-action{color:#cbd5e1;font-size:13px;cursor:pointer;position:relative}
+.cart-badge{position:absolute;top:-8px;right:-10px;background:var(--accent);color:white;font-size:10px;font-weight:700;border-radius:10px;min-width:16px;height:16px;display:flex;align-items:center;justify-content:center;padding:0 3px}
+
+.layout{max-width:1280px;margin:0 auto;display:flex;gap:20px;padding:20px}
+.sidebar{width:280px;flex-shrink:0}
+@media(max-width:768px){.sidebar{display:none}.sidebar.open{display:block;width:100%}}
+.cat-search{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:10px;font-size:13px;margin-bottom:14px;outline:none}
+.cat-list{background:white;border-radius:12px;border:1px solid var(--border);overflow:hidden;max-height:70vh;overflow-y:auto}
+.cat-parent{border-bottom:1px solid #f1f5f9}
+.cat-parent-head{padding:11px 14px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:13px;font-weight:600;transition:background .15s}
+.cat-parent-head:hover{background:#f8fafc}
+.cat-parent-head.active{color:var(--accent)}
+.cat-count{font-size:11px;color:var(--text3);font-weight:500}
+.cat-children{display:none;background:#f8fafc;padding:6px 0}
+.cat-children.open{display:block}
+.cat-child{padding:7px 14px 7px 28px;font-size:12.5px;color:var(--text2);cursor:pointer;display:flex;justify-content:space-between;transition:background .15s}
+.cat-child:hover{background:#fff1ec;color:var(--accent)}
+.cat-child.active{background:#fff1ec;color:var(--accent);font-weight:600}
+
+.main{flex:1;min-width:0}
+.toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px}
+.breadcrumb{font-size:13px;color:var(--text2)}
+.breadcrumb strong{color:var(--text)}
+.mobile-cat-btn{display:none;background:var(--navy);color:white;border:none;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:600}
+@media(max-width:768px){.mobile-cat-btn{display:block}}
+
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+.product-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .15s}
+.product-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.08);transform:translateY(-2px)}
+.product-img-wrap{width:100%;height:160px;background:#f1f5f9}
+.product-img-wrap img{width:100%;height:100%;object-fit:cover}
+.product-img-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#cbd5e1;font-size:28px}
+.product-body{padding:12px 13px}
+.product-name{font-size:13px;font-weight:600;line-height:1.4;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.product-price{font-family:'Sora',sans-serif;font-size:16px;font-weight:700;color:var(--text)}
+.product-old-price{font-size:11.5px;color:var(--text3);text-decoration:line-through;margin-left:5px;font-weight:500}
+.discount-badge{position:absolute;top:8px;right:8px;background:var(--green);color:white;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:6px;z-index:2}
+.product-code-badge{position:absolute;top:8px;left:8px;background:rgba(11,25,41,.75);color:white;font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;z-index:2;font-family:'Sora',sans-serif}
+
+.empty-state{text-align:center;padding:60px 20px;color:var(--text3);grid-column:1/-1}
+.empty-state i{font-size:36px;display:block;margin-bottom:10px}
+.loading{text-align:center;padding:60px;color:var(--text3);grid-column:1/-1}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css">
+<script src="i18n.js"></script>
+<script src="categories_i18n.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" style="color:#94a3b8">&larr; Pradžia</a>
+    <div class="lang-pills" id="lang-switcher"></div>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span data-site-name>market</span><span>.</span></a>
+    <input type="text" class="search-input-h" id="search-input" data-i18n-placeholder="search_products" placeholder="Ieškoti prekių...">
+    <div class="header-right">
+      <a href="account.html" class="header-action" id="header-account-link"><span id="header-account-label" data-i18n="my_account">Paskyra</span></a>
+      <div class="header-action" onclick="window.location.href='index.html'">
+        <span data-i18n="cart">Krepšelis</span> <span class="cart-badge" id="cart-count">0</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+<input type="text" class="cat-search" id="cat-search" data-i18n-placeholder="search_category" placeholder="Ieškoti kategorijos..." oninput="filterCatList()">
+<div class="cat-list" id="cat-list"><div class="loading"><i class="fa-solid fa-spinner fa-spin"></i></div></div>
+</aside>
+
+<div class="main">
+<div class="toolbar">
+<div class="breadcrumb" id="breadcrumb" data-i18n="all_products">Visos prekės</div>
+<button class="mobile-cat-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">
+<i class="fa-solid fa-bars"></i> <span data-i18n="categories_btn">Kategorijos</span>
+</button>
+</div>
+<div class="products-grid" id="products-grid"><div class="loading"><i class="fa-solid fa-spinner fa-spin"></i></div></div>
+</div>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+let currentParent = null, currentSub = null;
+let categoriesData = [];
+
+const urlParams = new URLSearchParams(window.location.search);
+currentParent = urlParams.get('parent') || null;
+currentSub = urlParams.get('sub') || null;
+const initialSearch = urlParams.get('search') || '';
+
+document.getElementById('search-input').value = initialSearch;
+document.getElementById('cart-count').textContent = cart.reduce((a,b)=>a+b.quantity,0);
+
+async function loadCategories(){
+    const res = await fetch('get_categories.php');
+    const data = await res.json();
+    if(!data.ok) return;
+    categoriesData = data.categories;
+    renderCatList();
+    updateBreadcrumb();
+}
+
+function renderCatList(filter=''){
+    const el = document.getElementById('cat-list');
+    const f = filter.toLowerCase();
+    const filtered = categoriesData.filter(c =>
+        c.name.toLowerCase().includes(f) ||
+        c.children.some(ch=>ch.name.toLowerCase().includes(f))
+    );
+    el.innerHTML = filtered.map((cat,i)=>`
+        <div class="cat-parent">
+            <div class="cat-parent-head ${currentParent===cat.name && !currentSub?'active':''}" onclick="toggleCat(${i})">
+                <span onclick="event.stopPropagation();selectCategory('${cat.name.replace(/'/g,"\\'")}',null)">${categoryT(cat.name)}</span>
+                <span class="cat-count">${cat.count}</span>
+            </div>
+            <div class="cat-children ${currentParent===cat.name?'open':''}" id="children-${i}">
+                ${cat.children.map(ch=>`
+                    <div class="cat-child ${currentSub===ch.name?'active':''}" onclick="selectCategory('${cat.name.replace(/'/g,"\\'")}','${ch.name.replace(/'/g,"\\'")}')">
+                        <span>${subcategoryT(ch.name)}</span><span class="cat-count">${ch.count}</span>
+                    </div>`).join('')}
+            </div>
+        </div>`).join('');
+}
+
+function toggleCat(i){
+    document.getElementById('children-'+i).classList.toggle('open');
+}
+
+function filterCatList(){
+    renderCatList(document.getElementById('cat-search').value);
+}
+
+function updateBreadcrumb(){
+    document.getElementById('breadcrumb').innerHTML = currentSub
+        ? `${categoryT(currentParent)} <i class="fa-solid fa-chevron-right" style="font-size:10px;margin:0 4px"></i> <strong>${subcategoryT(currentSub)}</strong>`
+        : currentParent ? `<strong>${categoryT(currentParent)}</strong>` : t('all_products');
+}
+
+function selectCategory(parent, sub){
+    currentParent = parent;
+    currentSub = sub;
+    updateBreadcrumb();
+    renderCatList(document.getElementById('cat-search').value);
+    loadProducts();
+    if(window.innerWidth<=768) document.getElementById('sidebar').classList.remove('open');
+}
+
+async function loadProducts(){
+    const grid = document.getElementById('products-grid');
+    grid.innerHTML = '<div class="loading"><i class="fa-solid fa-spinner fa-spin"></i></div>';
+    const params = new URLSearchParams({lang: currentLangCode()});
+    if(currentParent) params.set('category_parent', currentParent);
+    if(currentSub) params.set('category_sub', currentSub);
+    const searchVal = document.getElementById('search-input').value;
+    if(searchVal) params.set('search', searchVal);
+
+    const res = await fetch('get_products.php?'+params);
+    const data = await res.json();
+    if(!data.ok || data.products.length===0){
+        grid.innerHTML = `<div class="empty-state"><i class="fa-solid fa-box-open"></i>${t('not_found_in_cat')}</div>`;
+        return;
+    }
+    grid.innerHTML = data.products.map(p=>`
+        <a href="product.html?id=${p.id}" class="product-card" style="text-decoration:none;color:inherit;display:block;position:relative">
+            ${p.discount_percent ? `<div class="discount-badge">-${p.discount_percent}%</div>` : ''}
+            ${p.display_code ? `<div class="product-code-badge">#${p.display_code}</div>` : ''}
+            ${p.main_image ? `<div class="product-img-wrap"><img src="${resolveImageSrc(p.main_image)}" onerror="this.parentElement.innerHTML='<div class=&quot;product-img-ph&quot;><i class=&quot;fa-solid fa-image&quot;></i></div>'"></div>` : '<div class="product-img-wrap product-img-ph"><i class="fa-solid fa-image"></i></div>'}
+            <div class="product-body">
+                <div class="product-name">${p.name}</div>
+                <div class="product-price">${p.price.toFixed(2)} €${p.old_price?`<span class="product-old-price">${p.old_price.toFixed(2)} €</span>`:''}</div>
+            </div>
+        </a>`).join('');
+}
+
+document.getElementById('search-input').addEventListener('keydown', e=>{
+    if(e.key==='Enter') loadProducts();
+});
+
+renderLangSwitcher('lang-switcher', () => { loadProducts(); renderCatList(document.getElementById('cat-search').value); updateBreadcrumb(); });
+applyI18n();
+applySiteSettings();
+checkAccountState();
+loadCategories();
+loadProducts();
+</script>
+</body>
+</html>

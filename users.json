@@ -1,0 +1,41 @@
+[
+    {
+        "id": "USR-C759FB62",
+        "name": "Kestutis",
+        "email": "kiesask@gmail.com",
+        "password": "$2y$10$YMQOd0hpgBBnJr\/jShbmxOdoPwf8hmRZ.qfm0PajoGCfNsEAzl1FW",
+        "address": {
+            "city": "",
+            "street": "",
+            "zipcode": ""
+        },
+        "ip": "84.15.190.245",
+        "created": "2026-06-16 14:04:46"
+    },
+    {
+        "id": "USR-b68dc77a",
+        "email": "kvelicka1228@gmail.com",
+        "name": "Tadas",
+        "password": "$2y$10$Y2QXFdvGSogw6Z92GnCop.2XPG81Wd5o5GXlx\/4kxZOJA5X4QKyei",
+        "address": {
+            "city": "",
+            "street": "",
+            "zipcode": ""
+        },
+        "created": "2026-06-18 12:41:41",
+        "verified": true,
+        "verify_token": null,
+        "addresses": [
+            {
+                "id": "ADDR-69681594",
+                "label": "Vilnius",
+                "name": "Tadas",
+                "surname": "Gaidos",
+                "city": "Vilnius",
+                "street": "Bajoru k, Vilniaus r. Siauroji g. 12H-1",
+                "zipcode": "14189",
+                "phone": "+37069090403"
+            }
+        ]
+    }
+]

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prekė | market</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --navy:#0B1929; --navy2:#13233A;
+  --bg:#F7F8FA; --card:#FFFFFF;
+  --accent:#FF5C35; --accent-dark:#E0431D;
+  --green:#16A34A;
+  --text:#1E293B; --text2:#64748B; --text3:#94A3B8;
+  --border:#E7EAEE;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
+.disp{font-family:'Sora',sans-serif}
+a{color:inherit;text-decoration:none}
+
+.topbar{background:var(--navy);color:#cbd5e1;font-size:12px;padding:6px 0}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+.lang-pills{display:flex;gap:3px}
+.lang-pill{background:transparent;border:1px solid #2d3f57;color:#94a3b8;padding:2px 7px;font-size:11px;font-weight:600;cursor:pointer;border-radius:4px;display:inline-flex;align-items:center;gap:3px}
+.lang-flag{width:14px;height:14px;border-radius:2px;flex-shrink:0}
+.lang-code{line-height:1}
+.lang-pill.active{background:var(--accent);border-color:var(--accent);color:white}
+
+header{background:var(--navy2);padding:14px 0}
+.header-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:20px}
+.logo{font-family:'Sora',sans-serif;font-weight:800;font-size:22px;color:white}
+.logo span{color:var(--accent)}
+.header-right{margin-left:auto;display:flex;gap:18px}
+.header-action{color:#cbd5e1;font-size:13px;cursor:pointer;position:relative}
+.cart-badge{position:absolute;top:-8px;right:-10px;background:var(--accent);color:white;font-size:10px;font-weight:700;border-radius:10px;min-width:16px;height:16px;display:flex;align-items:center;justify-content:center;padding:0 3px}
+
+.breadcrumb{max-width:1280px;margin:16px auto 0;padding:0 20px;font-size:12.5px;color:var(--text2)}
+.breadcrumb a{color:var(--text2)}
+.breadcrumb a:hover{color:var(--accent)}
+
+.product-layout{max-width:1280px;margin:16px auto 0;padding:0 20px 40px;display:grid;grid-template-columns:480px 1fr;gap:32px}
+@media(max-width:860px){.product-layout{grid-template-columns:1fr}}
+
+.gallery{background:white;border-radius:14px;border:1px solid var(--border);padding:16px;position:sticky;top:80px}
+@media(max-width:860px){.gallery{position:static}}
+.main-img-wrap{width:100%;height:380px;background:#f8fafc;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.main-img-wrap img{width:100%;height:100%;object-fit:contain}
+.main-img-ph{color:#cbd5e1;font-size:48px}
+.main-img-wrap{position:relative}
+.zoom-hint{position:absolute;bottom:10px;right:10px;width:34px;height:34px;background:rgba(11,25,41,.7);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;pointer-events:none}
+img{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-touch-callout:none}
+
+.lightbox-overlay{display:none;position:fixed;inset:0;background:rgba(11,25,41,.96);z-index:500;align-items:center;justify-content:center}
+.lightbox-overlay.open{display:flex}
+.lightbox-img-wrap{width:90vw;height:85vh;display:flex;align-items:center;justify-content:center}
+.lightbox-img{width:100%;height:100%;background-repeat:no-repeat;background-position:center;background-size:contain;pointer-events:none}
+.lightbox-close{position:absolute;top:18px;right:22px;background:rgba(255,255,255,.1);border:none;color:white;width:42px;height:42px;border-radius:50%;font-size:18px;cursor:pointer;z-index:2}
+.lightbox-close:hover{background:rgba(255,255,255,.2)}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:none;color:white;width:48px;height:48px;border-radius:50%;font-size:18px;cursor:pointer;z-index:2}
+.lightbox-nav:hover{background:rgba(255,255,255,.2)}
+.lightbox-prev{left:20px}
+.lightbox-next{right:20px}
+.lightbox-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:13px;font-weight:600}
+.thumbs{display:flex;gap:8px;flex-wrap:wrap}
+.thumb{width:64px;height:64px;border-radius:8px;border:2px solid var(--border);overflow:hidden;cursor:pointer;background:#f8fafc}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb.active{border-color:var(--accent)}
+
+.info-col{display:flex;flex-direction:column;gap:14px}
+.product-cat-tag{font-size:12px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.product-title{font-family:'Sora',sans-serif;font-size:26px;font-weight:700;line-height:1.25}
+.product-sku{font-size:12px;color:var(--text3)}
+.price-box{background:white;border:1px solid var(--border);border-radius:14px;padding:20px}
+.product-price{font-family:'Sora',sans-serif;font-size:32px;font-weight:800;color:var(--text)}
+.product-old-price{font-size:18px;color:var(--text3);text-decoration:line-through;margin-left:10px;font-weight:600}
+.discount-badge-lg{display:inline-block;background:var(--green);color:white;font-size:12px;font-weight:700;padding:3px 10px;border-radius:7px;margin-left:10px;vertical-align:middle}
+.stock-line{font-size:13px;margin-top:6px;display:flex;align-items:center;gap:6px}
+.stock-line.in{color:var(--green)}
+.stock-line.low{color:#d97706}
+.stock-line.out{color:#dc2626}
+.qty-row{display:flex;align-items:center;gap:12px;margin-top:16px}
+.qty-stepper{display:flex;align-items:center;border:1px solid var(--border);border-radius:8px}
+.qty-stepper button{width:34px;height:38px;background:none;border:none;font-size:15px;cursor:pointer;color:var(--text2)}
+.qty-stepper span{min-width:36px;text-align:center;font-weight:600;font-size:14px}
+.add-cart-btn{flex:1;background:var(--navy);color:white;border:none;border-radius:10px;padding:13px;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .15s}
+.add-cart-btn:hover{background:var(--accent)}
+.buy-now-btn{width:100%;margin-top:10px;background:var(--accent);color:white;border:none;border-radius:10px;padding:13px;font-weight:700;font-size:14px;cursor:pointer;transition:background .15s}
+.buy-now-btn:hover{background:var(--accent-dark)}
+
+.trust-mini{display:flex;flex-direction:column;gap:10px;background:white;border:1px solid var(--border);border-radius:14px;padding:16px}
+.trust-mini-item{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--text2);cursor:pointer;transition:color .15s}
+.trust-mini-item:hover{color:var(--accent)}
+.trust-mini-item i{color:var(--accent);width:18px}
+
+.tabs{margin-top:8px}
+.tab-nav{display:flex;gap:4px;border-bottom:1px solid var(--border)}
+.tab-btn{padding:10px 16px;font-size:13px;font-weight:600;color:var(--text2);background:none;border:none;cursor:pointer;border-bottom:2px solid transparent}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab-panel{padding:16px 0;font-size:13.5px;color:var(--text2);line-height:1.7;white-space:pre-wrap}
+.tab-panel.hidden{display:none}
+
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;display:none}
+.cart-drawer{position:fixed;right:0;top:0;height:100vh;width:100%;max-width:400px;background:white;z-index:301;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column}
+.cart-drawer.open{transform:translateX(0)}
+.cart-head{background:var(--navy);color:white;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.cart-close{background:none;border:none;color:white;font-size:20px;cursor:pointer}
+.cart-items{flex:1;overflow-y:auto;padding:8px}
+.cart-empty{text-align:center;padding:48px 20px;color:var(--text3)}
+.cart-item{display:flex;gap:10px;padding:10px;border-bottom:1px solid var(--border)}
+.cart-item img{width:54px;height:54px;border-radius:8px;object-fit:cover;background:#f1f5f9}
+.cart-item-name{font-size:12.5px;font-weight:600}
+.cart-item-price{font-size:12px;color:var(--accent);font-weight:700;margin-top:3px}
+.qty-controls{display:flex;align-items:center;gap:6px;margin-top:6px}
+.qty-btn{width:22px;height:22px;border:1px solid var(--border);background:white;border-radius:5px;font-size:12px;cursor:pointer}
+.cart-footer{padding:16px 20px;border-top:1px solid var(--border)}
+.cart-total-row{display:flex;justify-content:space-between;font-weight:700;margin-bottom:12px}
+.checkout-btn{width:100%;padding:13px;background:var(--accent);color:white;border:none;border-radius:10px;font-weight:700;cursor:pointer}
+
+.not-found{text-align:center;padding:80px 20px;color:var(--text3)}
+.not-found i{font-size:40px;display:block;margin-bottom:14px}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css">
+<script src="i18n.js"></script>
+<script src="categories_i18n.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" style="color:#94a3b8">&larr; <span data-i18n="back_to_shop">Atgal į parduotuvę</span></a>
+    <div class="lang-pills" id="lang-switcher"></div>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span data-site-name>market</span><span>.</span></a>
+    <div class="header-right">
+      <a href="account.html" class="header-action" id="header-account-link"><span id="header-account-label" data-i18n="my_account">Paskyra</span></a>
+      <div class="header-action" onclick="toggleCart()">
+        <span data-i18n="cart">Krepšelis</span> <span class="cart-badge" id="cart-count">0</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb" id="breadcrumb">
+  <a href="index.html">market</a>
+</div>
+
+<div id="content"></div>
+
+<div id="lightbox-overlay" class="lightbox-overlay" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">&#x2715;</button>
+  <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1, event)"><i class="fa-solid fa-chevron-left"></i></button>
+  <div class="lightbox-img-wrap" oncontextmenu="return false" ondragstart="return false">
+    <div id="lightbox-img" class="lightbox-img"></div>
+  </div>
+  <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1, event)"><i class="fa-solid fa-chevron-right"></i></button>
+  <div class="lightbox-counter" id="lightbox-counter"></div>
+</div>
+
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-head"><h3 style="font-family:'Sora',sans-serif;font-size:16px" data-i18n="cart">Krepšelis</h3><button class="cart-close" onclick="toggleCart()">&#x2715;</button></div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total-row"><span data-i18n="total">Viso:</span><span id="cart-grand">0.00 €</span></div>
+    <button class="checkout-btn" id="checkout-btn" onclick="window.location.href='checkout.html'" data-i18n="checkout_btn">Pirkti</button>
+  </div>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+let product = null;
+
+function getId(){
+  return new URLSearchParams(window.location.search).get('id');
+}
+
+async function loadProduct(){
+  const id = getId();
+  const content = document.getElementById('content');
+  if(!id){ content.innerHTML = notFoundHtml(); return; }
+
+  const res = await fetch(`get_products.php?lang=${currentLangCode()}`);
+  const data = await res.json();
+  if(!data.ok){ content.innerHTML = notFoundHtml(); return; }
+
+  product = data.products.find(p=>p.id===id);
+  if(!product){ content.innerHTML = notFoundHtml(); return; }
+
+  // Įsimename peržiūrėtą prekę (naudojama pagrindinio puslapio sekcijose)
+  try {
+    let viewed = JSON.parse(localStorage.getItem('viewed_products') || '[]');
+    viewed = viewed.filter(x => x !== product.id);
+    viewed.unshift(product.id);
+    localStorage.setItem('viewed_products', JSON.stringify(viewed.slice(0, 20)));
+  } catch(e){}
+
+  document.title = product.name + ' | market';
+  document.getElementById('breadcrumb').innerHTML = `
+    <a href="index.html">market</a> /
+    <a href="categories.html?parent=${encodeURIComponent(product.category_parent)}">${product.category_parent}</a> /
+    <a href="categories.html?parent=${encodeURIComponent(product.category_parent)}&sub=${encodeURIComponent(product.category_sub)}">${subcategoryT(product.category_sub)}</a>`;
+
+  const images = product.images && product.images.length ? product.images : [];
+  currentImages = images;
+  currentImageIdx = 0;
+  const mainImg = images[0] || null;
+
+  const stockHtml = product.stock > 5
+    ? `<div class="stock-line in"><i class="fa-solid fa-circle-check"></i> ${t('in_stock')} (${product.stock} ${t('units')})</div>`
+    : product.stock > 0
+    ? `<div class="stock-line low"><i class="fa-solid fa-triangle-exclamation"></i> ${t('low_stock')} (${product.stock} ${t('units')})</div>`
+    : `<div class="stock-line out"><i class="fa-solid fa-circle-xmark"></i> ${t('out_of_stock')}</div>`;
+
+  content.innerHTML = `
+  <div class="product-layout">
+    <div class="gallery">
+      <div class="main-img-wrap" id="main-img-wrap" onclick="openLightbox()" style="cursor:zoom-in" oncontextmenu="return false" ondragstart="return false">
+        ${mainImg ? `<img src="${resolveImageSrc(mainImg)}" id="main-img" draggable="false" oncontextmenu="return false" ondragstart="return false">` : '<i class="fa-solid fa-image main-img-ph"></i>'}
+        <div class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="thumbs">
+        ${images.map((img,i)=>`<div class="thumb ${i===0?'active':''}" onclick="switchImg(this,'${img.replace(/'/g,"\\'")}')"><img src="${resolveImageSrc(img)}" draggable="false" oncontextmenu="return false"></div>`).join('')}
+      </div>
+    </div>
+    <div class="info-col">
+      <div>
+        <div class="product-cat-tag">${product.category_sub?subcategoryT(product.category_sub):categoryT(product.category_parent)}</div>
+        <div class="product-title">${product.name}</div>
+        ${product.display_code ? `<div style="font-size:12px;color:var(--text3);margin-top:4px">${t('product_code_label')}: <strong style="color:var(--text2);font-family:'Sora',sans-serif">#${product.display_code}</strong></div>` : ''}
+      </div>
+      <div class="price-box">
+        <div class="product-price">${product.price.toFixed(2)} &euro;${product.old_price?`<span class="product-old-price">${product.old_price.toFixed(2)} €</span><span class="discount-badge-lg">-${product.discount_percent}%</span>`:''}</div>
+        ${stockHtml}
+        ${product.stock > 0 ? `
+        <div class="qty-row">
+          <div class="qty-stepper">
+            <button onclick="changeStepQty(-1)">−</button>
+            <span id="step-qty">1</span>
+            <button onclick="changeStepQty(1)">+</button>
+          </div>
+          <button class="add-cart-btn" onclick="addToCart()"><i class="fa-solid fa-bag-shopping"></i> ${t('add_to_cart')}</button>
+        </div>
+        <button class="buy-now-btn" onclick="buyNow()">${t('buy_now')}</button>
+        ` : `
+        <button class="add-cart-btn" disabled style="width:100%;margin-top:8px;opacity:.5;cursor:not-allowed"><i class="fa-solid fa-ban"></i> ${t('out_of_stock_badge')}</button>
+        `}
+      </div>
+      <div class="trust-mini">
+        <div class="trust-mini-item" onclick="window.location.href='pristatymas.html'"><i class="fa-solid fa-truck-fast"></i> ${t('trust_delivery')}</div>
+        <div class="trust-mini-item" onclick="window.location.href='grazinimai.html'"><i class="fa-solid fa-rotate-left"></i> ${t('trust_returns')}</div>
+        <div class="trust-mini-item" onclick="window.location.href='mokejimai.html'"><i class="fa-solid fa-shield-halved"></i> ${t('trust_payment')}</div>
+      </div>
+      <div class="tabs">
+        <div class="tab-nav">
+          <button class="tab-btn active" onclick="switchTab('desc',this)">${t('description')}</button>
+          <button class="tab-btn" onclick="switchTab('shipping',this)">${t('delivery_tab')}</button>
+          <button class="tab-btn" onclick="switchTab('question',this)">${t('ask_question_tab')}</button>
+        </div>
+        <div class="tab-panel" id="tab-desc">${product.description || t('no_description')}</div>
+        <div class="tab-panel hidden" id="tab-shipping">${t('delivery_tab_text')}</div>
+        <div class="tab-panel hidden" id="tab-question">
+          <div id="question-form-wrap">
+            <p style="margin-bottom:12px">${t('ask_question_intro')}</p>
+            <div style="display:flex;flex-direction:column;gap:8px;max-width:420px">
+              <input class="order-input" id="q-name" placeholder="${t('name_label')}">
+              <input class="order-input" id="q-email" type="email" placeholder="${t('email_label')}">
+              <textarea class="order-input" id="q-message" rows="4" placeholder="${t('your_question_placeholder')}" style="resize:vertical;font-family:inherit"></textarea>
+              <div id="q-err" style="display:none;background:#fef2f2;color:#dc2626;font-size:12.5px;padding:8px 12px;border-radius:8px"></div>
+              <button class="add-cart-btn" style="width:auto;padding:11px 24px" onclick="submitQuestion()">${t('submit_question_btn')}</button>
+            </div>
+          </div>
+          <div id="question-sent-msg" class="hidden" style="background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;padding:14px 16px;border-radius:10px;margin-top:8px">
+            <i class="fa-solid fa-circle-check" style="margin-right:6px"></i><span id="question-sent-text"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function notFoundHtml(){
+  return `<div class="not-found"><i class="fa-solid fa-box-open"></i><p>${t('not_found_product')}</p><a href="index.html" style="color:#FF5C35;font-weight:600">${t('return_to_shop')}</a></div>`;
+}
+
+let currentImages = [];
+let currentImageIdx = 0;
+
+function switchImg(thumb, filename){
+  document.querySelectorAll('.thumb').forEach(t=>t.classList.remove('active'));
+  thumb.classList.add('active');
+  currentImageIdx = currentImages.indexOf(filename);
+  document.getElementById('main-img-wrap').innerHTML = `<img src="${resolveImageSrc(filename)}" id="main-img" draggable="false" oncontextmenu="return false"><div class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></div>`;
+}
+
+function openLightbox(){
+  if(!currentImages.length) return;
+  renderLightboxImage();
+  document.getElementById('lightbox-overlay').classList.add('open');
+  document.addEventListener('keydown', lightboxKeyHandler);
+}
+
+function closeLightbox(e){
+  if(e && e.target.closest('.lightbox-img-wrap') && e.target !== document.getElementById('lightbox-overlay')) return;
+  document.getElementById('lightbox-overlay').classList.remove('open');
+  document.removeEventListener('keydown', lightboxKeyHandler);
+}
+
+function lightboxNav(dir, e){
+  if(e) e.stopPropagation();
+  currentImageIdx = (currentImageIdx + dir + currentImages.length) % currentImages.length;
+  renderLightboxImage();
+}
+
+function renderLightboxImage(){
+  const url = resolveImageSrc(currentImages[currentImageIdx]);
+  document.getElementById('lightbox-img').style.backgroundImage = `url('${url}')`;
+  document.getElementById('lightbox-counter').textContent = `${currentImageIdx+1} / ${currentImages.length}`;
+  // Atnaujinam ir thumbnail aktyvų žymėjimą fone
+  document.querySelectorAll('.thumb').forEach((t,i)=>t.classList.toggle('active', i===currentImageIdx));
+}
+
+function lightboxKeyHandler(e){
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') lightboxNav(-1);
+  if(e.key==='ArrowRight') lightboxNav(1);
+}
+
+function switchTab(name, btn){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.add('hidden'));
+  btn.classList.add('active');
+  document.getElementById('tab-'+name).classList.remove('hidden');
+}
+
+async function submitQuestion(){
+  const name = document.getElementById('q-name').value.trim();
+  const email = document.getElementById('q-email').value.trim();
+  const message = document.getElementById('q-message').value.trim();
+  const err = document.getElementById('q-err');
+  err.style.display = 'none';
+
+  if(!name || !email || !message){ err.style.display='block'; err.textContent=t('fill_all_fields'); return; }
+
+  try{
+    const res = await fetch('submit_question.php', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ product_id: product.id, product_name: product.name, name, email, message })
+    });
+    const data = await res.json();
+    if(data.ok){
+      document.getElementById('question-form-wrap').style.display = 'none';
+      const msgEl = document.getElementById('question-sent-msg');
+      msgEl.classList.remove('hidden');
+      document.getElementById('question-sent-text').textContent = t('question_sent_msg');
+    } else {
+      err.style.display='block'; err.textContent = data.msg || t('order_save_error');
+    }
+  }catch(e){
+    err.style.display='block'; err.textContent = t('order_save_error');
+  }
+}
+
+let stepQty = 1;
+function changeStepQty(delta){
+  const maxStock = product?.stock ?? Infinity;
+  const next = stepQty + delta;
+  if(next > maxStock){ alert(t('stock_limit_reached')); return; }
+  stepQty = Math.max(1, next);
+  document.getElementById('step-qty').textContent = stepQty;
+}
+
+function addToCart(){
+  if(!product) return false;
+  const maxStock = product.stock ?? Infinity;
+  const existing = cart.find(i=>i.id===product.id);
+  const currentQtyInCart = existing ? existing.quantity : 0;
+  if(currentQtyInCart + stepQty > maxStock){ alert(t('stock_limit_reached')); return false; }
+  if(existing) existing.quantity += stepQty;
+  else cart.push({id:product.id, name:product.name, price:product.price, img:product.main_image, sku:product.sku, stock:maxStock, quantity:stepQty});
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartUI();
+  toggleCart();
+  return true;
+}
+
+function buyNow(){
+  if(addToCart()) window.location.href='checkout.html';
+}
+
+function changeQty(id, delta){
+  const item = cart.find(i=>i.id===id);
+  if(item){ item.quantity+=delta; if(item.quantity<=0) cart=cart.filter(i=>i.id!==id); }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartUI();
+}
+
+function updateCartUI(){
+  const total = cart.reduce((a,b)=>a+b.price*b.quantity,0);
+  document.getElementById('cart-count').textContent = cart.reduce((a,b)=>a+b.quantity,0);
+  document.getElementById('cart-grand').textContent = total.toFixed(2)+' €';
+  const el = document.getElementById('cart-items');
+  if(cart.length===0){ el.innerHTML=`<div class="cart-empty"><i class="fa-solid fa-bag-shopping" style="font-size:36px;display:block;margin-bottom:10px"></i>${t('cart_empty')}</div>`; return; }
+  el.innerHTML = cart.map(i=>`
+    <div class="cart-item">
+      ${i.img?`<img src="${resolveImageSrc(i.img)}">`:'<div style="width:54px;height:54px;border-radius:8px;background:#f1f5f9"></div>'}
+      <div>
+        <div class="cart-item-name">${i.name}</div>
+        <div class="cart-item-price">${(i.price*i.quantity).toFixed(2)} €</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty('${i.id}',-1)">−</button>
+          <span>${i.quantity}</span>
+          <button class="qty-btn" onclick="changeQty('${i.id}',1)">+</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function toggleCart(){
+  document.getElementById('cart-drawer').classList.toggle('open');
+  document.getElementById('overlay').style.display = document.getElementById('cart-drawer').classList.contains('open')?'block':'none';
+}
+
+renderLangSwitcher('lang-switcher', () => loadProduct());
+applyI18n();
+applySiteSettings();
+checkAccountState();
+loadProduct();
+updateCartUI();
+</script>
+</body>
+</html>

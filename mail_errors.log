@@ -1,0 +1,33 @@
+[2026-06-18 06:16:41] TCPDF nerastas: /home/07/cb/ba/peptidai/domains/peptidailab.lt/public_html/TCPDF/tcpdf.php
+[2026-06-18 06:16:41] PHPMailer files not found at /home/07/cb/ba/peptidai/domains/peptidailab.lt/public_html/PHPMailer/src/
+[2026-06-18 06:21:53] PHPMailer files not found at /home/07/cb/ba/peptidai/domains/peptidailab.lt/public_html/PHPMailer/src/
+[2026-06-18 06:29:26] PHPMailer files not found at /home/07/cb/ba/peptidai/domains/peptidailab.lt/public_html/PHPMailer/src/
+[2026-06-18 06:33:29] PHPMailer files not found at /home/07/cb/ba/peptidai/domains/peptidailab.lt/public_html/PHPMailer/src/
+[2026-06-18 06:42:58] Admin email failed: SMTP Error: Could not authenticate.
+[2026-06-18 06:42:59] Client email failed: SMTP Error: Could not authenticate.
+[2026-06-18 12:41:10] Registration verification email failed: Invalid address:  (to): bernotas
+[2026-06-18 13:14:04] Admin email failed: SMTP Error: Could not authenticate.
+[2026-06-18 13:14:04] Client email failed: SMTP Error: Could not authenticate.
+[2026-06-18 13:20:37] admin update_order email failed: SMTP Error: Could not authenticate.
+[2026-06-18 13:25:42] admin update_order email failed: SMTP Error: Could not authenticate.
+[2026-06-18 20:15:13] Question answer email failed: SMTP Error: Could not authenticate.
+[2026-06-18 20:16:50] Admin email failed: SMTP Error: Could not authenticate.
+[2026-06-18 20:16:50] Client email failed: Invalid address:  (to): asdasd
+[2026-06-18 20:17:41] Admin email failed: SMTP Error: Could not authenticate.
+[2026-06-18 20:17:41] Admin email failed: SMTP Error: Could not authenticate.
+[2026-06-18 20:17:41] Client email failed: SMTP Error: Could not authenticate.
+[2026-06-18 20:17:42] Client email failed: SMTP Error: Could not authenticate.
+[2026-06-18 20:17:44] Admin email failed: SMTP Error: Could not authenticate.
+[2026-06-18 20:17:44] Client email failed: SMTP Error: Could not authenticate.
+[2026-06-18 20:17:54] Admin email failed: SMTP Error: Could not authenticate.
+[2026-06-18 20:17:54] Client email failed: SMTP Error: Could not authenticate.
+[2026-06-18 20:18:15] admin update_order email failed: SMTP Error: Could not authenticate.
+[2026-06-20 14:34:02] Admin email failed: SMTP Error: Could not authenticate.
+[2026-06-20 14:34:02] Client email failed: Invalid address:  (to): bbb
+[2026-06-20 14:36:22] Admin email failed: SMTP Error: Could not authenticate.
+[2026-06-20 14:36:22] Client email failed: Invalid address:  (to): bbb
+[2026-06-20 14:36:51] Admin email failed: SMTP Error: Could not authenticate.
+[2026-06-20 14:36:51] Client email failed: Invalid address:  (to): kiesask
+[2026-06-20 15:35:27] Admin email failed: SMTP Error: Could not authenticate.
+[2026-06-20 15:35:27] Client email failed: Invalid address:  (to): nm
+[2026-06-27 07:06:37] admin update_order email failed: Invalid address:  (to): nm
